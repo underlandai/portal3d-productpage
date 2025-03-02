@@ -12,21 +12,32 @@ export default {
         accent: 'var(--aw-color-accent)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
+        'lichen-gold': 'var(--aw-color-gold)',
+        'lichen-beige': 'var(--aw-color-beige)',
+        'lichen-gray': 'var(--aw-color-gray)',
+        'lichen-teal': 'var(--aw-color-teal)',
+        'lichen-sage': 'var(--aw-color-sage)',
       },
       fontFamily: {
         sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
         serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
         heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        quantify: ['Quantify', 'sans-serif'],
       },
 
       animation: {
         fade: 'fadeInUp 1s both',
+        'spin-slow': 'spin 2.5s linear infinite',
       },
 
       keyframes: {
         fadeInUp: {
           '0%': { opacity: 0, transform: 'translateY(2rem)' },
           '100%': { opacity: 1, transform: 'translateY(0)' },
+        },
+        spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
         },
       },
     },
