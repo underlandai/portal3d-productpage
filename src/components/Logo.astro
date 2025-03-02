@@ -1,9 +1,10 @@
 ---
 import { SITE } from 'astrowind:config';
+import lichenLogoFull from '~/assets/images/Lichen-Logo-Vector-Black.svg';
 ---
 
-<span
-  class="self-center ml-2 rtl:ml-0 rtl:mr-2 text-2xl md:text-xl font-bold text-gray-900 whitespace-nowrap dark:text-white"
->
-  🚀 {SITE?.name}
-</span>
+<img 
+  src={lichenLogoFull.src} 
+  alt="Lichen Commodities Logo"
+  class="h-10 sm:h-12 dark:invert"
+/>
