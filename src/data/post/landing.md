@@ -7,6 +7,7 @@ tags:
   - landing-pages
   - front-end
   - resources
+draft: true
 metadata:
   canonical: https://astrowind.vercel.app/landing
 ---

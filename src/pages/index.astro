@@ -5,12 +5,14 @@ import Image from '~/components/common/Image.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Steps from '~/components/widgets/Steps.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import BlogMinimalist from '~/components/widgets/BlogMinimalist.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
+import modelDemoImage from '~/assets/images/model-demo-square.avif';
+
 const metadata = {
-  title: 'Natural Resource Repository',
+  title: 'Lichen - Optimise Commodities',
   ignoreTitleTemplate: true,
 };
 ---
@@ -29,7 +31,6 @@ const metadata = {
       },
       { text: 'Learn More', href: '#features' },
     ]}
-    image={{ src: '~/assets/images/rendered_geo_model.avif', alt: 'CoreSync Hero Image' }}
   >
     <Fragment slot="title">
       <div class="flex flex-col items-center mb-4 group">
@@ -62,24 +63,16 @@ const metadata = {
             }, {once: true});
           });
         </script>
-        <span class="text-lichen-gray dark:text-lichen-gray highlight font-quantify tracking-wide" style="font-size: 8rem;">CoreSync</span>
+        <span class="text-black dark:text-white highlight font-quantify tracking-wide" style="font-size: 8rem;">CoreSync</span>
       </div>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Connecting stakeholders with real-time project performance.
+      Connecting stakeholders with resource project performance.
     </Fragment>
     
     <Fragment slot="content">
-      <div class="mt-8">
-        <Image
-          src="~/assets/images/rendered_geo_model_crop.avif"
-          alt="Interactive Resource Model"
-          class="mx-auto rounded-md"
-          width={800}
-          height={450}
-        />
-      </div>
+      <!-- Content intentionally left empty -->
     </Fragment>
   </Hero>
 
@@ -149,28 +142,16 @@ const metadata = {
       },
     ]}
     image={{
-      src: '~/assets/images/model-demo-square.avif',
-      alt: 'CoreSync Steps',
+      src: modelDemoImage,
+      alt: 'CoreSync Steps'
     }}
   />
 
-
-  <!-- HighlightedPosts Widget ******* -->
-
-  <BlogLatestPosts
-    title="Find out more content in our Blog"
-    information={`The blog is used to display AstroWind documentation.
-                        Each new article will be an important step that you will need to know to be an expert in creating a website using Astro + Tailwind CSS.
-                        Astro is a very interesting technology. Thanks.
-                `}
-  />
 
   <!-- FAQs Widget ******************* -->
 
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Learn more about CoreSync and how it can transform your resource project communication."
-    tagline="FAQs"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
@@ -204,6 +185,12 @@ const metadata = {
           'Yes, support for additional file formats is under active development. We plan to add support for VTK, GEOH5, GOCAD, CSV, and OBJ formats in Q2, 2025.',
       },
     ]}
+  />
+
+  <!-- Latest Blog Post Widget ******* -->
+
+  <BlogMinimalist
+    title="Latest News"
   />
 
 

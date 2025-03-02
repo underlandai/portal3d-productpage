@@ -17,6 +17,7 @@ export default {
         'lichen-gray': 'var(--aw-color-gray)',
         'lichen-teal': 'var(--aw-color-teal)',
         'lichen-sage': 'var(--aw-color-sage)',
+        'lichen-light-green': '#8fbc8f',
       },
       fontFamily: {
         sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
