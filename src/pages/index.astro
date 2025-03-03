@@ -5,14 +5,13 @@ import Image from '~/components/common/Image.astro';
 import Hero from '~/components/widgets/Hero.astro';
 import Features from '~/components/widgets/Features.astro';
 import Steps from '~/components/widgets/Steps.astro';
-import BlogMinimalist from '~/components/widgets/BlogMinimalist.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import modelDemoImage from '~/assets/images/model-demo-square.avif';
 
 const metadata = {
-  title: 'Lichen - Optimise Commodities',
+  title: 'Lichen — Optimise Commodities',
   ignoreTitleTemplate: true,
 };
 ---
@@ -24,7 +23,7 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get Started for Free',
+        text: 'Start now',
         href: 'https://coresync.dev',
         target: '_blank',
         icon: 'tabler:external-link',
@@ -39,7 +38,7 @@ const metadata = {
             id="coresync-logo"
             src="~/assets/images/coresync-circlev1-transparent.svg" 
             alt="CoreSync Logo" 
-            class="w-48 h-48 mb-4 cursor-pointer" 
+            class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mb-2 sm:mb-4 cursor-pointer" 
             width={192}
             height={192}
           />
@@ -63,16 +62,12 @@ const metadata = {
             }, {once: true});
           });
         </script>
-        <span class="text-black dark:text-white highlight font-quantify tracking-wide" style="font-size: 8rem;">CoreSync</span>
+        <span class="text-black dark:text-white highlight font-quantify tracking-wide text-5xl sm:text-7xl md:text-8xl leading-tight">CoreSync</span>
       </div>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Connecting stakeholders with resource project performance.
-    </Fragment>
-    
-    <Fragment slot="content">
-      <!-- Content intentionally left empty -->
+      Connecting project stakeholders with cloud performance.
     </Fragment>
   </Hero>
 
@@ -83,31 +78,37 @@ const metadata = {
     id="features"
     tagline="Resource Intelligence Platform"
     title="Collaborate in 3D, Not in Screenshots"
-    subtitle="Securely and quickly share resource models with stakeholders – no expensive software required"
+    subtitle="Securely and quickly share resource models with stakeholders on the web."
     items={[
       {
-        title: 'Democratise Insights',
-        description:
-          'Empower everyone within and outside your organization to discover insights from your data using 3D visuals.',
-        icon: 'tabler:users',
+        title: 'Interactive 3D Viewing',
+        description: 'Explore resource projects directly in your browser – no software needed.',
+        icon: 'tabler:chart-dots-3',
       },
       {
-        title: 'Drive Down Costs',
-        description:
-          'Gain efficiency and simplify complexity by unifying your approach to data sharing.',
-        icon: 'tabler:chart-line',
-      },
-      {
-        title: 'Instant Sharing',
-        description:
-          'Share your 3D models instantly with a simple URL. No software downloads or installations required.',
+        title: 'Fast & Easy Sharing',
+        description: 'Share data and models instantly with a secure link.',
         icon: 'tabler:share',
       },
       {
         title: 'Broad Compatibility',
-        description:
-          'Compatible with data exported from industry-leading software, including Seequent Leapfrog Geo, Deswik, Micromine, Datamine, Dassault Systèmes 3DEXPERIENCE, and Mira Geoscience.',
+        description: 'Works with your existing resource modelling software.',
         icon: 'tabler:transfer-in',
+      },
+      {
+        title: 'Secure',
+        description: 'Industry-standard encryption protects your data.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Rapid Processing & Easy Upload',
+        description: 'Get your models online quickly.',
+        icon: 'tabler:upload',
+      },
+      {
+        title: 'Dedicated Support',
+        description: "We're here to help when needed.",
+        icon: 'tabler:lifebuoy',
       },
     ]}
   />
@@ -152,46 +153,74 @@ const metadata = {
 
   <FAQs
     title="Frequently Asked Questions"
+    subtitle="Here are some common questions about CoreSync. If you can't find what you're looking for, please contact our support team."
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
-        title: 'How do I share my model?',
-        description:
-          "After your model is processed, you'll receive a unique URL that you can share with anyone (sharing is disabled on the Free tier). They can view the model in their web browser without needing a CoreSync account.",
+        title: 'Sharing & Collaboration',
+        items: [
+          {
+            title: 'How can I share my 3D model with others?',
+            description: 'On paid plans (Professional, Team, and Enterprise), CoreSync provides a unique, shareable URL once your model is processed. Anyone with this link can view your model in their web browser without needing a CoreSync account. Sharing is not available on the Free plan.',
+          },
+          {
+            title: 'Can I collaborate with my team on projects?',
+            description: 'Absolutely! Our Team and Enterprise plans include collaboration features, allowing multiple users to access and work on the same projects simultaneously.',
+          },
+        ],
       },
       {
-        title: 'What if I need to collaborate with my team?',
-        description:
-          'The Team and Enterprise plans offer collaboration features, allowing multiple users to access and work on the same projects.',
+        title: 'Processing & Performance',
+        items: [
+          {
+            title: 'How long will it take for my model to be processed?',
+            description: `<p>Most models are ready within a couple of hours. However, processing time can take up to 24 hours, depending on factors like:</p>
+            <p>• The size and complexity of your data.<br>
+            • Current demand on the CoreSync platform.</p>
+            <p>We're constantly working to improve our processing speeds.</p>`,
+          },
+          {
+            title: "I uploaded my file a while ago, and it's still processing. What should I do?",
+            description: 'While most models process within a few hours, larger datasets can take longer. If your model has been processing for over 24 hours, please contact our support team and we will be happy to look into it.',
+          },
+        ],
       },
       {
-        title: 'How long does it take to process a model?',
-        description:
-          'Most models are processed within a couple of hours. However, processing time may vary up to 24 hours depending on the size and complexity of the dataset, as well as current platform demand. We are continuously optimising our infrastructure to ensure the fastest possible turnaround.',
+        title: 'Data Security',
+        items: [
+          {
+            title: 'How secure is my data on CoreSync?',
+            description: `Data security is our top priority. CoreSync uses industry-standard encryption (TLS 1.2 for data in transit and AES-256 for data at rest), secure Digital Ocean infrastructure, and Role-Based Access Control (RBAC) to manage user permissions. Our security team has 24/7 on-call coverage.`,
+          },
+          {
+            title: 'Who has access to my models?',
+            description: 'Only users you explicitly grant access to can view or interact with your models. You maintain full control over your data.',
+          },
+        ],
       },
       {
-        title: 'How secure is my data?',
-        description:
-          'CoreSync prioritises data security. We use industry-standard encryption to protect your data both in transit (while being uploaded/downloaded) and at rest (while stored on our servers). Access to your projects is controlled through role-based access control (RBAC), ensuring only authorised users can view or modify your data. We utilise secure Digital Ocean infrastructure for data storage and processing.',
-      },
-      {
-        title: 'What kinds of data can I visualise within my OMF file?',
-        description:
-          'CoreSync supports a wide range of geoscience data types commonly stored in OMF files. The power of OMF lies in its capacity to handle various types of geological data—from point, curve, and surface data to drillholes, geophysical data, and 3D models. We are continually expanding our support for additional data types.',
-      },
-      {
-        title: 'Are there plans to support other file formats besides OMF?',
-        description:
-          'Yes, support for additional file formats is under active development. We plan to add support for VTK, GEOH5, GOCAD, CSV, and OBJ formats in Q2, 2025.',
+        title: 'Supported Data & File Formats',
+        items: [
+          {
+            title: 'What types of data can I visualize from an OMF file?',
+            description: `<p>CoreSync is designed to handle a wide variety of geoscience data commonly found in OMF files. This includes:</p>
+            <p>• Point data<br>
+            • Curve data<br>
+            • Surface data<br>
+            • Drillholes<br>
+            • Geophysical data<br>
+            • 3D models</p>
+            <p>We are always working to expand our support for more data types.</p>`,
+          },
+          {
+            title: 'Do you support any file formats besides OMF?',
+            description: 'Yes! We are actively developing support for other popular formats. We plan to add support for VTK, GEOH5, GOCAD, CSV, and OBJ files in Q2, 2025.',
+          },
+        ],
       },
     ]}
   />
 
-  <!-- Latest Blog Post Widget ******* -->
-
-  <BlogMinimalist
-    title="Latest News"
-  />
 
 
   <!-- CallToAction Widget *********** -->
@@ -200,7 +229,7 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Get Started for Free!',
+        text: 'Upload OMF',
         href: 'https://coresync.dev',
         target: '_blank',
         icon: 'tabler:external-link',

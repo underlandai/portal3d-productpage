@@ -2,12 +2,16 @@
 import FormContainer from '~/components/ui/Form.astro';
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Button from '~/components/ui/Button.astro';
 import type { Contact as Props } from '~/types';
 
 const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline = await Astro.slots.render('tagline'),
+  introText,
+  companySizeOptions,
+  productOptions,
   inputs,
   textarea,
   disclaimer,
@@ -21,19 +25,203 @@ const {
 } = Astro.props;
 ---
 
+<script>
+  // Client-side JavaScript for handling form submission
+  document.addEventListener('DOMContentLoaded', () => {
+    // We need to re-initialize after DOM updates, so putting this in a function
+    function initializeForm() {
+      const form = document.getElementById('contactForm');
+      const formContainer = document.getElementById('formContainer');
+      const successMessage = document.getElementById('successMessage');
+      const submitAgainBtn = document.getElementById('submitAgain');
+
+      if (form && formContainer && successMessage && submitAgainBtn) {
+        // Remove any existing listeners to prevent duplicates
+        form.removeEventListener('submit', handleSubmit);
+        submitAgainBtn.removeEventListener('click', handleSubmitAgain);
+        
+        // Add new listeners
+        form.addEventListener('submit', handleSubmit);
+        submitAgainBtn.addEventListener('click', handleSubmitAgain);
+        
+        function handleSubmit(e) {
+          e.preventDefault();
+          
+          // In a real implementation, you would send the form data to your backend here
+          // For demonstration, we're just showing the success message
+          
+          // Hide the form and show success message
+          formContainer.classList.add('hidden');
+          successMessage.classList.remove('hidden');
+        }
+        
+        function handleSubmitAgain() {
+          // Reset form fields
+          form.reset();
+          
+          // Show form again
+          successMessage.classList.add('hidden');
+          formContainer.classList.remove('hidden');
+          
+          // Re-initialize form to ensure handlers work properly
+          setTimeout(initializeForm, 0);
+        }
+      }
+    }
+    
+    // Initialize on page load
+    initializeForm();
+  });
+</script>
+
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
   <Headline title={title} subtitle={subtitle} tagline={tagline} />
 
   {
     inputs && (
       <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
-        <FormContainer
-          inputs={inputs}
-          textarea={textarea}
-          disclaimer={disclaimer}
-          button={button}
-          description={description}
-        />
+        {/* Success Message (hidden by default) */}
+        <div id="successMessage" class="hidden flex flex-col items-center justify-center text-center py-10">
+          <div class="mb-4 text-green-500">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Thank you.</h3>
+          <p class="mb-6 text-gray-600 dark:text-gray-400">Our team is looking forward to connecting with you. You'll hear from us soon!</p>
+          <Button id="submitAgain" variant="primary" type="button">
+            Submit again
+          </Button>
+        </div>
+        
+        {/* Form Container */}
+        <div id="formContainer">
+          {introText && (
+            <div class="mb-6">
+              <p class="text-sm whitespace-pre-line">{introText}</p>
+            </div>
+          )}
+          
+          <form id="contactForm">
+            {
+              inputs &&
+                inputs.map(
+                  ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', required = false, width = 'full' }) =>
+                    name && (
+                      <div class={`mb-6 ${width === 'half' ? 'w-1/2 inline-block' : 'w-full'} ${width === 'half' ? (name.includes('first') ? 'pr-2' : 'pl-2') : ''}`}>
+                        {label && (
+                          <label for={name} class="block text-sm font-medium">
+                            {label}{required && <span class="text-red-500">*</span>}
+                          </label>
+                        )}
+                        <input
+                          type={type}
+                          name={name}
+                          id={name}
+                          autocomplete={autocomplete}
+                          placeholder={placeholder}
+                          required={required}
+                          class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                        />
+                      </div>
+                    )
+                )
+            }
+            
+            {companySizeOptions && (
+              <div class="mb-6">
+                <label for="companySize" class="block text-sm font-medium">
+                  Company size<span class="text-red-500">*</span>
+                </label>
+                <select
+                  id="companySize"
+                  name="companySize"
+                  required
+                  class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                >
+                  {companySizeOptions.map((option) => (
+                    <option value={option}>{option}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+            
+            {productOptions && (
+              <div class="mb-6">
+                <label for="product" class="block text-sm font-medium">
+                  Which of our products are you interested in?<span class="text-red-500">*</span>
+                </label>
+                <select
+                  id="product"
+                  name="product"
+                  required
+                  class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                >
+                  {productOptions.map((option) => (
+                    <option value={option}>{option}</option>
+                  ))}
+                </select>
+              </div>
+            )}
+            
+            {
+              textarea && (
+                <div>
+                  <label for="textarea" class="block text-sm font-medium">
+                    {textarea.label}{textarea.required && <span class="text-red-500">*</span>}
+                  </label>
+                  <textarea
+                    id="textarea"
+                    name={textarea.name ? textarea.name : 'message'}
+                    rows={textarea.rows ? textarea.rows : 4}
+                    placeholder={textarea.placeholder}
+                    required={textarea.required}
+                    class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                  />
+                </div>
+              )
+            }
+            
+            {
+              disclaimer && (
+                <div class="mt-3 flex items-start">
+                  <div class="flex mt-0.5">
+                    <input
+                      id="disclaimer"
+                      name="disclaimer"
+                      type="checkbox"
+                      required={disclaimer.required}
+                      class="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
+                    />
+                  </div>
+                  <div class="ml-3">
+                    <label for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
+                      {disclaimer.label}
+                    </label>
+                  </div>
+                </div>
+              )
+            }
+            
+            {
+              button && (
+                <div class="mt-10 grid">
+                  <Button variant="primary" type="submit">
+                    {button}
+                  </Button>
+                </div>
+              )
+            }
+            
+            {
+              description && (
+                <div class="mt-3 text-center">
+                  <p class="text-sm text-gray-600 dark:text-gray-400">{description}</p>
+                </div>
+              )
+            }
+          </form>
+        </div>
       </div>
     )
   }

@@ -4,7 +4,6 @@ import HeroText from '~/components/widgets/HeroText.astro';
 import Prices from '~/components/widgets/Pricing.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Steps from '~/components/widgets/Steps.astro';
-import Features3 from '~/components/widgets/Features3.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
@@ -13,217 +12,214 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
-
-  <HeroText
-    tagline="Pricing"
-    title="Stellar Pricing for Every Journey"
-    subtitle="Choose the perfect plan that aligns with your cosmic goals."
-  />
-
-  <!-- Pricing Widget ******************* -->
-
   <Prices
-    title="Our prices"
-    subtitle="Only pay for what you need"
+    title="CoreSync Plans"
+    subtitle="Flexible plans for resource visualization, from individual users to enterprise teams"
+    hasMonthlyYearlyToggle={true}
     prices={[
       {
-        title: 'basic',
-        subtitle: 'Optimal choice for personal use',
-        price: 29,
-        period: 'per month',
+        title: 'Free (Viewer)',
+        price: 'Free',
+        period: '',
         items: [
-          {
-            description: 'Etiam in libero, et volutpat',
-          },
-          {
-            description: 'Aenean ac nunc dolor tristique',
-          },
-          {
-            description: 'Cras scelerisque accumsan lib',
-          },
-          {
-            description: 'In hac habitasse',
-          },
+          { description: 'View shared models, even after the uploader\'s subscription changes' },
+          { description: 'Interactive 3D model viewing and exploration' },
+          { description: 'No account required to view shared models' },
         ],
         callToAction: {
           target: '_blank',
-          text: 'Get started',
-          href: '#',
+          text: 'Explore Now',
+          href: 'https://coresync.dev/', // Or remove the href
         },
       },
       {
-        title: 'standard',
-        subtitle: 'Optimal choice for small teams',
-        price: 69,
-        period: 'Per Month',
+        title: 'Professional',
+        price: 99,
+        period: 'per month',
+        billingPeriod: 'monthly',
         items: [
-          {
-            description: 'Proin vel laoreet',
-          },
-          {
-            description: 'Ut efficitur habitasse egestas',
-          },
-          {
-            description: 'Volutpat hac curabitur',
-          },
-          {
-            description: 'Pellentesque blandit ut nibh',
-          },
-          {
-            description: 'Donec fringilla sem',
-          },
+          { description: 'Unlimited uploads' },
+          { description: 'Unlimited viewers' },
+          { description: 'Up to 1 GB of rendered data¹' },
+          { description: 'Shareable URL for clients/stakeholders' },
+          { description: 'Advanced model controls' },
+          { description: 'Email support' },
+          { description: 'Cancel anytime' },
         ],
         callToAction: {
           target: '_blank',
-          text: 'Get started',
-          href: '#',
+          text: 'Start now',
+          href: '#', // Update to signup flow
         },
         hasRibbon: true,
-        ribbonTitle: 'popular',
+        ribbonTitle: 'Best Value',
       },
       {
-        title: 'premium',
-        subtitle: 'Optimal choice for companies',
-        price: 199,
-        period: 'Per Month',
+        title: 'Professional',
+        price: 990,
+        period: 'per year',
+        billingPeriod: 'annual',
         items: [
-          {
-            description: 'Curabitur suscipit risus',
-          },
-          {
-            description: 'Aliquam habitasse malesuada',
-          },
-          {
-            description: 'Suspendisse sit amet blandit',
-          },
-          {
-            description: 'Suspendisse auctor blandit dui',
-          },
+          { description: 'Unlimited uploads' },
+          { description: 'Unlimited viewers' },
+          { description: 'Up to 1 GB of rendered data¹' },
+          { description: 'Shareable URL for clients/stakeholders' },
+          { description: 'Advanced model controls' },
+          { description: 'Email support' },
+          { description: 'Annual contract' },
         ],
         callToAction: {
           target: '_blank',
-          text: 'Get started',
-          href: '#',
+          text: 'Start now',
+          href: '#', // Update to signup flow
+        },
+        hasRibbon: true,
+        ribbonTitle: 'Best Value',
+      },
+      {
+        title: 'Team',
+        price: 499,
+        period: 'per month',
+        billingPeriod: 'monthly',
+        items: [
+          { description: 'Unlimited uploads' },
+          { description: 'Unlimited viewers' },
+          { description: 'Up to 5 GB of rendered data¹' },
+          { description: 'Up to 10 team members' },
+          { description: 'Management dashboard' },
+          { description: 'Priority email & chat support' },
+          { description: 'Cancel anytime' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Start now',
+          href: '#', // Update to signup flow
+        },
+      },
+      {
+        title: 'Team',
+        price: 4990,
+        period: 'per year',
+        billingPeriod: 'annual',
+        items: [
+          { description: 'Unlimited uploads' },
+          { description: 'Unlimited viewers' },
+          { description: 'Up to 5 GB of rendered data¹' },
+          { description: 'Up to 10 team members' },
+          { description: 'Management dashboard' },
+          { description: 'Priority email & chat support'},
+          { description: 'Annual contract' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Start now',
+          href: '#', // Update to signup flow
+        },
+      },
+      {
+        title: 'Enterprise',
+        price: 'Custom',
+        period: 'Contact for pricing',
+        items: [
+          { description: 'Unlimited uploads' },
+          { description: 'Unlimited viewers, and team members' },
+          { description: 'Customizable storage' },
+          { description: 'Single sign-on (SSO)' },
+          { description: 'Basic Usage Analytics' },
+          { description: 'Custom branding options' },
+          { description: 'Dedicated account manager' },
+          { description: '24/7 priority support' },
+          { description: 'Service Level Agreement (SLA)' },
+          { description: 'Custom onboarding and training' },
+        ],
+        callToAction: {
+          target: '_blank',
+          text: 'Contact sales',
+          href: '/contact', // Update to contact sales page
         },
       },
     ]}
   />
 
-  <!-- Features3 Widget ************** -->
+  <div class="py-8 px-4 sm:px-6 mx-auto max-w-4xl text-center">
+    <div class="bg-white dark:bg-slate-900 p-6 rounded-md shadow-md">
+      <h3 class="text-xl font-bold mb-2">High-Capacity Add-On</h3>
+      <p class="mb-2">¹ Increase your project's upload limit for $99/month per extra GB. Available on all paid plans</p>
+    </div>
+  </div>
 
-  <Features3
-    title="Price-related features"
-    subtitle="Discover the advantages of choosing our plans"
-    columns={2}
-    items={[
-      {
-        title: 'Tiered Pricing Plans',
-        description: 'Choose from a range of pricing plans designed to accommodate different budgets and requirements.',
-        icon: 'tabler:stairs',
-      },
-      {
-        title: 'Transparent Pricing',
-        description: 'Clearly displayed pricing details for each plan, with no hidden costs or unexpected charges.',
-        icon: 'tabler:flip-vertical',
-      },
-      {
-        title: 'Secure Payment Methods',
-        description: 'Secure payment gateways to protect your financial information during transactions.',
-        icon: 'tabler:shield-lock',
-      },
-      {
-        title: 'Instant Access',
-        description: `Immediate access to your chosen plan's features and templates upon subscription.`,
-        icon: 'tabler:accessible',
-      },
-      {
-        title: 'Upgrade Value',
-        description: 'Upgrade to higher-tier plans to unlock more features and benefits for an enhanced experience.',
-        icon: 'tabler:chevrons-up',
-      },
-      {
-        title: '24H support',
-        description: 'Questions answered via live chat, email or phone, every calendar day.',
-        icon: 'tabler:headset',
-      },
-    ]}
-    classes={{ container: 'max-w-5xl' }}
-  />
 
   <!-- Steps Widget ****************** -->
 
   <Steps
-    title="A guided journey from plans to creativity"
-    tagline="simplified process"
+    title="Start now with CoreSync in Minutes"
+    tagline="Simple Onboarding Process"
     isReversed={true}
+    classes={{ container: 'max-w-3xl mx-auto' }}
     items={[
       {
-        title: 'Explore plans',
+        title: 'Select your plan',
         icon: 'tabler:number-1',
       },
       {
-        title: 'Select a plan',
+        title: 'Create your account',
         icon: 'tabler:number-2',
       },
       {
-        title: 'Sign Up / Log In',
+        title: 'Upload your OMF file',
         icon: 'tabler:number-3',
       },
       {
-        title: 'Review order',
+        title: 'Preview your 3D model',
         icon: 'tabler:number-4',
       },
       {
-        title: 'Enter payment details',
+        title: 'Share',
         icon: 'tabler:number-5',
-      },
-      {
-        title: 'Confirmation',
-        icon: 'tabler:number-6',
-      },
-      {
-        title: 'Download and start using the template(s)',
-        icon: 'tabler:number-7',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1536816579748-4ecb3f03d72a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-      alt: 'Steps image',
+      src: '~/assets/images/model-demo-square.avif',
+      alt: 'CoreSync 3D Model Preview',
     }}
   />
 
   <!-- FAQs Widget ******************* -->
 
   <FAQs
-    title="Pricing FAQs"
-    subtitle="Choosing the right plan is important, and we're here to answer your questions. If you have queries about our pricing options, you're in the right place."
+    title="CoreSync Pricing FAQs"
+    subtitle="Find answers to common questions about our pricing plans and features."
     columns={1}
     items={[
       {
-        title: 'Do the plans come with customer support?',
+        title: 'Is there a free trial?',
         description:
-          'Absolutely, all plans include access to our dedicated customer support to assist you with any queries or concerns.',
+          'We offer a Free plan that allows you to upload a single model for personal use. This lets you experience CoreSync functionality before committing to a paid plan.',
       },
       {
-        title: 'Is there a trial period for the different plans?',
+        title: 'What is the High-Capacity Add-On?',
         description:
-          "Unfortunately, we don't offer trial periods for the plans. However, you can check out our demo section to preview the quality of our templates.",
+          'The High-Capacity Add-On increases your project\'s upload limit beyond 1 GB for $99/month per extra GB. It\'s ideal for users with very large or detailed models. This add-on is available at checkout when you upload a model larger than 1 GB. For example, a 2 GB project requires one add-on (1 GB over the limit), costing an extra $99/month.',
       },
       {
-        title: 'Can I switch between plans?',
+        title: 'How does the Enterprise plan pricing work?',
         description:
-          'Certainly! You can easily upgrade or downgrade your plan, at any time, to find the one that best suits your evolving requirements.',
+          'Enterprise pricing is based on the number of users and projects you need. The starting rate is $79/user/month plus $149/project/month with annual billing. For custom quotes tailored to your organization\'s specific needs, please contact our sales team.',
       },
       {
-        title: 'What payment methods do you accept?',
+        title: 'Are there any discounts for academic or non-profit organizations?',
         description:
-          'We accept major credit cards and online payment methods to ensure a convenient and secure transaction process.',
+          'Yes, we offer special pricing for educational institutions, research organizations, and non-profits. Please contact our sales team with details about your organization to discuss eligible discounts.',
       },
       {
-        title: 'Are there any hidden fees beyond the displayed cost?',
+        title: 'Do you offer any volume discounts?',
         description:
-          'No, the subscription cost covers all the features and templates listed under each plan. There are no hidden fees or extra charges.',
+          'Yes, organizations that need licenses for multiple users or projects may qualify for volume discounts. These are evaluated on a case-by-case basis. Contact our sales team to discuss your specific requirements.',
+      },
+      {
+        title: 'Can I upgrade or downgrade my plan?',
+        description:
+          'Yes, you can upgrade or downgrade your plan at any time to better suit your needs. Changes take effect at the start of your next billing cycle.',
       },
     ]}
   />
@@ -231,13 +227,14 @@ const metadata = {
   <!-- CallToAction Widget *********** -->
 
   <CallToAction
-    title="Ready to boost your projects?"
-    subtitle="Join our community of satisfied customers who have transformed their work with our templates."
+    title="Ready to share your resource models?"
     actions={[
       {
         variant: 'primary',
-        text: 'Get started now',
-        href: '/',
+        text: 'Upload to CoreSync',
+        href: 'https://coresync.dev',
+        target: '_blank',
+        icon: 'tabler:external-link',
       },
     ]}
   />
