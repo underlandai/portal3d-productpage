@@ -35,6 +35,10 @@ export const headerData = {
           href: getPermalink('/services'),
         },
         {
+          text: 'Consulting',
+          href: getPermalink('/consulting'),
+        },
+        {
           text: 'Pricing',
           href: getPermalink('/pricing'),
         },
@@ -86,10 +90,10 @@ export const headerData = {
       ],
     },
     {
-      text: 'Blog',
+      text: 'The Latest',
       links: [
         {
-          text: 'Blog List',
+          text: 'Latest News',
           href: getBlogPermalink(),
         },
         {
@@ -115,7 +119,7 @@ export const headerData = {
       href: '#',
     },
   ],
-  actions: [{ text: 'Try CoreSync', href: 'https://coresync.dev', target: '_blank' }],
+  actions: [{ text: 'Log in', href: 'https://coresync.dev', target: '_blank' }],
 };
 
 export const footerData = {
@@ -139,7 +143,7 @@ export const footerData = {
         { text: 'Partners', href: '#' },
         { text: 'Atom', href: '#' },
         { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
+        { text: 'Lichen Commodities Desktop', href: '#' },
       ],
     },
     {
@@ -156,7 +160,7 @@ export const footerData = {
       title: 'Company',
       links: [
         { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
+        { text: 'The Latest', href: '#' },
         { text: 'Careers', href: '#' },
         { text: 'Press', href: '#' },
         { text: 'Inclusion', href: '#' },

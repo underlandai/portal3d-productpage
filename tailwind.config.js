@@ -20,9 +20,9 @@ export default {
         'lichen-light-green': '#8fbc8f',
       },
       fontFamily: {
-        sans: ['var(--aw-font-sans, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        sans: ['Helvetica', ...defaultTheme.fontFamily.sans],
         serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['var(--aw-font-heading, ui-sans-serif)', ...defaultTheme.fontFamily.sans],
+        heading: ['Helvetica', ...defaultTheme.fontFamily.sans],
         quantify: ['Quantify', 'sans-serif'],
       },
 

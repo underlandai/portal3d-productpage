@@ -1,6 +1,6 @@
 site:
-  name: AstroWind
-  site: 'https://astrowind.vercel.app'
+  name: Lichen Commodities
+  site: 'https://lichen.com.au'
   base: '/'
   trailingSlash: false
 
@@ -9,23 +9,19 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: AstroWind
-    template: '%s — AstroWind'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+    default: Lichen Commodities
+    template: '%s — Lichen'
+  description: "Lichen Commodities optimizes resource management with CoreSync - connecting stakeholders with resource project performance."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: AstroWind
+    site_name: Lichen Commodities
     images:
       - url: '~/assets/images/default.png'
         width: 1200
         height: 628
     type: website
-  twitter:
-    handle: '@onwidget'
-    site: '@onwidget'
-    cardType: summary_large_image
 
 i18n:
   language: en
