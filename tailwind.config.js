@@ -29,6 +29,7 @@ export default {
       animation: {
         fade: 'fadeInUp 1s both',
         'spin-slow': 'spin 2.5s linear infinite',
+        'spin-once': 'spin-once 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards',
       },
 
       keyframes: {
@@ -37,6 +38,10 @@ export default {
           '100%': { opacity: 1, transform: 'translateY(0)' },
         },
         spin: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        'spin-once': {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
         },

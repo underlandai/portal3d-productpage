@@ -11,7 +11,7 @@ import CallToAction from '~/components/widgets/CallToAction.astro';
 import modelDemoImage from '~/assets/images/model-demo-square.avif';
 
 const metadata = {
-  title: 'Lichen — Cloud Compute Commodities',
+  title: 'Lichen — Commodity Resource Synchronisation',
   ignoreTitleTemplate: true,
 };
 ---
@@ -48,9 +48,23 @@ const metadata = {
           // Get the logo element
           const logo = document.getElementById('coresync-logo');
           
+          // Add initial spin animation on page load
+          window.addEventListener('DOMContentLoaded', () => {
+            // Add the one-time spin animation
+            logo.classList.add('animate-spin-once');
+            
+            // Remove the class after animation completes to avoid conflicts with hover animation
+            setTimeout(() => {
+              logo.classList.remove('animate-spin-once');
+            }, 2000); // Same duration as the animation
+          });
+          
           // Add the animation class when mouse enters
           logo.addEventListener('mouseenter', () => {
-            logo.classList.add('animate-spin-slow');
+            // Only add if the initial animation is complete
+            if (!logo.classList.contains('animate-spin-once')) {
+              logo.classList.add('animate-spin-slow');
+            }
           });
           
           // Remove the animation class when mouse leaves
@@ -67,7 +81,7 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="subtitle">
-      Connecting resource projects with cloud performance.
+      Synchronising commodity resources with high performace computing + 3D visualisaiton
     </Fragment>
   </Hero>
 
@@ -122,7 +136,7 @@ const metadata = {
       {
         title: 'Step 1: <span class="font-medium">Upload & Preview</span>',
         description:
-          "Upload your OMF file, fill in your project name, and instantly preview your 3D model in the browser.",
+          "Upload your Open Mining Format (OMF) file, fill in your project name, and instantly preview your 3D model in the browser.",
         icon: 'tabler:upload',
       },
       {
@@ -153,7 +167,7 @@ const metadata = {
 
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Here are some common questions about CoreSync. If you can't find what you're looking for, please contact [] our support team"
+    subtitle="Here are some common questions about CoreSync. If you can't find what you're looking for, please <a href='/contact' class='text-primary hover:underline'>contact</a> our support team"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
@@ -181,7 +195,7 @@ const metadata = {
           },
           {
             title: "I uploaded my file a while ago, and it's still processing. What should I do?",
-            description: 'While most models process within a few hours, larger datasets can take longer. If your model has been processing for over 24 hours, please contact our support team and we will be happy to look into it.',
+            description: 'While most models process within a few hours, larger datasets can take longer. If your model has been processing for over 24 hours, please <a href="/contact" class="text-primary hover:underline">contact</a> our support team and we will be happy to look into it.',
           },
         ],
       },
