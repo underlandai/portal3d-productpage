@@ -15,8 +15,12 @@ export const headerData = {
       href: getPermalink('/consulting'),
     },
     {
-      text: 'The Latest',
+      text: 'Blog',
       href: getBlogPermalink(),
+    },
+    {
+      text: 'Contact',
+      href: getPermalink('/contact'),
     },
   ],
   actions: [{ text: 'Log in', href: 'https://coresync.dev', target: '_blank' }],
@@ -60,7 +64,7 @@ export const footerData = {
       title: 'Company',
       links: [
         { text: 'About', href: '#' },
-        { text: 'The Latest', href: '#' },
+        { text: 'Blog', href: getBlogPermalink() },
         { text: 'Careers', href: '#' },
         { text: 'Press', href: '#' },
         { text: 'Inclusion', href: '#' },
