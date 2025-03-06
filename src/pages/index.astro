@@ -8,7 +8,8 @@ import Steps from '~/components/widgets/Steps.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
-import modelDemoImage from '~/assets/images/model-demo-square.avif';
+import modelDemoImage from '~/assets/images/model-demo.png';
+import geoModelImage from '~/assets/images/rendered_geo_model_crop.tiff';
 
 const metadata = {
   title: 'Lichen — Compute Commodities',
@@ -23,17 +24,21 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Start now',
-        href: 'https://coresync.dev',
-        target: '_blank',
-        icon: 'tabler:external-link',
+        text: 'Contact us',
+        href: '/contact',
+        icon: 'tabler:mail',
       },
       { text: 'Learn More', href: '#features' },
     ]}
+    image={{
+      src: geoModelImage,
+      alt: 'Geological model visualization',
+      height: 700
+    }}
   >
     <Fragment slot="title">
       <div class="flex flex-col items-center mb-4 group">
-        <a href="https://coresync.dev" target="_blank" rel="noopener">
+        <a href="/contact" rel="noopener">
           <Image 
             id="coresync-logo"
             src="~/assets/images/coresync-circlev1-transparent.svg" 
@@ -158,7 +163,7 @@ const metadata = {
     ]}
     image={{
       src: modelDemoImage,
-      alt: 'CoreSync Steps'
+      alt: 'CoreSync Model Visualization'
     }}
   />
 
@@ -243,15 +248,14 @@ const metadata = {
     actions={[
       {
         variant: 'primary',
-        text: 'Upload OMF',
-        href: 'https://coresync.dev',
-        target: '_blank',
-        icon: 'tabler:external-link',
+        text: 'Contact us',
+        href: '/contact',
+        icon: 'tabler:mail',
       },
     ]}
   >
     <Fragment slot="title">
-      Ready to share your resource model?
+      Ready to learn more about CoreSync?
     </Fragment>
 
   </CallToAction>
