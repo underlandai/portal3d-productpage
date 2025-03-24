@@ -102,7 +102,7 @@ const {
             </div>
           )}
           
-          <form id="contactForm">
+          <form id="contactForm" action="/api/send-email" method="POST">
             {
               inputs &&
                 inputs.map(
