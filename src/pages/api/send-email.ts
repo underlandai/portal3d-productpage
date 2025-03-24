@@ -1,15 +1,19 @@
+export const prerender = false;
+
 // src/pages/api/send-email.ts
 import type { APIRoute } from 'astro';
 import nodemailer from 'nodemailer';
 
-// If using environment variables, set them in Vercel project settings
-// e.g. process.env.SMTP_HOST, process.env.SMTP_USER, process.env.SMTP_PASS, etc.
-
-export const post: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request }) => {
   try {
     // Parse form data
     const formData = await request.formData();
-    const name = formData.get('name')?.toString() || '';
+    const firstName = formData.get('firstName')?.toString() || '';
+    const lastName = formData.get('lastName')?.toString() || '';
+    const phoneNumber = formData.get('phoneNumber')?.toString() || '';
+    const companyName = formData.get('companyName')?.toString() || '';
+    const companySize = formData.get('companySize')?.toString() || '';
+    const companyProduct = formData.get('companyProduct')?.toString() || '';
     const email = formData.get('email')?.toString() || '';
     const message = formData.get('message')?.toString() || '';
 
@@ -17,12 +21,13 @@ export const post: APIRoute = async ({ request }) => {
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
         port: 465,
-        secure: true, // Use TLS
+        secure: true,
         auth: {
           user: process.env.GMAIL_ADDRESS, 
           pass: process.env.GMAIL_APP_PASSWORD
         }
       });
+      
       
 
     // Send mail
@@ -30,7 +35,7 @@ export const post: APIRoute = async ({ request }) => {
       from: `"Website" <${process.env.GMAIL_ADDRESS}>`,
       to: 'sales@lichen.com.au', // or pull from form
       subject: 'New form submission',
-      text: `Name: ${name}\nEmail: ${email}\nMessage:\n${message}`,
+      text: `First Name: ${firstName}\nLast Name: ${lastName}\nPhone Number: ${phoneNumber}\nCompany Name: ${companyName}\nCompany Size: ${companySize}\nCompany Product: ${companyProduct}\nEmail: ${email}\nMessage: ${message}`,
     });
 
     return new Response(JSON.stringify({ success: true }), {
