@@ -44,15 +44,35 @@ const {
         form.addEventListener('submit', handleSubmit);
         submitAgainBtn.addEventListener('click', handleSubmitAgain);
         
-        function handleSubmit(e) {
+        async function handleSubmit(e) {
           e.preventDefault();
           
-          // In a real implementation, you would send the form data to your backend here
-          // For demonstration, we're just showing the success message
+          // Gather form data
+          const formData = new FormData(e.target);
           
-          // Hide the form and show success message
-          formContainer.classList.add('hidden');
-          successMessage.classList.remove('hidden');
+          try {
+            // POST form data to your API route
+            const response = await fetch('/api/send-email', {
+              method: 'POST',
+              body: formData,
+            });
+            
+            const result = await response.json();
+            
+            if (result.success) {
+              // On success, hide the form and show success message
+              formContainer.classList.add('hidden');
+              successMessage.classList.remove('hidden');
+            } else {
+              // Handle error from server
+              console.error('Error sending email:', result.error);
+              alert('There was an error sending your message. Please try again.');
+            }
+          } catch (error) {
+            // Handle any fetch/network errors
+            console.error('Fetch error:', error);
+            alert('Network error. Please try again later.');
+          }
         }
         
         function handleSubmitAgain() {
@@ -102,7 +122,7 @@ const {
             </div>
           )}
           
-          <form id="contactForm">
+          <form id="contactForm" action="/api/send-email" method="POST">
             {
               inputs &&
                 inputs.map(
