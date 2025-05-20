@@ -7,10 +7,6 @@ export const headerData = {
       href: getPermalink('/'),
     },
     {
-      text: 'Pricing',
-      href: getPermalink('/pricing'),
-    },
-    {
       text: 'Consulting',
       href: getPermalink('/consulting'),
     },
@@ -32,7 +28,6 @@ export const footerData = {
       title: 'CoreSync',
       links: [
         { text: 'Features', href: getPermalink('/') },
-        { text: 'Pricing', href: getPermalink('/pricing') },
       ],
     },
     {
