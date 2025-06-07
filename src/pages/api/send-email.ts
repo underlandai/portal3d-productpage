@@ -17,37 +17,43 @@ export const POST: APIRoute = async ({ request }) => {
     const email = formData.get('email')?.toString() || '';
     const message = formData.get('message')?.toString() || '';
 
-    // Check if email credentials are available
-    if (!process.env.GMAIL_ADDRESS || !process.env.GMAIL_APP_PASSWORD) {
-      console.log('Email credentials not configured - simulating success for development');
-      console.log('Form data received:', {
-        firstName, lastName, phoneNumber, companyName, 
-        companySize, companyProduct, email, message
-      });
-      
-      return new Response(JSON.stringify({ success: true, development: true }), {
-        status: 200,
-        headers: { 'Content-Type': 'application/json' },
-      });
-    }
+    // Use MailHog for local development, Gmail for production
+    const isDevelopment = !process.env.GMAIL_ADDRESS || !process.env.GMAIL_APP_PASSWORD;
+    
+    console.log('Form data received:', {
+      firstName, lastName, phoneNumber, companyName, 
+      companySize, companyProduct, email, message
+    });
 
     // Configure Nodemailer transport
-    const transporter = nodemailer.createTransport({
-        host: 'smtp.gmail.com',
-        port: 465,
-        secure: true,
-        auth: {
-          user: process.env.GMAIL_ADDRESS, 
-          pass: process.env.GMAIL_APP_PASSWORD
-        }
-      });
+    const transporter = nodemailer.createTransport(
+      isDevelopment
+        ? {
+            host: 'mailhog',
+            port: 1025,
+            ignoreTLS: true,
+            secure: false,
+            auth: false,
+          }
+        : {
+            host: 'smtp.gmail.com',
+            port: 465,
+            secure: true,
+            auth: {
+              user: process.env.GMAIL_ADDRESS,
+              pass: process.env.GMAIL_APP_PASSWORD,
+            },
+          }
+    );
       
       
 
     // Send mail
     await transporter.sendMail({
-      from: `"Website" <${process.env.GMAIL_ADDRESS}>`,
-      to: 'sales@lichen.com.au', // or pull from form
+      from: isDevelopment 
+        ? '"Website" <test@localhost>' 
+        : `"Website" <${process.env.GMAIL_ADDRESS}>`,
+      to: 'sales@lichen.com.au',
       subject: 'New form submission',
       text: `First Name: ${firstName}\nLast Name: ${lastName}\nPhone Number: ${phoneNumber}\nCompany Name: ${companyName}\nCompany Size: ${companySize}\nCompany Product: ${companyProduct}\nEmail: ${email}\nMessage: ${message}`,
     });

@@ -12,3 +12,12 @@ services:
               npm run dev -- --host 0.0.0.0"
     environment:
       - NODE_ENV=development
+    depends_on:
+      - mailhog
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog-dev
+    ports:
+      - 1025:1025
+      - 8025:8025
