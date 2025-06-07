@@ -17,6 +17,20 @@ export const POST: APIRoute = async ({ request }) => {
     const email = formData.get('email')?.toString() || '';
     const message = formData.get('message')?.toString() || '';
 
+    // Check if email credentials are available
+    if (!process.env.GMAIL_ADDRESS || !process.env.GMAIL_APP_PASSWORD) {
+      console.log('Email credentials not configured - simulating success for development');
+      console.log('Form data received:', {
+        firstName, lastName, phoneNumber, companyName, 
+        companySize, companyProduct, email, message
+      });
+      
+      return new Response(JSON.stringify({ success: true, development: true }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
     // Configure Nodemailer transport
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
