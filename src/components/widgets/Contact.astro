@@ -46,6 +46,7 @@ const {
         
         async function handleSubmit(e) {
           e.preventDefault();
+          e.stopPropagation();
           
           // Gather form data
           const formData = new FormData(e.target);
@@ -122,7 +123,7 @@ const {
             </div>
           )}
           
-          <form id="contactForm" action="/api/send-email" method="POST">
+          <form id="contactForm">
             {
               inputs &&
                 inputs.map(
