@@ -1,5 +1,5 @@
 site:
-  name: Lichen Commodities
+  name: Subsurfo
   site: 'https://lichen.com.au'
   base: '/'
   trailingSlash: false
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Lichen Commodities
+    default: Subsurfo
     template: '%s — Lichen'
-  description: "Subsurfo is a commodity resource cloud computing platform designed by Lichen Commodities. Subsurfo offers web-based 3D resource project visualisation, high-performance computing, data processing tools and more."
+  description: "Subsurfo is a commodity resource cloud computing platform designed by Subsurfo. Subsurfo offers web-based 3D resource project visualisation, high-performance computing, data processing tools and more."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Lichen Commodities
+    site_name: Subsurfo
     images:
       - url: '~/assets/images/lichen-thumbnail.png'
         width: 1200

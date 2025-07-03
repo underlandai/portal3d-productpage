@@ -3,15 +3,20 @@ import { SITE } from 'astrowind:config';
 import Image from '~/components/common/Image.astro';
 ---
 
-<span class="text-black dark:text-white font-quantify tracking-wide text-2xl sm:text-3xl leading-tight inline-flex items-center">
-  Subsurf
-  <Image 
-    id="header-subsurf-logo"
-    src="~/assets/images/coresync-circlev1-transparent.svg" 
-    alt="Subsurfo Logo as O" 
-    class="inline-block w-[0.7em] h-[0.7em] ml-0.4" 
-    width={32}
-    height={32}
-  />
-</span>
+<Image 
+  id="header-subsurfo-logo-light"
+  src="~/assets/images/subsurfo-o-logo-blk.svg" 
+  alt="Subsurfo Logo" 
+  class="h-8 sm:h-8 block dark:hidden"
+  width={150}
+  height={26}
+/>
+<Image 
+  id="header-subsurfo-logo-dark"
+  src="~/assets/images/subsurfo-o-logo-wt.svg" 
+  alt="Subsurfo Logo" 
+  class="h-8 sm:h-8 hidden dark:block"
+  width={150}
+  height={26}
+/>
 

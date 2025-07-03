@@ -47,6 +47,6 @@ export const footerData = {
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/lichen-com/' },
   ],
   footNote: `
-    © ${new Date().getFullYear()} Lichen Commodities Pty Ltd. All rights reserved.
+    © ${new Date().getFullYear()} Subsurfo Pty Ltd. All rights reserved.
   `,
 };

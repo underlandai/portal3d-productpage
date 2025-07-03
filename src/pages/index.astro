@@ -38,67 +38,46 @@ const metadata = {
   >
     <Fragment slot="title">
       <div class="flex flex-col items-center mb-4 group">
-        {/* <a href="https://coresync.dev" rel="noopener" target="_blank">
-          <Image 
-            id="coresync-logo"
-            src="~/assets/images/coresync-circlev1-transparent.svg" 
-            alt="Subsurfo Logo" 
-            class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mb-2 sm:mb-4 cursor-pointer" 
-            width={192}
-            height={192}
-          />
-        </a>
+        <Image 
+          id="subsurfo-logo-light"
+          src="~/assets/images/subsurfo-o-logo-blk.svg" 
+          alt="Subsurfo Logo" 
+          class="h-16 sm:h-20 md:h-24 w-auto block dark:hidden"
+          width={400}
+          height={70}
+        />
+        <Image 
+          id="subsurfo-logo-dark"
+          src="~/assets/images/subsurfo-o-logo-wt.svg" 
+          alt="Subsurfo Logo" 
+          class="h-16 sm:h-20 md:h-24 w-auto hidden dark:block"
+          width={400}
+          height={70}
+        />
 
         <script>
-          // (Your existing script remains unchanged)
-          const logo = document.getElementById('coresync-logo');
-          window.addEventListener('DOMContentLoaded', () => {
-            logo.classList.add('animate-spin-once');
-            setTimeout(() => {
-              logo.classList.remove('animate-spin-once');
-            }, 2000);
-          });
-          logo.addEventListener('mouseenter', () => {
-            if (!logo.classList.contains('animate-spin-once')) {
-              logo.classList.add('animate-spin-slow');
+          const subsurfoLogoLight = document.getElementById('subsurfo-logo-light');
+          const subsurfoLogoDark = document.getElementById('subsurfo-logo-dark');
+          
+          const addAnimationToLogo = (logo) => {
+            if (logo) {
+              window.addEventListener('DOMContentLoaded', () => {
+                logo.classList.add('animate-pulse');
+                setTimeout(() => {
+                  logo.classList.remove('animate-pulse');
+                }, 3000);
+              });
+              logo.addEventListener('mouseenter', () => {
+                logo.classList.add('animate-pulse');
+              });
+              logo.addEventListener('mouseleave', () => {
+                logo.classList.remove('animate-pulse');
+              });
             }
-          });
-          logo.addEventListener('mouseleave', () => {
-            logo.addEventListener('animationiteration', () => {
-              logo.classList.remove('animate-spin-slow');
-            }, {once: true});
-          });
-        </script> */}
-        <span class="text-black dark:text-white highlight font-quantify tracking-wide text-5xl sm:text-7xl md:text-8xl leading-tight inline-flex items-center">
-          Subsurf
-          <Image 
-            id="subsurf-logo"
-            src="~/assets/images/coresync-circlev1-transparent.svg" 
-            alt="Subsurfo Logo as O" 
-            class="inline-block w-[0.8em] h-[0.8em] mx-0.5" 
-            width={120}
-            height={120}
-          />
-        </span>
-
-        <script>
-          const subsurfLogo = document.getElementById('subsurf-logo');
-          window.addEventListener('DOMContentLoaded', () => {
-            subsurfLogo.classList.add('animate-spin-once');
-            setTimeout(() => {
-              subsurfLogo.classList.remove('animate-spin-once');
-            }, 2000);
-          });
-          subsurfLogo.addEventListener('mouseenter', () => {
-            if (!subsurfLogo.classList.contains('animate-spin-once')) {
-              subsurfLogo.classList.add('animate-spin-slow');
-            }
-          });
-          subsurfLogo.addEventListener('mouseleave', () => {
-            subsurfLogo.addEventListener('animationiteration', () => {
-              subsurfLogo.classList.remove('animate-spin-slow');
-            }, {once: true});
-          });
+          };
+          
+          addAnimationToLogo(subsurfoLogoLight);
+          addAnimationToLogo(subsurfoLogoDark);
         </script>
       </div>
     </Fragment>
@@ -185,7 +164,7 @@ const metadata = {
 
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Here are some common questions about CoreSync. If you can't find what you're looking for, please <a href='/contact' class='text-primary hover:underline'>contact</a> our support team"
+    subtitle="Here are some common questions about Subsurfo. If you can't find what you're looking for, please <a href='/contact' class='text-primary hover:underline'>contact</a> our support team"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
