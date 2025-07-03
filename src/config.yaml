@@ -11,7 +11,7 @@ metadata:
   title:
     default: Lichen Commodities
     template: '%s — Lichen'
-  description: "CoreSync is a commodity resource cloud computing platform designed by Lichen Commodities. CoreSync offers web-based 3D resource project visualisation, high-performance computing, data processing tools and more."
+  description: "Subsurfo is a commodity resource cloud computing platform designed by Lichen Commodities. Subsurfo offers web-based 3D resource project visualisation, high-performance computing, data processing tools and more."
   robots:
     index: true
     follow: true

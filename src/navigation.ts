@@ -3,7 +3,7 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'CoreSync',
+      text: 'Subsurfo',
       href: getPermalink('/'),
     },
     {
@@ -25,7 +25,7 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'CoreSync',
+      title: 'Subsurfo',
       links: [
         { text: 'Features', href: getPermalink('/') },
       ],

@@ -1,16 +1,17 @@
 ---
 import { SITE } from 'astrowind:config';
-import lichenLogoFull from '~/assets/images/Lichen-Logo-Vector-Black.svg';
-import lichenLogoWhiteText from '~/assets/images/Logo-Final Vector-whitetext.svg';
+import Image from '~/components/common/Image.astro';
 ---
 
-<img 
-  src={lichenLogoFull.src} 
-  alt="Lichen Commodities Logo"
-  class="h-10 sm:h-12 block dark:hidden"
-/>
-<img 
-  src={lichenLogoWhiteText.src} 
-  alt="Lichen Commodities Logo"
-  class="h-10 sm:h-12 hidden dark:block"
-/>
+<span class="text-black dark:text-white font-quantify tracking-wide text-2xl sm:text-3xl leading-tight inline-flex items-center">
+  Subsurf
+  <Image 
+    id="header-subsurf-logo"
+    src="~/assets/images/coresync-circlev1-transparent.svg" 
+    alt="Subsurfo Logo as O" 
+    class="inline-block w-[0.7em] h-[0.7em] ml-0.4" 
+    width={32}
+    height={32}
+  />
+</span>
+

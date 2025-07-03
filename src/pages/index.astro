@@ -38,11 +38,11 @@ const metadata = {
   >
     <Fragment slot="title">
       <div class="flex flex-col items-center mb-4 group">
-        <a href="https://coresync.dev" rel="noopener" target="_blank">
+        {/* <a href="https://coresync.dev" rel="noopener" target="_blank">
           <Image 
             id="coresync-logo"
             src="~/assets/images/coresync-circlev1-transparent.svg" 
-            alt="CoreSync Logo" 
+            alt="Subsurfo Logo" 
             class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mb-2 sm:mb-4 cursor-pointer" 
             width={192}
             height={192}
@@ -68,8 +68,38 @@ const metadata = {
               logo.classList.remove('animate-spin-slow');
             }, {once: true});
           });
+        </script> */}
+        <span class="text-black dark:text-white highlight font-quantify tracking-wide text-5xl sm:text-7xl md:text-8xl leading-tight inline-flex items-center">
+          Subsurf
+          <Image 
+            id="subsurf-logo"
+            src="~/assets/images/coresync-circlev1-transparent.svg" 
+            alt="Subsurfo Logo as O" 
+            class="inline-block w-[0.8em] h-[0.8em] mx-0.5" 
+            width={120}
+            height={120}
+          />
+        </span>
+
+        <script>
+          const subsurfLogo = document.getElementById('subsurf-logo');
+          window.addEventListener('DOMContentLoaded', () => {
+            subsurfLogo.classList.add('animate-spin-once');
+            setTimeout(() => {
+              subsurfLogo.classList.remove('animate-spin-once');
+            }, 2000);
+          });
+          subsurfLogo.addEventListener('mouseenter', () => {
+            if (!subsurfLogo.classList.contains('animate-spin-once')) {
+              subsurfLogo.classList.add('animate-spin-slow');
+            }
+          });
+          subsurfLogo.addEventListener('mouseleave', () => {
+            subsurfLogo.addEventListener('animationiteration', () => {
+              subsurfLogo.classList.remove('animate-spin-slow');
+            }, {once: true});
+          });
         </script>
-        <span class="text-black dark:text-white highlight font-quantify tracking-wide text-5xl sm:text-7xl md:text-8xl leading-tight">CoreSync</span>
       </div>
     </Fragment>
 
@@ -121,7 +151,7 @@ const metadata = {
 
 
   <Steps
-    title="CoreSync Your Subsurface Model in Three Simple Steps"
+    title="Subsurfo Your Subsurface Model in Three Simple Steps"
     items={[
       {
         title: 'Step 1: <span class="font-medium">Export & Upload</span>',
@@ -148,7 +178,7 @@ const metadata = {
     ]}
     image={{
       src: modelDemoImage,
-      alt: 'CoreSync Model Visualisation'
+      alt: 'Subsurfo Model Visualisation'
     }}
   />
 
@@ -176,11 +206,11 @@ const metadata = {
         items: [
           {
             title: 'Can we host our own data?',
-            description: 'Yes. For organisations with strict data residency or internal governance requirements, our Enterprise plan offers a self-hosted option. You can deploy the CoreSync visualisation platform within your own cloud environment, giving you complete control.',
+            description: 'Yes. For organisations with strict data residency or internal governance requirements, our Enterprise plan offers a self-hosted option. You can deploy the Subsurfo visualisation platform within your own cloud environment, giving you complete control.',
           },
           {
             title: 'Do you provide an API?',
-            description: "Yes, our Enterprise plan includes API access. The API allows you to programmatically upload models, manage projects, and embed the CoreSync 3D viewer directly into your company's internal applications, websites, or data platforms.",
+            description: "Yes, our Enterprise plan includes API access. The API allows you to programmatically upload models, manage projects, and embed the Subsurfo 3D viewer directly into your company's internal applications, websites, or data platforms.",
           },
         ],
       },
