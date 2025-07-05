@@ -1,0 +1,134 @@
+---
+import WidgetWrapper from '../ui/WidgetWrapper.astro';
+import type { Widget } from '~/types';
+import Headline from '~/components/ui/Headline.astro';
+
+interface Props extends Widget {
+  title?: string;
+  subtitle?: string;
+  tagline?: string;
+  description?: string;
+  disclaimer?: string;
+}
+
+const {
+  title = await Astro.slots.render('title'),
+  subtitle = await Astro.slots.render('subtitle'),
+  tagline = await Astro.slots.render('tagline'),
+  description = await Astro.slots.render('description'),
+  disclaimer = await Astro.slots.render('disclaimer'),
+
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <div
+    class="max-w-3xl mx-auto text-center p-6 rounded-md shadow-xl bg-white dark:bg-slate-900 dark:shadow-none dark:border dark:border-slate-600"
+  >
+    <Headline
+      title={title}
+      subtitle={subtitle}
+      tagline={tagline}
+      classes={{
+        container: 'mb-0 md:mb-0',
+        title: 'text-3xl md:text-4xl font-bold tracking-tighter mb-4 font-heading',
+        subtitle: 'text-xl text-muted dark:text-slate-400',
+      }}
+    />
+    
+    {description && (
+      <p class="text-gray-600 dark:text-gray-400 mb-6">{description}</p>
+    )}
+
+    <form 
+      class="max-w-md mx-auto"
+      action="/api/subscribe"
+      method="POST"
+      id="newsletter-form"
+    >
+      <div class="flex flex-col sm:flex-row gap-3">
+        <div class="flex-1">
+          <label for="email" class="sr-only">Email address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Enter your email address"
+            class="w-full px-4 py-3 rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          />
+        </div>
+        <button
+          type="submit"
+          class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+        >
+          Subscribe
+        </button>
+      </div>
+    </form>
+
+    {disclaimer && (
+      <p class="text-sm text-gray-500 dark:text-gray-400 mt-4">{disclaimer}</p>
+    )}
+
+    <div id="newsletter-message" class="mt-4 hidden">
+      <p class="text-green-600 dark:text-green-400 font-medium">
+        Thank you for subscribing! We'll keep you updated on new blog posts.
+      </p>
+    </div>
+  </div>
+</WidgetWrapper>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('newsletter-form');
+    const message = document.getElementById('newsletter-message');
+    const submitButton = form?.querySelector('button[type="submit"]');
+    
+    if (form && message && submitButton) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const formData = new FormData(form);
+        const email = formData.get('email');
+        
+        // Disable submit button and show loading state
+        const originalText = submitButton.textContent;
+        submitButton.disabled = true;
+        submitButton.textContent = 'Subscribing...';
+        
+        try {
+          const response = await fetch('/api/subscribe', {
+            method: 'POST',
+            body: formData
+          });
+          
+          const result = await response.json();
+          
+          if (result.success) {
+            // On success, hide the form and show success message
+            form.style.display = 'none';
+            message.classList.remove('hidden');
+          } else {
+            // Handle error from server
+            console.error('Error subscribing:', result.error);
+            alert('There was an error subscribing. Please try again.');
+            submitButton.disabled = false;
+            submitButton.textContent = originalText;
+          }
+          
+        } catch (error) {
+          console.error('Network error:', error);
+          alert('Network error. Please try again later.');
+          submitButton.disabled = false;
+          submitButton.textContent = originalText;
+        }
+      });
+    }
+  });
+</script>

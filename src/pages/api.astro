@@ -1,0 +1,129 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+const metadata = {
+  title: 'API Documentation',
+  description: 'Subsurfo API: Integrate with our cloud computing platform for resource projects.',
+};
+---
+
+<Layout metadata={metadata}>
+  <HeroText
+    title="Subsurfo API"
+    subtitle="Build powerful applications with our cloud computing platform"
+  /> 
+
+  <div class="py-12 px-4 sm:px-6 mx-auto max-w-6xl">
+    <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
+      The Subsurfo API provides programmatic access to our cloud computing platform for resource projects. 
+      Integrate 3D visualization, high-performance computing, and data processing capabilities directly into your applications.
+    </p>
+
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">API Features</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      <div class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Data Management</h3>
+        <p class="text-gray-600 dark:text-gray-400">
+          Upload, organize, and manage geospatial datasets. Support for industry-standard formats; OMF and GeoH5.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">3D Visualisation</h3>
+        <p class="text-gray-600 dark:text-gray-400">
+          Generate interactive 3D models and visualisations. Embed web-based 3D viewers directly into your applications or extract rendered images and animations.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">High-Performance Computing</h3>
+        <p class="text-gray-600 dark:text-gray-400">
+          Access scalable computing resources for complex calculations, simulations, and data processing tasks. Queue jobs and monitor progress through RESTful endpoints.
+        </p>
+      </div>
+
+      <div class="bg-white dark:bg-slate-900 p-6 rounded-lg shadow-md">
+        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Project Management</h3>
+        <p class="text-gray-600 dark:text-gray-400">
+          Create and manage projects, collaborate with team members, and control access permissions. Integrate with your existing workflow and project management tools.
+        </p>
+      </div>
+    </div>
+
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">Getting Started</h2>
+    
+    <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg mb-8">
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Authentication</h3>
+      <p class="text-gray-600 dark:text-gray-400 mb-4">
+        All API requests require authentication using API keys. Contact our team to obtain your API credentials.
+      </p>
+      <div class="bg-gray-900 text-green-400 p-4 rounded font-mono text-sm">
+        curl -H "Authorization: Bearer YOUR_API_KEY" \<br/>
+        &nbsp;&nbsp;&nbsp;&nbsp;https://api.subsurfo.com/v1/projects
+      </div>
+    </div>
+
+    <div class="bg-gray-50 dark:bg-slate-800 p-6 rounded-lg mb-8">
+      <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Base URL</h3>
+      <p class="text-gray-600 dark:text-gray-400 mb-4">
+        All API endpoints are accessed via HTTPS at:
+      </p>
+      <div class="bg-gray-900 text-blue-400 p-4 rounded font-mono text-sm">
+        https://api.subsurfo.com/v1/
+      </div>
+    </div>
+
+    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">API Endpoints</h2>
+    
+    <div class="space-y-6 mb-12">
+      <div class="border-l-4 border-blue-500 pl-4">
+        <h4 class="text-lg font-bold text-gray-900 dark:text-white">GET /projects</h4>
+        <p class="text-gray-600 dark:text-gray-400">List all projects accessible to your account</p>
+      </div>
+      
+      <div class="border-l-4 border-green-500 pl-4">
+        <h4 class="text-lg font-bold text-gray-900 dark:text-white">POST /projects</h4>
+        <p class="text-gray-600 dark:text-gray-400">Create a new project</p>
+      </div>
+      
+      <div class="border-l-4 border-yellow-500 pl-4">
+        <h4 class="text-lg font-bold text-gray-900 dark:text-white">PUT /projects/&#123;id&#125;</h4>
+        <p class="text-gray-600 dark:text-gray-400">Update project details</p>
+      </div>
+      
+      <div class="border-l-4 border-purple-500 pl-4">
+        <h4 class="text-lg font-bold text-gray-900 dark:text-white">POST /data/upload</h4>
+        <p class="text-gray-600 dark:text-gray-400">Upload data files to a project</p>
+      </div>
+      
+      <div class="border-l-4 border-red-500 pl-4">
+        <h4 class="text-lg font-bold text-gray-900 dark:text-white">POST /compute/jobs</h4>
+        <p class="text-gray-600 dark:text-gray-400">Submit a computing job</p>
+      </div>
+    </div>
+
+    <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8">
+      <h3 class="text-xl font-bold text-blue-900 dark:text-blue-100 mb-4">📚 Full Documentation</h3>
+      <p class="text-blue-800 dark:text-blue-200 mb-4">
+        Complete API documentation with examples, response schemas, and interactive testing is available in our developer portal.
+      </p>
+      <p class="text-blue-600 dark:text-blue-300 font-mono">
+        Coming soon: Interactive API documentation
+      </p>
+    </div>
+  </div>
+
+  <CallToAction
+    title="Start Building with Subsurfo API"
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Request API Access',
+        href: '/contact',
+      },
+    ]}
+  />
+</Layout>

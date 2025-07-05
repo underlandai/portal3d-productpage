@@ -5,6 +5,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import BlogList from '~/components/blog/List.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+import Newsletter from '~/components/widgets/Newsletter.astro';
 // import PostTags from "~/components/blog/Tags.astro";
 
 import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
@@ -49,4 +50,11 @@ const metadata = {
       <PostTags tags={allTags}  title="Search by Tags:" />
     -->
   </section>
+
+  <Newsletter
+    title="Stay Updated"
+    subtitle="Get notified when we publish new blog posts"
+    description="Subscribe to our newsletter and be the first to know about new insights, updates, and developments in resource intelligence and 3D visualisation."
+    disclaimer="We respect your privacy. Unsubscribe at any time."
+  />
 </Layout>

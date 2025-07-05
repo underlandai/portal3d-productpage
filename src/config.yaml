@@ -1,6 +1,6 @@
 site:
-  name: Subsurfo
-  site: 'https://lichen.com.au'
+  name: Underworlds
+  site: 'https://underworlds.com'
   base: '/'
   trailingSlash: false
 
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Subsurfo
-    template: '%s — Lichen'
-  description: "Subsurfo is a commodity resource cloud computing platform designed by Subsurfo. Subsurfo offers web-based 3D resource project visualisation, high-performance computing, data processing tools and more."
+    default: Underworlds
+    template: '%s — Underworlds'
+  description: "Underworlds is a commodity resource cloud computing platform designed by Underworlds. Underworlds offers web-based 3D resource project visualisation, high-performance computing, data processing tools and more."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Subsurfo
+    site_name: Underworlds
     images:
       - url: '~/assets/images/lichen-thumbnail.png'
         width: 1200

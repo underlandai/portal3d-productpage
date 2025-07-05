@@ -3,12 +3,12 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'Subsurfo',
-      href: getPermalink('/'),
+      text: 'Features',
+      href: getPermalink('/#features'),
     },
     {
-      text: 'Consulting',
-      href: getPermalink('/consulting'),
+      text: 'API',
+      href: getPermalink('/api'),
     },
     {
       text: 'Blog',
@@ -19,21 +19,21 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Contact us', href: getPermalink('/contact') }],
+  actions: [{ text: 'Portal', href: 'https://coresync.dev' }],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Subsurfo',
+      title: 'Underworlds',
       links: [
-        { text: 'Features', href: getPermalink('/') },
+        { text: 'Features', href: getPermalink('/#features') },
+        { text: 'API', href: getPermalink('/api') },
       ],
     },
     {
       title: 'Company',
       links: [
-        { text: 'Consulting', href: getPermalink('/consulting') },
         { text: 'Blog', href: getBlogPermalink() },
         { text: 'Contact', href: getPermalink('/contact') },
       ],
@@ -44,9 +44,9 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/lichen-com/' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/underworlds/' },
   ],
   footNote: `
-    © ${new Date().getFullYear()} Subsurfo Pty Ltd. All rights reserved.
+    © ${new Date().getFullYear()} Underworlds Pty Ltd. All rights reserved.
   `,
 };

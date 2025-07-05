@@ -12,7 +12,7 @@ import modelDemoImage from '~/assets/images/model-demo.png';
 import geoModelImage from '~/assets/images/rendered_geo_model_crop.tiff';
 
 const metadata = {
-  title: 'Lichen: Compute Commodities',
+  title: 'UNDERWORLDS | Powerful Cloud Visualisation for Subsurface Models',
   ignoreTitleTemplate: true,
 };
 ---
@@ -38,47 +38,38 @@ const metadata = {
   >
     <Fragment slot="title">
       <div class="flex flex-col items-center mb-4 group">
-        <Image 
-          id="subsurfo-logo-light"
-          src="~/assets/images/subsurfo-o-logo-blk.svg" 
-          alt="Subsurfo Logo" 
-          class="h-16 sm:h-20 md:h-24 w-auto block dark:hidden"
-          width={400}
-          height={70}
-        />
-        <Image 
-          id="subsurfo-logo-dark"
-          src="~/assets/images/subsurfo-o-logo-wt.svg" 
-          alt="Subsurfo Logo" 
-          class="h-16 sm:h-20 md:h-24 w-auto hidden dark:block"
-          width={400}
-          height={70}
-        />
+        <a href="https://coresync.dev" rel="noopener" target="_blank">
+          <Image 
+            id="coresync-logo"
+            src="~/assets/images/coresync-circlev1-transparent.svg" 
+            alt="CoreSync Logo" 
+            class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mb-2 sm:mb-4 cursor-pointer" 
+            width={192}
+            height={192}
+          />
+        </a>
 
         <script>
-          const subsurfoLogoLight = document.getElementById('subsurfo-logo-light');
-          const subsurfoLogoDark = document.getElementById('subsurfo-logo-dark');
-          
-          const addAnimationToLogo = (logo) => {
-            if (logo) {
-              window.addEventListener('DOMContentLoaded', () => {
-                logo.classList.add('animate-pulse');
-                setTimeout(() => {
-                  logo.classList.remove('animate-pulse');
-                }, 3000);
-              });
-              logo.addEventListener('mouseenter', () => {
-                logo.classList.add('animate-pulse');
-              });
-              logo.addEventListener('mouseleave', () => {
-                logo.classList.remove('animate-pulse');
-              });
+          // (Your existing script remains unchanged)
+          const logo = document.getElementById('coresync-logo');
+          window.addEventListener('DOMContentLoaded', () => {
+            logo.classList.add('animate-spin-once');
+            setTimeout(() => {
+              logo.classList.remove('animate-spin-once');
+            }, 2000);
+          });
+          logo.addEventListener('mouseenter', () => {
+            if (!logo.classList.contains('animate-spin-once')) {
+              logo.classList.add('animate-spin-slow');
             }
-          };
-          
-          addAnimationToLogo(subsurfoLogoLight);
-          addAnimationToLogo(subsurfoLogoDark);
+          });
+          logo.addEventListener('mouseleave', () => {
+            logo.addEventListener('animationiteration', () => {
+              logo.classList.remove('animate-spin-slow');
+            }, {once: true});
+          });
         </script>
+        <span class="text-black dark:text-white highlight tracking-wide text-5xl sm:text-7xl md:text-7xl leading-tight" style="font-family: 'Raleway', sans-serif; font-weight: 200;">UNDERWORLDS</span>
       </div>
     </Fragment>
 
@@ -107,7 +98,7 @@ const metadata = {
       },
       {
         title: 'Total Data Control',
-        description: 'Your data is hosted securely on AWS, never on our servers. Enterprise clients can opt for a fully self-hosted solution for ultimate data sovereignty.',
+                    description: `We prioritise your data sovereignty. Your data is <strong>never</strong> stored on Underworlds's own servers. All data is hosted on Amazon Web Services (AWS), the world's leading cloud platform. This provides robust security, reliability, and allows your data to be stored in specific geographic regions to meet compliance needs.`,
         icon: 'tabler:shield-lock',
       },
       {
@@ -130,7 +121,7 @@ const metadata = {
 
 
   <Steps
-    title="Subsurfo Your Subsurface Model in Three Simple Steps"
+    title="View Your Subsurface Model in Three Simple Steps"
     items={[
       {
         title: 'Step 1: <span class="font-medium">Export & Upload</span>',
@@ -157,22 +148,21 @@ const metadata = {
     ]}
     image={{
       src: modelDemoImage,
-      alt: 'Subsurfo Model Visualisation'
+      alt: 'CoreSync Model Visualisation'
     }}
   />
 
 
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Here are some common questions about Subsurfo. If you can't find what you're looking for, please <a href='/contact' class='text-primary hover:underline'>contact</a> our support team"
+    subtitle="Here are some common questions about CoreSync. If you can't find what you're looking for, please <a href='/contact' class='text-primary hover:underline'>contact</a> our support team"
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
         title: 'Data Security & Hosting',
         items: [
           {
-            title: 'Where is my data stored?',
-            description: `We prioritise your data sovereignty. Your data is <strong>never</strong> stored on Lichen's own servers. All data is hosted on Amazon Web Services (AWS), the world's leading cloud platform. This provides robust security, reliability, and allows your data to be stored in specific geographic regions to meet compliance needs.`,
+            title: 'Underworlds: Compute Commodities',
           },
           {
             title: 'Who has access to my subsurface models?',
@@ -185,11 +175,11 @@ const metadata = {
         items: [
           {
             title: 'Can we host our own data?',
-            description: 'Yes. For organisations with strict data residency or internal governance requirements, our Enterprise plan offers a self-hosted option. You can deploy the Subsurfo visualisation platform within your own cloud environment, giving you complete control.',
+            description: 'Yes. For organisations with strict data residency or internal governance requirements, our Enterprise plan offers a self-hosted option. You can deploy the CoreSync visualisation platform within your own cloud environment, giving you complete control.',
           },
           {
             title: 'Do you provide an API?',
-            description: "Yes, our Enterprise plan includes API access. The API allows you to programmatically upload models, manage projects, and embed the Subsurfo 3D viewer directly into your company's internal applications, websites, or data platforms.",
+            description: "Yes, our Enterprise plan includes API access. The API allows you to programmatically upload models, manage projects, and embed the CoreSync 3D viewer directly into your company's internal applications, websites, or data platforms.",
           },
         ],
       },

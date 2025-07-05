@@ -1,5 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import Newsletter from '~/components/widgets/Newsletter.astro';
 
 import type { MetaData } from '~/types';
 
@@ -25,4 +26,11 @@ const metadata: MetaData = {
       <slot />
     </div>
   </section>
+
+  <Newsletter
+    title="Stay in the Loop"
+    subtitle="Subscribe for updates on resource intelligence"
+    description="Get the latest insights on 3D visualisation, cloud computing, and resource industry innovations delivered to your inbox."
+    disclaimer="No spam, unsubscribe anytime."
+  />
 </Layout>
