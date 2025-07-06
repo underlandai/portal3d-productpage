@@ -44,7 +44,7 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/underworlds/' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/subsurfo/' },
   ],
   footNote: `
     © ${new Date().getFullYear()} Underworlds Pty Ltd. All rights reserved.
