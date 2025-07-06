@@ -21,7 +21,7 @@ For the purposes of these Terms and Conditions:
 
 -   **Country** refers to: Australia
 
--   **Company** (referred to as "Lichen" in this Agreement) refers to Subsurfo Pty Ltd ACN 671 671 686, 2 Park Rd, Crawley WA 6009, Australia.
+-   **Company** (referred to as "Lichen" in this Agreement) refers to Subsurfo Pty Ltd ACN 671 671 686 - UPDATE THIS, 2 Park Rd, Crawley WA 6009, Australia.
 
 -   **Device** means any device that can access the Service such as a computer, a cellphone or a digital tablet.
 
