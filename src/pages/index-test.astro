@@ -52,22 +52,24 @@ const metadata = {
         <script>
           // (Your existing script remains unchanged)
           const logo = document.getElementById('coresync-logo');
-          window.addEventListener('DOMContentLoaded', () => {
-            logo.classList.add('animate-spin-once');
-            setTimeout(() => {
-              logo.classList.remove('animate-spin-once');
-            }, 2000);
-          });
-          logo.addEventListener('mouseenter', () => {
-            if (!logo.classList.contains('animate-spin-once')) {
-              logo.classList.add('animate-spin-slow');
-            }
-          });
-          logo.addEventListener('mouseleave', () => {
-            logo.addEventListener('animationiteration', () => {
-              logo.classList.remove('animate-spin-slow');
-            }, {once: true});
-          });
+          if (logo) {
+            window.addEventListener('DOMContentLoaded', () => {
+              logo.classList.add('animate-spin-once');
+              setTimeout(() => {
+                logo.classList.remove('animate-spin-once');
+              }, 2000);
+            });
+            logo.addEventListener('mouseenter', () => {
+              if (!logo.classList.contains('animate-spin-once')) {
+                logo.classList.add('animate-spin-slow');
+              }
+            });
+            logo.addEventListener('mouseleave', () => {
+              logo.addEventListener('animationiteration', () => {
+                logo.classList.remove('animate-spin-slow');
+              }, {once: true});
+            });
+          }
         </script>
         <span class="text-black dark:text-white highlight tracking-wide text-5xl sm:text-7xl md:text-7xl leading-tight" style="font-family: 'Raleway', sans-serif; font-weight: 200;">UNDERWORLDS</span>
       </div>

@@ -149,6 +149,8 @@ export interface Price {
   price?: number | string;
   period?: string;
   billingPeriod?: string;
+  annualPrice?: number | string;
+  annualPeriod?: string;
   items?: Array<Item>;
   callToAction?: CallToAction;
   hasRibbon?: boolean;
