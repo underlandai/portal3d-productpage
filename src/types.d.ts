@@ -139,6 +139,7 @@ export interface Item {
   classes?: Record<string, string>;
   callToAction?: CallToAction;
   image?: Image;
+  items?: Array<Item>;
 }
 
 export interface Price {
@@ -147,6 +148,7 @@ export interface Price {
   description?: string;
   price?: number | string;
   period?: string;
+  billingPeriod?: string;
   items?: Array<Item>;
   callToAction?: CallToAction;
   hasRibbon?: boolean;
@@ -220,7 +222,7 @@ export interface Form {
 export interface Hero extends Omit<Headline, 'classes'>, Omit<Widget, 'isDark' | 'classes'> {
   content?: string;
   actions?: string | CallToAction[];
-  image?: string | unknown;
+  image?: string | Image | ImageMetadata;
 }
 
 export interface Team extends Omit<Headline, 'classes'>, Widget {
@@ -233,6 +235,7 @@ export interface Stats extends Omit<Headline, 'classes'>, Widget {
 
 export interface Pricing extends Omit<Headline, 'classes'>, Widget {
   prices?: Array<Price>;
+  hasMonthlyYearlyToggle?: boolean;
 }
 
 export interface Testimonials extends Omit<Headline, 'classes'>, Widget {
@@ -273,7 +276,7 @@ export interface Steps extends Omit<Headline, 'classes'>, Widget {
     classes?: Record<string, string>;
   }>;
   callToAction?: string | CallToAction;
-  image?: string | Image;
+  image?: string | Image | ImageMetadata;
   isReversed?: boolean;
 }
 
