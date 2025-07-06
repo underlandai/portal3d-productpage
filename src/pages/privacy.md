@@ -5,7 +5,7 @@ layout: '~/layouts/MarkdownLayout.astro'
 
 _Last updated_: March 3, 2025
 
-Underworlds Pty Ltd ACN 671 671 686 (**Underworlds**) takes your privacy seriously and is committed to responsible privacy practices. This policy describes how Underworlds manages your personal information, including details of what types of personal information Underworlds collects, how Underworlds collects your personal information, the purposes for which Underworlds uses your personal information, and to whom your personal information is disclosed. For any privacy-related inquiries, you can contact Underworlds at privacy@underworlds.com.au.
+Underworlds Pty Ltd ACN 671 671 686 - UPDATE (**Underworlds**) takes your privacy seriously and is committed to responsible privacy practices. This policy describes how Underworlds manages your personal information, including details of what types of personal information Underworlds collects, how Underworlds collects your personal information, the purposes for which Underworlds uses your personal information, and to whom your personal information is disclosed. For any privacy-related inquiries, you can contact Underworlds at privacy@underworlds.com.au.
 
 This Privacy Policy describes Underworlds's policies and procedures on the collection, use, and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
 
