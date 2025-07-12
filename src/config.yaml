@@ -1,5 +1,5 @@
 site:
-  name: Underworlds
+  name: underworlds
   site: 'https://underworlds.com'
   base: '/'
   trailingSlash: false
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Underworlds
-    template: '%s — Underworlds'
-  description: "Underworlds is a commodity resource cloud computing platform designed by Underworlds. Underworlds offers web-based 3D resource project visualisation, high-performance computing, data processing tools and more."
+    default: underworlds
+    template: '%s — underworlds'
+  description: "underworlds is a commodity resource cloud computing platform designed by underworlds. underworlds offers web-based 3D resource project visualisation, high-performance computing, data processing tools and more."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Underworlds
+    site_name: underworlds
     images:
       - url: '~/assets/images/lichen-thumbnail.png'
         width: 1200

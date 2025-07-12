@@ -50,13 +50,13 @@ export const POST: APIRoute = async ({ request }) => {
         : `"Newsletter" <${process.env.GMAIL_ADDRESS}>`,
       to: 'sales@lichen.com.au',
       subject: 'New Newsletter Subscription',
-      text: `A new user has subscribed to the newsletter:\n\nEmail: ${email}\n\nSubscribed via: Subsurfo Blog`,
+      text: `A new user has subscribed to the newsletter:\n\nEmail: ${email}\n\nSubscribed via: underworlds Blog`,
       html: `
         <h2>New Newsletter Subscription</h2>
         <p>A new user has subscribed to the newsletter:</p>
         <ul>
           <li><strong>Email:</strong> ${email}</li>
-          <li><strong>Source:</strong> Subsurfo Blog</li>
+          <li><strong>Source:</strong> underworlds Blog</li>
           <li><strong>Date:</strong> ${new Date().toLocaleString()}</li>
         </ul>
       `,
@@ -65,11 +65,11 @@ export const POST: APIRoute = async ({ request }) => {
     // Optional: Send welcome email to subscriber
     if (!isDevelopment) {
       await transporter.sendMail({
-        from: `"Subsurfo" <${process.env.GMAIL_ADDRESS}>`,
+        from: `"underworlds" <${process.env.GMAIL_ADDRESS}>`,
         to: email,
-        subject: 'Welcome to Subsurfo Updates!',
+        subject: 'Welcome to underworlds Updates!',
         html: `
-          <h2>Welcome to Subsurfo!</h2>
+          <h2>Welcome to underworlds!</h2>
           <p>Thank you for subscribing to our newsletter. You'll now receive updates about:</p>
           <ul>
             <li>New blog posts and insights</li>
@@ -78,7 +78,7 @@ export const POST: APIRoute = async ({ request }) => {
             <li>3D visualisation developments</li>
           </ul>
           <p>We're excited to keep you in the loop!</p>
-          <p>Best regards,<br>The Subsurfo Team</p>
+          <p>Best regards,<br>The underworlds Team</p>
           <hr>
           <p><small>If you didn't subscribe to this newsletter, you can safely ignore this email.</small></p>
         `,

@@ -19,13 +19,13 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Portal', href: 'https://Underworlds.dev' }],
+  actions: [{ text: 'Portal', href: 'https://coresync.dev' }],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Underworlds',
+      title: 'underworlds',
       links: [
         { text: 'Features', href: getPermalink('/#features') },
         { text: 'API', href: getPermalink('/api') },
@@ -47,6 +47,6 @@ export const footerData = {
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/subsurfo/' },
   ],
   footNote: `
-    © ${new Date().getFullYear()} Underworlds Pty Ltd. All rights reserved.
+    © ${new Date().getFullYear()} underworlds Pty Ltd. All rights reserved.
   `,
 };
