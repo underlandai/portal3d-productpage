@@ -82,7 +82,6 @@ const { post, url } = Astro.props;
               alt={post?.excerpt || ''}
               width={400}
               height={400}
-              fit="contain"
               loading="eager"
               decoding="async"
             />
@@ -90,7 +89,7 @@ const { post, url } = Astro.props;
             <script>
               // Check if this is the underland.cloud post
               const blogLogo = document.getElementById('blog-coresync-logo');
-              if (blogLogo && blogLogo.getAttribute('src').includes('coresync')) {
+              if (blogLogo && blogLogo.getAttribute('src')?.includes('coresync')) {
                 // Add the animation class when mouse enters
                 blogLogo.addEventListener('mouseenter', () => {
                   blogLogo.classList.add('animate-spin-slow');

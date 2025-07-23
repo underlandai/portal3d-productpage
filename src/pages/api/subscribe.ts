@@ -31,6 +31,7 @@ export const POST: APIRoute = async ({ request }) => {
             ignoreTLS: true,
             secure: false,
             auth: false,
+          } as any
           }
         : {
             host: 'smtp.gmail.com',

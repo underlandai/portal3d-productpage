@@ -94,12 +94,12 @@ const {
         e.preventDefault();
         e.stopPropagation();
         
-        const formData = new FormData(form);
-        const email = formData.get('email');
+        const formData = new FormData(form as HTMLFormElement);
+        const _email = formData.get('email');
         
         // Disable submit button and show loading state
         const originalText = submitButton.textContent;
-        submitButton.disabled = true;
+        (submitButton as HTMLButtonElement).disabled = true;
         submitButton.textContent = 'Subscribing...';
         
         try {
