@@ -113,7 +113,7 @@ const {
     <div class="grid grid-cols-3 gap-4 dark:text-white sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
       {
         prices &&
-          prices.map(({ title, subtitle, price, period, annualPrice, annualPeriod: _annualPeriod, items, callToAction, hasRibbon = false, ribbonTitle, billingPeriod }) => {
+          prices.map(({ title, subtitle, price, period, annualPrice, items, callToAction, hasRibbon = false, ribbonTitle, billingPeriod }) => {
             // Determine if this is a monthly, annual, or period-independent plan (like Free)
             const isMonthlyPlan = billingPeriod === 'monthly' || (!billingPeriod && !annualPrice);
             const isAnnualPlan = billingPeriod === 'annual';

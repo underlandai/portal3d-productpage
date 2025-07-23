@@ -18,6 +18,11 @@ export const headerData = {
       text: 'Contact',
       href: getPermalink('/contact'),
     },
+    {
+      text: 'Careers',
+      href: 'https://lichen.com.au',
+      target: '_blank',
+    },
   ],
   actions: [{ text: 'Portal', href: 'https://coresync.dev' }],
 };
@@ -47,6 +52,6 @@ export const footerData = {
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/subsurfo/' },
   ],
   footNote: `
-    © ${new Date().getFullYear()} Underland Pty Ltd. All rights reserved.
+    © ${new Date().getFullYear()} Underland Pty Ltd. All rights reserved. A <a href="https://lichen.com.au" target="_blank" rel="noopener noreferrer" class="hover:underline">Lichen Commodities</a> company.
   `,
 };
