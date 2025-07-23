@@ -1,4 +1,4 @@
-# Lichen Homepage Project Guide
+# Underland Homepage Project Guide
 
 ## Git Preferences
 - **Commit Messages**: Use concise, descriptive commit messages without Claude attribution

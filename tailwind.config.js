@@ -12,6 +12,12 @@ export default {
         accent: 'var(--aw-color-accent)',
         default: 'var(--aw-color-text-default)',
         muted: 'var(--aw-color-text-muted)',
+        // Brand colors from style guide
+        'deep-teal': '#668a84',
+        'sage-green': '#89b09f', 
+        'muted-gold': '#b09763',
+        'sandstone': '#dfd7c6',
+        // Legacy lichen colors (keeping for compatibility)
         'lichen-gold': 'var(--aw-color-gold)',
         'lichen-beige': 'var(--aw-color-beige)',
         'lichen-gray': 'var(--aw-color-gray)',
@@ -22,8 +28,8 @@ export default {
       fontFamily: {
         sans: ['Helvetica', ...defaultTheme.fontFamily.sans],
         serif: ['var(--aw-font-serif, ui-serif)', ...defaultTheme.fontFamily.serif],
-        heading: ['Helvetica', ...defaultTheme.fontFamily.sans],
-        quantify: ['Quantify', 'sans-serif'],
+        heading: ['Raleway', ...defaultTheme.fontFamily.sans],
+        raleway: ['Raleway', ...defaultTheme.fontFamily.sans],
       },
 
       animation: {

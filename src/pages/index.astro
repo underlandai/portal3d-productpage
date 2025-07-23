@@ -12,7 +12,7 @@ import modelDemoImage from '~/assets/images/model-demo.png';
 import geoModelImage from '~/assets/images/rendered_geo_model_crop.tiff';
 
 const metadata = {
-  title: 'underworlds.io | Powerful Cloud Visualisation for Subsurface Models',
+  title: 'underland.cloud | Powerful Cloud Visualisation for Subsurface Models',
   ignoreTitleTemplate: true,
 };
 ---
@@ -42,7 +42,7 @@ const metadata = {
           <Image 
             id="coresync-logo"
             src="~/assets/images/coresync-circlev1-transparent.svg" 
-            alt="underworlds Logo" 
+            alt="underland.cloud Logo" 
             class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mb-2 sm:mb-4 cursor-pointer" 
             width={192}
             height={192}
@@ -71,7 +71,8 @@ const metadata = {
             });
           }
         </script>
-        <span class="text-black dark:text-white highlight tracking-wide text-5xl sm:text-7xl md:text-7xl leading-tight" style="font-family: 'Raleway', sans-serif; font-weight: 200;">underworlds</span>
+        <span class="text-black dark:text-white highlight tracking-wide text-5xl sm:text-7xl md:text-7xl leading-tight" style="font-family: 'Raleway', sans-serif; font-weight: 200;">Underland Cloud
+        </span>
       </div>
     </Fragment>
 
@@ -84,38 +85,43 @@ const metadata = {
 
   <Features
     id="features"
-    tagline="Resource Intelligence Platform"
-    title="Collaborate in 3D, not in screenshots"
-    subtitle="Securely and quickly share subsurface models with stakeholders on the web"
+    tagline="Key Capabilities"
+    title="A New Era for Subsurface Model Collaboration"
+    subtitle="underland.cloud is a resource intelligence platform designed to connect mining and exploration projects with the capabilities of cloud-based, high-performance computing."
     items={[
       {
         title: 'High-Performance Visualisation',
-        description: 'Explore complex subsurface models directly in your browser. Our AWS HPC-powered backend ensures a smooth, interactive 3D experience with no software needed.',
+        description: 'Explore intricate subsurface models directly in your web browser. Our AWS High-Performance Computing (HPC) backend ensures a fluid, interactive 3D experience, removing the dependency on specialised software or powerful local workstations.',
         icon: 'tabler:device-imac-bolt',
       },
       {
-        title: 'Broad Compatibility',
-        description: 'Works with your existing software. Easily export OMF files from Leapfrog, Deswik, Maptek Vulcan, Micromine, GEOVIA, Geosoft, and more.',
-        icon: 'tabler:transfer-in',
-      },
-      {
-        title: 'Total Data Control',
-                    description: `We prioritise your data sovereignty. Your data is <strong>never</strong> stored on underworlds's own servers. All data is hosted on Amazon Web Services (AWS), the world's leading cloud platform. This provides robust security, reliability, and allows your data to be stored in specific geographic regions to meet compliance needs.`,
-        icon: 'tabler:shield-lock',
-      },
-      {
         title: 'Instant Collaboration',
-        description: 'Share complex data and interactive 3D subsurface models with stakeholders instantly using a secure link.',
+        description: 'Securely share complex data and interactive 3D subsurface models with stakeholders instantaneously via a unique link.',
         icon: 'tabler:share',
       },
       {
+        title: 'Total Data Control',
+        description: 'Maintain complete data sovereignty with secure hosting on AWS. Enterprise clients have the option of a fully self-hosted solution.',
+        icon: 'tabler:shield-lock',
+      },
+      {
+        title: 'Broad Compatibility',
+        description: 'underland.cloud integrates with your existing software workflows. Export your models with ease from leading packages such as Leapfrog, Deswik, Mira Geoscience, Maptek Vulcan, Micromine, GEOVIA, and, Datamine.',
+        icon: 'tabler:transfer-in',
+      },
+      {
         title: 'Global Reach, Low Latency',
-        description: 'Leveraging AWS global infrastructure, we serve your models from data centers near your stakeholders, ensuring fast load times worldwide.',
+        description: "By leveraging AWS's global infrastructure, we serve your models from data centres located near your stakeholders, ensuring optimal load times worldwide.",
         icon: 'tabler:world',
       },
       {
+        title: 'API Access',
+        description: "Integrate underland.cloud into your workflows with API access for programmatic control, available on our Enterprise plan.",
+        icon: 'tabler:puzzle',
+      },
+      {
         title: 'Dedicated Support',
-        description: "We're here to help you integrate, deploy, and scale when you need it.",
+        description: "Our team is available to assist with integration, deployment, and scaling to meet your operational requirements.",
         icon: 'tabler:lifebuoy',
       },
     ]}
@@ -128,19 +134,19 @@ const metadata = {
       {
         title: 'Step 1: <span class="font-medium">Export & Upload</span>',
         description:
-          "Export your Open Mining Format (OMF) file from your mining software, and upload your 3D subsurface model in the browser.",
+          "Export your Open Mining Format (OMF) or GeoH5 file from your existing mining software and upload the 3D subsurface model through our secure web interface.",
         icon: 'tabler:upload',
       },
       {
         title: 'Step 2: <span class="font-medium">Verify Ownership</span>',
         description:
-          "Create a free account to verify your ownership of the subsurface model and control access.",
+          "Create a complimentary account to verify ownership of the model and configure access controls.",
         icon: 'tabler:user-check',
       },
       {
         title: 'Step 3: <span class="font-medium">Visualise & Share</span>',
         description:
-          "Visualise your interactive 3D subsurface model and share with a unique URL.",
+          "Visualise your interactive 3D model and distribute it to stakeholders using a unique, secure URL.",
         icon: 'tabler:world-share',
       },
       {
@@ -150,21 +156,20 @@ const metadata = {
     ]}
     image={{
       src: modelDemoImage,
-      alt: 'underworlds Model Visualisation'
+      alt: 'underland.cloud Model Visualisation'
     }}
   />
 
 
   <FAQs
     title="Frequently Asked Questions"
-    subtitle="Here are some common questions about underworlds. If you can't find what you're looking for, please <a href='/contact' class='text-primary hover:underline'>contact</a> our support team"
+    subtitle="Here are some common questions about underland.cloud. If you cannot find the information you require, please <a href='/contact' class='text-primary hover:underline'>contact</a> our support team."
     classes={{ container: 'max-w-6xl' }}
     items={[
       {
         title: 'Data Security & Hosting',
         items: [
           {
-
             title: 'Where is my data stored?',
             description: 'We prioritise your data sovereignty. Your data is never stored on our own servers. All data is hosted on Amazon Web Services (AWS), the world’s leading cloud platform. This provides robust security, reliability, and allows your data to be stored in specific geographic regions to meet compliance needs.',
           },
@@ -179,11 +184,11 @@ const metadata = {
         items: [
           {
             title: 'Can we host our own data?',
-            description: 'Yes. For organisations with strict data residency or internal governance requirements, our Enterprise plan offers a self-hosted option. You can deploy the underworlds visualisation platform within your own cloud environment, giving you complete control.',
+            description: 'Yes. For organisations with strict data residency or internal governance requirements, our Enterprise plan offers a self-hosted option. You can deploy the underland.cloud visualisation platform within your own cloud environment, giving you complete control.',
           },
           {
             title: 'Do you provide an API?',
-            description: "Yes, our Enterprise plan includes API access. The API allows you to programmatically upload models, manage projects, and embed the underworlds 3D viewer directly into your company's internal applications, websites, or data platforms.",
+            description: "Yes, our Enterprise plan includes API access. The API allows you to programmatically upload models, manage projects, and embed the underland.cloud 3D viewer directly into your company's internal applications, websites, or data platforms.",
           },
         ],
       },
@@ -192,14 +197,24 @@ const metadata = {
         items: [
           {
             title: 'How long will it take for my subsurface model to be processed?',
-            description: `<p>Thanks to our AWS High-Performance Computing (HPC) backend, most subsurface models are ready within a few minutes. However, processing time can occasionally take longer depending on:</p>
-            <p>• The size and complexity of your data (up to 1TB).<br>
-            • Current platform demand.</p>
-            <p>We're constantly optimising our processing pipeline for speed.</p>`,
+            description: "Thanks to our AWS High-Performance Computing (HPC) backend, most subsurface models are ready within a few minutes. However, processing time can occasionally take longer depending on the size and complexity of your data (up to 1TB) and current platform demand. We're constantly optimising our processing pipeline for speed.",
           },
           {
-            title: 'Do you support any file formats besides OMF?',
-            description: 'Yes! While OMF is our primary format, we are actively developing support for others. We plan to add support for VTK, GEOH5, GOCAD, CSV, and OBJ files. Ask and we will provide.',
+            title: 'Do you support any file formats besides OMF and GeoH5?',
+            description: 'Yes! While OMF and GeoH5 are our primary format, we are actively developing support for others. We plan to add support for VTK, GOCAD, CSV, and OBJ files in the future. If you have a specific format need, please ask!',
+          },
+        ],
+      },
+      {
+        title: 'Getting Started',
+        items: [
+          {
+            title: 'How do I get started?',
+            description: 'Visit underland.cloud to create a free account and explore the platform. To unlock sharing, API access, and collaboration features, choose a Professional, Team, or Enterprise plan. For enterprise inquiries, please contact us.',
+          },
+          {
+            title: 'How can I provide feedback?',
+            description: 'We value your feedback! Please use the contact us form to share your thoughts, suggestions, and any issues you encounter. Your input is crucial as we continue to develop underland.cloud.',
           },
         ],
       },

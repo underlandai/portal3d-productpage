@@ -25,7 +25,7 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'underworlds',
+      title: 'Underland Cloud',
       links: [
         { text: 'Features', href: getPermalink('/#features') },
         { text: 'API', href: getPermalink('/api') },
@@ -47,6 +47,6 @@ export const footerData = {
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/subsurfo/' },
   ],
   footNote: `
-    © ${new Date().getFullYear()} underworlds Pty Ltd. All rights reserved.
+    © ${new Date().getFullYear()} Underland Pty Ltd. All rights reserved.
   `,
 };
