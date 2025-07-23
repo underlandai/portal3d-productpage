@@ -26,6 +26,23 @@
   
   // Tile class to manage individual tiles
   class Tile {
+    x: number;
+    y: number;
+    scale: number;
+    rotation: number;
+    targetRotation: number;
+    colorIndex: number;
+    opacity: number;
+    targetOpacity: number;
+    lifetime: number;
+    age: number;
+    growthPhase: boolean;
+    fadeOutThreshold: number;
+    rotationSpeed: number;
+    boundingBox: any;
+    growthRate: number;
+    decayRate: number;
+    
     constructor(x: number, y: number, scale: number, rotation = 0, _colorIndex = 0) {
       this.x = x;
       this.y = y;
@@ -110,7 +127,7 @@
       return this.age <= this.lifetime && !(this.age > this.fadeOutThreshold && this.opacity < 0.01);
     }
     
-    draw(ctx) {
+    draw(ctx: any) {
       ctx.save();
       ctx.translate(this.x, this.y);
       ctx.rotate(this.rotation);
@@ -135,7 +152,7 @@
   }
   
   // Helper function to calculate the bounding box of a tile
-  function getTileBoundingBox(tile) {
+  function getTileBoundingBox(tile: any) {
     // Calculate the bounding box corners considering the rotation
     // For simplicity, we'll use a circular approximation first
     const radius = Math.max(originalWidth, originalHeight) * 0.5 * tile.scale;
@@ -150,7 +167,7 @@
   }
   
   // Helper function to check for tile collisions using bounding boxes
-  function isTileColliding(tile, existingTiles, safeDistance) {
+  function isTileColliding(tile: any, existingTiles: any[], safeDistance: number) {
     // Calculate a bounding box for the new tile
     const bbox1 = getTileBoundingBox(tile);
     
@@ -185,7 +202,7 @@
   }
   
   // Helper function to find a tessellation point
-  function findNearestTessellationPoint(x, y, existingTiles, tileSize) {
+  function findNearestTessellationPoint(x: number, y: number, existingTiles: any[], tileSize: number) {
     // Look for nearby tiles to tessellate with
     const nearbyTiles = existingTiles.filter(tile => {
       const dx = tile.x - x;
@@ -267,7 +284,7 @@
       const yCount = Math.ceil(window.innerHeight / spacing) + 1;
       
       // Create initial pool of potential tile positions
-      const potentialPositions = [];
+      const potentialPositions: Array<{x: number, y: number, rotation: number, scale: number, priority: number}> = [];
       
       // Generate potential positions in a grid pattern first
       for (let x = -1; x < xCount; x++) {
@@ -290,7 +307,8 @@
             x: posX,
             y: posY,
             rotation: rotation,
-            scale: scale
+            scale: scale,
+            priority: Math.random()
           });
         }
       }
@@ -423,7 +441,7 @@
       const safeDistance = tileSize * 1.0; // Match the larger safe distance
       
       // Generate a list of potential positions to try
-      const potentialPositions = [];
+      const potentialPositions: Array<{x: number, y: number, rotation: number, scale: number, priority: number}> = [];
       
       // Try various locations based on current phase
       if (this.isInitializing && this.frameCount < 100) {
@@ -448,7 +466,7 @@
         // Create a few positions from each edge of the screen
         for (let i = 0; i < 4; i++) {
           const side = i; // Try all sides: 0: top, 1: right, 2: bottom, 3: left
-          let posX, posY;
+          let posX: number = 0, posY: number = 0;
           
           // Position the tile just outside the visible area
           switch(side) {
@@ -489,7 +507,7 @@
         // Also add some potential tessellation points
         if (this.tiles.length > 0) {
           // Find some existing tiles that might be good for tessellation
-          const tessSources = [];
+          const tessSources: any[] = [];
           
           // Prioritize tiles near the edges of the current layout for organic growth
           for (const tile of this.tiles) {
@@ -576,7 +594,7 @@
       }
     }
     
-    animate(currentTime) {
+    animate(currentTime: number) {
       // Use requestAnimationFrame for smooth animation
       requestAnimationFrame(this.animate.bind(this));
       

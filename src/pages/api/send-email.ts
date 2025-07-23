@@ -24,6 +24,12 @@ export const POST: APIRoute = async ({ request }) => {
       firstName, lastName, phoneNumber, companyName, 
       companySize, companyProduct, email, message
     });
+    
+    console.log('Email configuration:', {
+      isDevelopment,
+      host: isDevelopment ? 'mailhog' : 'smtp.gmail.com',
+      port: isDevelopment ? 1025 : 465
+    });
 
     // Configure Nodemailer transport
     const transporter = nodemailer.createTransport(
@@ -49,14 +55,22 @@ export const POST: APIRoute = async ({ request }) => {
       
 
     // Send mail
-    await transporter.sendMail({
-      from: isDevelopment 
-        ? '"Website" <test@localhost>' 
-        : `"Website" <${process.env.GMAIL_ADDRESS}>`,
-      to: 'sales@lichen.com.au',
-      subject: 'New form submission',
-      text: `First Name: ${firstName}\nLast Name: ${lastName}\nPhone Number: ${phoneNumber}\nCompany Name: ${companyName}\nCompany Size: ${companySize}\nCompany Product: ${companyProduct}\nEmail: ${email}\nMessage: ${message}`,
-    });
+    console.log('Attempting to send email...');
+    try {
+      const result = await transporter.sendMail({
+        from: isDevelopment 
+          ? '"Website" <test@localhost>' 
+          : `"Website" <${process.env.GMAIL_ADDRESS}>`,
+        to: 'oli@underland.cloud',
+        subject: 'New form submission',
+        text: `First Name: ${firstName}\nLast Name: ${lastName}\nPhone Number: ${phoneNumber}\nCompany Name: ${companyName}\nCompany Size: ${companySize}\nCompany Product: ${companyProduct}\nEmail: ${email}\nMessage: ${message}`,
+      });
+      
+      console.log('Email sent successfully!', result);
+    } catch (emailError) {
+      console.error('Failed to send email:', emailError);
+      throw emailError; // Re-throw to be caught by outer try-catch
+    }
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,

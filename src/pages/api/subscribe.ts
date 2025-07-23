@@ -21,6 +21,12 @@ export const POST: APIRoute = async ({ request }) => {
     const isDevelopment = !process.env.GMAIL_ADDRESS || !process.env.GMAIL_APP_PASSWORD;
     
     console.log('Newsletter subscription received:', { email });
+    
+    console.log('Email configuration:', {
+      isDevelopment,
+      host: isDevelopment ? 'mailhog' : 'smtp.gmail.com',
+      port: isDevelopment ? 1025 : 465
+    });
 
     // Configure Nodemailer transport
     const transporter = nodemailer.createTransport(
@@ -44,23 +50,31 @@ export const POST: APIRoute = async ({ request }) => {
     );
 
     // Send notification email to your team
-    await transporter.sendMail({
-      from: isDevelopment 
-        ? '"Newsletter" <test@localhost>' 
-        : `"Newsletter" <${process.env.GMAIL_ADDRESS}>`,
-      to: 'sales@underland.cloud',
-      subject: 'New Newsletter Subscription',
-      text: `A new user has subscribed to the newsletter:\n\nEmail: ${email}\n\nSubscribed via: Underland Cloud Blog`,
-      html: `
-        <h2>New Newsletter Subscription</h2>
-        <p>A new user has subscribed to the newsletter:</p>
-        <ul>
-          <li><strong>Email:</strong> ${email}</li>
-          <li><strong>Source:</strong> Underland Cloud Blog</li>
-          <li><strong>Date:</strong> ${new Date().toLocaleString()}</li>
-        </ul>
-      `,
-    });
+    console.log('Attempting to send newsletter notification email...');
+    try {
+      const result = await transporter.sendMail({
+        from: isDevelopment 
+          ? '"Newsletter" <test@localhost>' 
+          : `"Newsletter" <${process.env.GMAIL_ADDRESS}>`,
+        to: 'oli@underland.cloud',
+        subject: 'New Newsletter Subscription',
+        text: `A new user has subscribed to the newsletter:\n\nEmail: ${email}\n\nSubscribed via: Underland Cloud Blog`,
+        html: `
+          <h2>New Newsletter Subscription</h2>
+          <p>A new user has subscribed to the newsletter:</p>
+          <ul>
+            <li><strong>Email:</strong> ${email}</li>
+            <li><strong>Source:</strong> Underland Cloud Blog</li>
+            <li><strong>Date:</strong> ${new Date().toLocaleString()}</li>
+          </ul>
+        `,
+      });
+      
+      console.log('Newsletter notification email sent successfully!', result);
+    } catch (emailError) {
+      console.error('Failed to send newsletter email:', emailError);
+      throw emailError; // Re-throw to be caught by outer try-catch
+    }
 
     // Optional: Send welcome email to subscriber
     if (!isDevelopment) {

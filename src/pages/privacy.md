@@ -5,7 +5,7 @@ layout: '~/layouts/MarkdownLayout.astro'
 
 _Last updated_: March 3, 2025
 
-Underland Pty Ltd ACN 671 671 686 (**Underland Cloud**) takes your privacy seriously and is committed to responsible privacy practices. This policy describes how Underland Cloud manages your personal information, including details of what types of personal information Underland Cloud collects, how Underland Cloud collects your personal information, the purposes for which Underland Cloud uses your personal information, and to whom your personal information is disclosed. For any privacy-related inquiries, you can contact Underland Cloud at privacy@underland.cloud
+Underland Pty Ltd ACN 689 228 251 (**Underland Cloud**) takes your privacy seriously and is committed to responsible privacy practices. This policy describes how Underland Cloud manages your personal information, including details of what types of personal information Underland Cloud collects, how Underland Cloud collects your personal information, the purposes for which Underland Cloud uses your personal information, and to whom your personal information is disclosed. For any privacy-related inquiries, you can contact Underland Cloud at privacy@underland.cloud
 
 This Privacy Policy describes Underland Cloud's policies and procedures on the collection, use, and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
 
@@ -22,7 +22,7 @@ The words of which the initial letter is capitalized have meanings defined under
 For the purposes of this Privacy Policy:
 
 -   **Account** means a unique account created for You to access the Service or parts of the Service.
--   **Company** (referred to as "Underland" in this Agreement) refers to Underland Pty Ltd ACN 671 671 686, 2 Park Rd, Crawley WA 6009, Australia.
+-   **Company** (referred to as "Underland" in this Agreement) refers to Underland Pty Ltd ACN 689 228 251, 2 Park Rd, Crawley WA 6009, Australia.
 -   **Cookies** are small files that are placed on Your computer, mobile device, or any other device by a website, containing the details of Your browsing history on that website among its many uses.
 -   **Country** refers to: Australia
 -   **Device** means any device that can access the Service, such as a computer, a cellphone, or a digital tablet.

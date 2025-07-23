@@ -1,5 +1,4 @@
 ---
-import FormContainer from '~/components/ui/Form.astro';
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Button from '~/components/ui/Button.astro';
@@ -36,6 +35,7 @@ const {
       const submitAgainBtn = document.getElementById('submitAgain');
 
       if (form && formContainer && successMessage && submitAgainBtn) {
+        console.log('Contact form: Initializing event listeners');
         // Remove any existing listeners to prevent duplicates
         form.removeEventListener('submit', handleSubmit);
         submitAgainBtn.removeEventListener('click', handleSubmitAgain);
@@ -43,13 +43,15 @@ const {
         // Add new listeners
         form.addEventListener('submit', handleSubmit);
         submitAgainBtn.addEventListener('click', handleSubmitAgain);
+        console.log('Contact form: Event listeners attached');
         
-        async function handleSubmit(e) {
+        async function handleSubmit(e: Event) {
+          console.log('Contact form: Submit handler called');
           e.preventDefault();
           e.stopPropagation();
           
           // Gather form data
-          const formData = new FormData(e.target);
+          const formData = new FormData(e.target as HTMLFormElement);
           
           try {
             // POST form data to your API route
@@ -61,9 +63,10 @@ const {
             const result = await response.json();
             
             if (result.success) {
+              console.log('Contact form: Success! Showing confirmation message');
               // On success, hide the form and show success message
-              formContainer.classList.add('hidden');
-              successMessage.classList.remove('hidden');
+              formContainer?.classList.add('hidden');
+              successMessage?.classList.remove('hidden');
             } else {
               // Handle error from server
               console.error('Error sending email:', result.error);
@@ -78,11 +81,11 @@ const {
         
         function handleSubmitAgain() {
           // Reset form fields
-          form.reset();
+          (form as HTMLFormElement)?.reset();
           
           // Show form again
-          successMessage.classList.add('hidden');
-          formContainer.classList.remove('hidden');
+          successMessage?.classList.add('hidden');
+          formContainer?.classList.remove('hidden');
           
           // Re-initialize form to ensure handlers work properly
           setTimeout(initializeForm, 0);
@@ -102,7 +105,8 @@ const {
     inputs && (
       <div class="flex flex-col max-w-xl mx-auto rounded-lg backdrop-blur border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900 shadow p-4 sm:p-6 lg:p-8 w-full">
         {/* Success Message (hidden by default) */}
-        <div id="successMessage" class="hidden flex flex-col items-center justify-center text-center py-10">
+        <div id="successMessage" class="hidden">
+          <div class="flex flex-col items-center justify-center text-center py-10">
           <div class="mb-4 text-green-500">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -113,6 +117,7 @@ const {
           <Button id="submitAgain" variant="primary" type="button">
             Submit again
           </Button>
+          </div>
         </div>
         
         {/* Form Container */}
@@ -123,7 +128,7 @@ const {
             </div>
           )}
           
-          <form id="contactForm" onsubmit="return false;">
+          <form id="contactForm">
             {
               inputs &&
                 inputs.map(

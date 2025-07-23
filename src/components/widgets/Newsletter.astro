@@ -46,8 +46,6 @@ const {
 
     <form 
       class="max-w-md mx-auto"
-      action="/api/subscribe"
-      method="POST"
       id="newsletter-form"
     >
       <div class="flex flex-col sm:flex-row gap-3">
@@ -89,18 +87,21 @@ const {
     const message = document.getElementById('newsletter-message');
     const submitButton = form?.querySelector('button[type="submit"]');
     
+    console.log('Newsletter: DOM elements found:', { form: !!form, message: !!message, submitButton: !!submitButton });
+    
     if (form && message && submitButton) {
+      console.log('Newsletter: Event listeners attached successfully');
       form.addEventListener('submit', async function(e) {
+        console.log('Newsletter: Form submit event triggered');
         e.preventDefault();
         e.stopPropagation();
         
         const formData = new FormData(form as HTMLFormElement);
-        const _email = formData.get('email');
         
         // Disable submit button and show loading state
         const originalText = submitButton.textContent;
         (submitButton as HTMLButtonElement).disabled = true;
-        submitButton.textContent = 'Subscribing...';
+        (submitButton as HTMLButtonElement).textContent = 'Subscribing...';
         
         try {
           const response = await fetch('/api/subscribe', {
@@ -111,22 +112,23 @@ const {
           const result = await response.json();
           
           if (result.success) {
+            console.log('Newsletter: Success! Showing confirmation message');
             // On success, hide the form and show success message
-            form.style.display = 'none';
-            message.classList.remove('hidden');
+            if (form) form.style.display = 'none';
+            message?.classList.remove('hidden');
           } else {
             // Handle error from server
             console.error('Error subscribing:', result.error);
             alert('There was an error subscribing. Please try again.');
-            submitButton.disabled = false;
-            submitButton.textContent = originalText;
+            (submitButton as HTMLButtonElement).disabled = false;
+            (submitButton as HTMLButtonElement).textContent = originalText;
           }
           
         } catch (error) {
           console.error('Network error:', error);
           alert('Network error. Please try again later.');
-          submitButton.disabled = false;
-          submitButton.textContent = originalText;
+          (submitButton as HTMLButtonElement).disabled = false;
+          (submitButton as HTMLButtonElement).textContent = originalText;
         }
       });
     }
