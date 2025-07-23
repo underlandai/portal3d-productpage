@@ -28,14 +28,13 @@ export const POST: APIRoute = async ({ request }) => {
     // Configure Nodemailer transport
     const transporter = nodemailer.createTransport(
       isDevelopment
-        ? {
+        ? ({
             host: 'mailhog',
             port: 1025,
             ignoreTLS: true,
             secure: false,
             auth: false,
-          } as any
-          }
+          } as any)
         : {
             host: 'smtp.gmail.com',
             port: 465,

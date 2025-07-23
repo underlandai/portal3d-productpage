@@ -26,7 +26,7 @@
   
   // Tile class to manage individual tiles
   class Tile {
-    constructor(x, y, scale, rotation = 0, colorIndex = 0) {
+    constructor(x: number, y: number, scale: number, rotation = 0, _colorIndex = 0) {
       this.x = x;
       this.y = y;
       this.scale = scale;
@@ -218,7 +218,14 @@
 
   // Background animation controller
   class SpectreBackground {
-    constructor(canvas) {
+    canvas: any;
+    ctx: any;
+    tiles: any[];
+    lastFrameTime: number;
+    frameCount: number;
+    isInitializing: boolean;
+
+    constructor(canvas: any) {
       this.canvas = canvas;
       this.ctx = canvas.getContext('2d');
       this.tiles = [];
