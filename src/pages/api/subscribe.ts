@@ -56,7 +56,7 @@ export const POST: APIRoute = async ({ request }) => {
         from: isDevelopment 
           ? '"Newsletter" <test@localhost>' 
           : `"Newsletter" <${process.env.GMAIL_ADDRESS}>`,
-        to: 'oliver@underland.cloud',
+        to: 'oliver.mowbray@underland.cloud',
         subject: 'New Newsletter Subscription',
         text: `A new user has subscribed to the newsletter:\n\nEmail: ${email}\n\nSubscribed via: Underland Cloud Blog`,
         html: `
