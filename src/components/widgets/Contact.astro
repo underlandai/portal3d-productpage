@@ -25,77 +25,133 @@ const {
 ---
 
 <script>
-  // Client-side JavaScript for handling form submission
-  document.addEventListener('DOMContentLoaded', () => {
-    // We need to re-initialize after DOM updates, so putting this in a function
-    function initializeForm() {
+  // Contact form script with debug info
+  console.log('✅ Contact form script loaded at:', new Date().toISOString());
+  
+  // Test if we can access the form immediately
+  const immediateForm = document.getElementById('contactForm');
+  console.log('🔍 Form immediately available:', !!immediateForm);
+  
+  // Global variables to prevent conflicts
+  if (!(window as any).contactFormInitialized) {
+    (window as any).contactFormInitialized = false;
+    
+    function initializeContactForm() {
+      if (window.contactFormInitialized) {
+        console.log('⚠️ Contact form already initialized, skipping');
+        return;
+      }
+      
+      console.log('🚀 Starting contact form initialization');
+      
       const form = document.getElementById('contactForm');
       const formContainer = document.getElementById('formContainer');
       const successMessage = document.getElementById('successMessage');
       const submitAgainBtn = document.getElementById('submitAgain');
 
+      console.log('🔍 Contact form elements check:', {
+        form: !!form,
+        formContainer: !!formContainer,
+        successMessage: !!successMessage,
+        submitAgainBtn: !!submitAgainBtn,
+        formHTML: form ? form.outerHTML.substring(0, 100) + '...' : 'null'
+      });
+
       if (form && formContainer && successMessage && submitAgainBtn) {
-        console.log('Contact form: Initializing event listeners');
-        // Remove any existing listeners to prevent duplicates
-        form.removeEventListener('submit', handleSubmit);
-        submitAgainBtn.removeEventListener('click', handleSubmitAgain);
+        console.log('✅ All contact form elements found, setting up handlers');
+        window.contactFormInitialized = true;
         
-        // Add new listeners
-        form.addEventListener('submit', handleSubmit);
-        submitAgainBtn.addEventListener('click', handleSubmitAgain);
-        console.log('Contact form: Event listeners attached');
+        // Remove any existing event listeners first
+        const newForm = form.cloneNode(true);
+        form.parentNode.replaceChild(newForm, form);
+        const cleanForm = document.getElementById('contactForm');
         
-        async function handleSubmit(e: Event) {
-          console.log('Contact form: Submit handler called');
+        function handleSubmit(e) {
+          console.log('🎯 Contact form submit triggered!');
           e.preventDefault();
           e.stopPropagation();
+          e.stopImmediatePropagation();
           
-          // Gather form data
-          const formData = new FormData(e.target as HTMLFormElement);
+          console.log('📋 Gathering form data');
+          const formData = new FormData(cleanForm);
           
-          try {
-            // POST form data to your API route
-            const response = await fetch('/api/send-email', {
-              method: 'POST',
-              body: formData,
-            });
-            
-            const result = await response.json();
+          // Show all form data
+          console.log('📊 Form data entries:');
+          for (let [key, value] of formData.entries()) {
+            console.log(`  ${key}: ${value}`);
+          }
+          
+          // Submit to API
+          fetch('/api/send-email', {
+            method: 'POST',
+            body: formData,
+          })
+          .then(response => {
+            console.log('📡 API response status:', response.status);
+            return response.json();
+          })
+          .then(result => {
+            console.log('📊 API result:', result);
             
             if (result.success) {
-              console.log('Contact form: Success! Showing confirmation message');
-              // On success, hide the form and show success message
-              formContainer?.classList.add('hidden');
-              successMessage?.classList.remove('hidden');
+              console.log('🎉 Success! Showing confirmation');
+              formContainer.classList.add('hidden');
+              successMessage.classList.remove('hidden');
             } else {
-              // Handle error from server
-              console.error('Error sending email:', result.error);
-              alert('There was an error sending your message. Please try again.');
+              console.error('❌ Server error:', result.error);
+              alert('Error sending message: ' + (result.error || 'Unknown error'));
             }
-          } catch (error) {
-            // Handle any fetch/network errors
-            console.error('Fetch error:', error);
-            alert('Network error. Please try again later.');
-          }
+          })
+          .catch(error => {
+            console.error('💥 Network error:', error);
+            alert('Network error. Please try again.');
+          });
+          
+          return false;
         }
         
-        function handleSubmitAgain() {
-          // Reset form fields
-          (form as HTMLFormElement)?.reset();
-          
-          // Show form again
-          successMessage?.classList.add('hidden');
-          formContainer?.classList.remove('hidden');
-          
-          // Re-initialize form to ensure handlers work properly
-          setTimeout(initializeForm, 0);
-        }
+        // Attach event listeners
+        cleanForm.addEventListener('submit', handleSubmit, true);
+        cleanForm.onsubmit = handleSubmit;
+        
+        // Also try to prevent any other submit handlers
+        cleanForm.addEventListener('submit', (e) => {
+          console.log('🛑 Secondary prevention handler');
+          e.preventDefault();
+          return false;
+        }, false);
+        
+        console.log('✅ Contact form event listeners attached');
+        
+        // Submit again handler
+        submitAgainBtn.addEventListener('click', () => {
+          console.log('🔄 Submit again clicked');
+          cleanForm.reset();
+          successMessage.classList.add('hidden');
+          formContainer.classList.remove('hidden');
+        });
+        
+      } else {
+        console.log('⏳ Contact form elements not ready, retrying in 100ms');
+        setTimeout(initializeContactForm, 100);
       }
     }
     
-    // Initialize on page load
-    initializeForm();
-  });
+    // Try multiple initialization approaches
+    if (document.readyState === 'loading') {
+      console.log('📄 Document still loading, waiting for DOMContentLoaded');
+      document.addEventListener('DOMContentLoaded', initializeContactForm);
+    } else {
+      console.log('📄 Document already loaded, initializing immediately');
+      initializeContactForm();
+    }
+    
+    // Backup initialization
+    setTimeout(initializeContactForm, 1000);
+    
+    // Also try on window load
+    window.addEventListener('load', initializeContactForm);
+  }
 </script>
 
 <WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-7xl mx-auto ${classes?.container ?? ''}`} bg={bg}>

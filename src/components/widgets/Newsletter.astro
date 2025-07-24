@@ -82,55 +82,128 @@ const {
 </WidgetWrapper>
 
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('newsletter-form');
-    const message = document.getElementById('newsletter-message');
-    const submitButton = form?.querySelector('button[type="submit"]');
+  // Newsletter script with debug info
+  console.log('✅ Newsletter script loaded at:', new Date().toISOString());
+  
+  // Test immediate access
+  const immediateNewsletterForm = document.getElementById('newsletter-form');
+  console.log('🔍 Newsletter form immediately available:', !!immediateNewsletterForm);
+  
+  if (!window.newsletterFormInitialized) {
+    window.newsletterFormInitialized = false;
     
-    console.log('Newsletter: DOM elements found:', { form: !!form, message: !!message, submitButton: !!submitButton });
-    
-    if (form && message && submitButton) {
-      console.log('Newsletter: Event listeners attached successfully');
-      form.addEventListener('submit', async function(e) {
-        console.log('Newsletter: Form submit event triggered');
-        e.preventDefault();
-        e.stopPropagation();
+    function initializeNewsletterForm() {
+      if (window.newsletterFormInitialized) {
+        console.log('⚠️ Newsletter form already initialized, skipping');
+        return;
+      }
+      
+      console.log('🚀 Starting newsletter form initialization');
+      
+      const form = document.getElementById('newsletter-form');
+      const message = document.getElementById('newsletter-message');
+      const submitButton = form?.querySelector('button[type="submit"]');
+      
+      console.log('🔍 Newsletter form elements check:', { 
+        form: !!form, 
+        message: !!message, 
+        submitButton: !!submitButton,
+        formHTML: form ? form.outerHTML.substring(0, 100) + '...' : 'null'
+      });
+      
+      if (form && message && submitButton) {
+        console.log('✅ All newsletter form elements found, setting up handlers');
+        window.newsletterFormInitialized = true;
         
-        const formData = new FormData(form as HTMLFormElement);
+        // Clone form to remove existing listeners
+        const newForm = form.cloneNode(true);
+        form.parentNode.replaceChild(newForm, form);
+        const cleanForm = document.getElementById('newsletter-form');
+        const cleanSubmitButton = cleanForm.querySelector('button[type="submit"]');
         
-        // Disable submit button and show loading state
-        const originalText = submitButton.textContent;
-        (submitButton as HTMLButtonElement).disabled = true;
-        (submitButton as HTMLButtonElement).textContent = 'Subscribing...';
-        
-        try {
-          const response = await fetch('/api/subscribe', {
-            method: 'POST',
-            body: formData
-          });
+        function handleSubmit(e) {
+          console.log('🎯 Newsletter form submit triggered!');
+          e.preventDefault();
+          e.stopPropagation();
+          e.stopImmediatePropagation();
           
-          const result = await response.json();
+          console.log('📋 Gathering newsletter form data');
+          const formData = new FormData(cleanForm);
           
-          if (result.success) {
-            console.log('Newsletter: Success! Showing confirmation message');
-            // On success, hide the form and show success message
-            if (form) form.style.display = 'none';
-            message?.classList.remove('hidden');
-          } else {
-            // Handle error from server
-            console.error('Error subscribing:', result.error);
-            alert('There was an error subscribing. Please try again.');
-            (submitButton as HTMLButtonElement).disabled = false;
-            (submitButton as HTMLButtonElement).textContent = originalText;
+          // Show form data
+          console.log('📊 Newsletter form data:');
+          for (let [key, value] of formData.entries()) {
+            console.log(`  ${key}: ${value}`);
           }
           
-        } catch (error) {
-          console.error('Network error:', error);
-          alert('Network error. Please try again later.');
-          (submitButton as HTMLButtonElement).disabled = false;
-          (submitButton as HTMLButtonElement).textContent = originalText;
+          // Update button state
+          const originalText = cleanSubmitButton.textContent;
+          cleanSubmitButton.disabled = true;
+          cleanSubmitButton.textContent = 'Subscribing...';
+          
+          // Submit to API
+          fetch('/api/subscribe', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => {
+            console.log('📡 Newsletter API response status:', response.status);
+            return response.json();
+          })
+          .then(result => {
+            console.log('📊 Newsletter API result:', result);
+            
+            if (result.success) {
+              console.log('🎉 Newsletter success! Showing confirmation');
+              cleanForm.style.display = 'none';
+              message.classList.remove('hidden');
+            } else {
+              console.error('❌ Newsletter server error:', result.error);
+              alert('Error subscribing: ' + (result.error || 'Unknown error'));
+              cleanSubmitButton.disabled = false;
+              cleanSubmitButton.textContent = originalText;
+            }
+          })
+          .catch(error => {
+            console.error('💥 Newsletter network error:', error);
+            alert('Network error. Please try again.');
+            cleanSubmitButton.disabled = false;
+            cleanSubmitButton.textContent = originalText;
+          });
+          
+          return false;
         }
-      });
+        
+        // Attach event listeners
+        cleanForm.addEventListener('submit', handleSubmit, true);
+        cleanForm.onsubmit = handleSubmit;
+        
+        // Secondary prevention
+        cleanForm.addEventListener('submit', (e) => {
+          console.log('🛑 Newsletter secondary prevention handler');
+          e.preventDefault();
+          return false;
+        }, false);
+        
+        console.log('✅ Newsletter form event listeners attached');
+        
+      } else {
+        console.log('⏳ Newsletter form elements not ready, retrying in 100ms');
+        setTimeout(initializeNewsletterForm, 100);
+      }
     }
-  });
+    
+    // Multiple initialization approaches
+    if (document.readyState === 'loading') {
+      console.log('📄 Document loading, waiting for DOMContentLoaded (Newsletter)');
+      document.addEventListener('DOMContentLoaded', initializeNewsletterForm);
+    } else {
+      console.log('📄 Document loaded, initializing newsletter immediately');
+      initializeNewsletterForm();
+    }
+    
+    // Backup initialization
+    setTimeout(initializeNewsletterForm, 1000);
+    window.addEventListener('load', initializeNewsletterForm);
+  }
 </script>
