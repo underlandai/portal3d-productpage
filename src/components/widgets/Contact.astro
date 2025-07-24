@@ -13,7 +13,8 @@ const {
   productOptions,
   inputs,
   textarea,
-  disclaimer,
+  consentText,
+  additionalConsent,
   button,
   description,
 
@@ -265,20 +266,29 @@ const {
             }
             
             {
-              disclaimer && (
+              consentText && (
+                <div class="mt-6 mb-4">
+                  <p class="text-sm text-gray-600 dark:text-gray-400" set:html={consentText}>
+                  </p>
+                </div>
+              )
+            }
+            
+            {
+              additionalConsent && (
                 <div class="mt-3 flex items-start">
                   <div class="flex mt-0.5">
                     <input
-                      id="disclaimer"
-                      name="disclaimer"
+                      id="additionalConsent"
+                      name="additionalConsent"
                       type="checkbox"
-                      required={disclaimer.required}
+                      required={additionalConsent.required}
                       class="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
                     />
                   </div>
                   <div class="ml-3">
-                    <label for="disclaimer" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
-                      {disclaimer.label}
+                    <label for="additionalConsent" class="cursor-pointer select-none text-sm text-gray-600 dark:text-gray-400">
+                      {additionalConsent.label}
                     </label>
                   </div>
                 </div>

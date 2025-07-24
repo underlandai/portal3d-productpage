@@ -16,13 +16,14 @@ export const POST: APIRoute = async ({ request }) => {
     const companyProduct = formData.get('companyProduct')?.toString() || '';
     const email = formData.get('email')?.toString() || '';
     const message = formData.get('message')?.toString() || '';
+    const additionalConsent = formData.get('additionalConsent') === 'on' ? 'Yes' : 'No';
 
     // Use MailHog for local development, Gmail for production
     const isDevelopment = !process.env.GMAIL_ADDRESS || !process.env.GMAIL_APP_PASSWORD;
     
     console.log('Form data received:', {
       firstName, lastName, phoneNumber, companyName, 
-      companySize, companyProduct, email, message
+      companySize, companyProduct, email, message, additionalConsent
     });
     
     console.log('Email configuration:', {
@@ -63,7 +64,7 @@ export const POST: APIRoute = async ({ request }) => {
           : `"Website" <${process.env.GMAIL_ADDRESS}>`,
         to: 'oli@underland.cloud',
         subject: 'New form submission',
-        text: `First Name: ${firstName}\nLast Name: ${lastName}\nPhone Number: ${phoneNumber}\nCompany Name: ${companyName}\nCompany Size: ${companySize}\nCompany Product: ${companyProduct}\nEmail: ${email}\nMessage: ${message}`,
+        text: `First Name: ${firstName}\nLast Name: ${lastName}\nPhone Number: ${phoneNumber}\nCompany Name: ${companyName}\nCompany Size: ${companySize}\nCompany Product: ${companyProduct}\nEmail: ${email}\nMessage: ${message}\nAgrees to receive other communications: ${additionalConsent}`,
       });
       
       console.log('Email sent successfully!', result);
