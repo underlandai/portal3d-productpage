@@ -3,7 +3,7 @@ title: 'Privacy Policy'
 layout: '~/layouts/MarkdownLayout.astro'
 ---
 
-_Last updated_: March 3, 2025
+_Last updated_: July 24, 2025
 
 Underland Pty Ltd ACN 689 228 251 (**Underland Cloud**) takes your privacy seriously and is committed to responsible privacy practices. This policy describes how Underland Cloud manages your personal information, including details of what types of personal information Underland Cloud collects, how Underland Cloud collects your personal information, the purposes for which Underland Cloud uses your personal information, and to whom your personal information is disclosed. For any privacy-related inquiries, you can contact Underland Cloud at privacy@underland.cloud
 
