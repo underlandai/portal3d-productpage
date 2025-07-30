@@ -11,7 +11,7 @@ metadata:
   title:
     default: Underland Cloud
     template: '%s — Underland Cloud'
-  description: "Underland Cloud is a commodity resource cloud computing platform designed by Underland Pty Ltd. Underland Cloud offers web-based 3D resource project visualisation, high-performance computing, data processing tools and more."
+  description: "Underland Cloud is a web-based 3D visualisation platform for resource projects."
   robots:
     index: true
     follow: true
