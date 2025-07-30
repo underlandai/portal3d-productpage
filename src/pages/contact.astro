@@ -70,22 +70,20 @@ const metadata = {
 
   <ContactUs
     companySizeOptions={[
-      'Please Select',
-      '1–50',
-      '51–250',
-      '251–500',
-      '501–1,000',
-      '1,001–5,000',
-      '5,001–10,000',
-      '10,001–20,000',
-      '20,001+',
+      'Employees',
+      '1 - 5 employees',
+      '6 - 30 employees',
+      '31 - 200 employees',
+      '201 - 500 employees',
+      '501 - 2000 employees',
+      '2000+ employees',
     ]}
     productOptions={[
-      'Select one from the dropdown options below',
-      'underland.cloud Professional',
-      'underland.cloud Team',
-      'underland.cloud Enterprise',
-      'underland.cloud API',
+      'Select a plan',
+      'Casual (Free)',
+      'Professional',
+      'Enterprise',
+      'API Access',
     ]}
     inputs={[
       {
@@ -103,35 +101,32 @@ const metadata = {
         width: 'half'
       },
       {
+        type: 'text',
+        name: 'jobTitle',
+        label: 'Job title',
+        required: false,
+        width: 'half'
+      },
+      {
         type: 'email',
         name: 'email',
         label: 'Work email',
         required: true,
+        width: 'half'
       },
       {
         type: 'tel',
         name: 'phoneNumber',
-        label: 'Phone number',
-        required: true,
-      },
-      {
-        type: 'text',
-        name: 'companyName',
-        label: 'Company name',
-        placeholder: 'Please fill in this field.',
-        required: true,
+        label: 'Phone',
+        required: false,
       },
     ]}
-    textarea={{
-      label: 'Can you share more about your business needs and challenges?',
-      required: true,
-    }}
-    consentText="I consent to the processing of this information, and to receive the occasional email from Underland Cloud. Please read our <a href='/privacy' class='text-primary hover:text-blue-700 dark:hover:text-blue-300 underline'>privacy policy</a> to understand how we protect and manage your personal data."
+    consentText="We value your privacy. To learn more, visit our <a href='/privacy' class='text-primary hover:text-blue-700 dark:hover:text-blue-300 underline'>Privacy Statement</a>."
     additionalConsent={{
-      label: 'I agree to receive other communications from Underland Cloud.',
+      label: 'Yes, I would like to receive marketing communications regarding Underland Cloud products, services, and events. I can unsubscribe at any time.',
       required: false,
     }}
-    button="Submit"
-    description="Our support team typically responds within 24 business hours."
+    button="CONTACT ME"
+    description=""
   />
 </Layout>

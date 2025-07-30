@@ -7,6 +7,10 @@ export const headerData = {
       href: getPermalink('/#features'),
     },
     {
+      text: 'Pricing',
+      href: getPermalink('/pricing'),
+    },
+    {
       text: 'API',
       href: getPermalink('/api'),
     },
@@ -24,7 +28,7 @@ export const headerData = {
       target: '_blank',
     },
   ],
-  actions: [{ text: 'Portal', href: 'https://coresync.dev' }],
+  actions: [{ text: 'Upload', href: 'https://coresync.dev', icon: 'tabler:upload' }],
 };
 
 export const footerData = {
@@ -33,6 +37,7 @@ export const footerData = {
       title: 'Underland Cloud',
       links: [
         { text: 'Features', href: getPermalink('/#features') },
+        { text: 'Pricing', href: getPermalink('/pricing') },
         { text: 'API', href: getPermalink('/api') },
       ],
     },

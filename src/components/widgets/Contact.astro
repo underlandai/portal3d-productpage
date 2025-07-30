@@ -191,7 +191,7 @@ const {
                 inputs.map(
                   ({ type = 'text', name, label = '', autocomplete = 'on', placeholder = '', required = false, width = 'full' }) =>
                     name && (
-                      <div class={`mb-6 ${width === 'half' ? 'w-1/2 inline-block' : 'w-full'} ${width === 'half' ? (name.includes('first') ? 'pr-2' : 'pl-2') : ''}`}>
+                      <div class={`mb-6 ${width === 'half' ? 'w-1/2 inline-block' : 'w-full'} ${width === 'half' ? (name.includes('first') || name.includes('jobTitle') ? 'pr-2' : 'pl-2') : ''}`}>
                         {label && (
                           <label for={name} class="block text-sm font-medium">
                             {label}{required && <span class="text-red-500">*</span>}
@@ -222,8 +222,15 @@ const {
                   required
                   class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
                 >
-                  {companySizeOptions.map((option) => (
-                    <option value={option}>{option}</option>
+                  {companySizeOptions.map((option, index) => (
+                    <option 
+                      value={index === 0 ? '' : option} 
+                      disabled={index === 0}
+                      selected={index === 0}
+                      class={index === 0 ? 'text-gray-400' : ''}
+                    >
+                      {option}
+                    </option>
                   ))}
                 </select>
               </div>
@@ -240,8 +247,15 @@ const {
                   required
                   class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
                 >
-                  {productOptions.map((option) => (
-                    <option value={option}>{option}</option>
+                  {productOptions.map((option, index) => (
+                    <option 
+                      value={index === 0 ? '' : option} 
+                      disabled={index === 0}
+                      selected={index === 0}
+                      class={index === 0 ? 'text-gray-400' : ''}
+                    >
+                      {option}
+                    </option>
                   ))}
                 </select>
               </div>
