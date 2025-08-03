@@ -62,6 +62,10 @@ const {
         console.log('✅ All contact form elements found, setting up handlers');
         window.contactFormInitialized = true;
         
+        // Add rate limiting to prevent rapid submissions
+        let lastSubmitTime = 0;
+        const SUBMIT_COOLDOWN = 3000; // 3 seconds
+        
         // Remove any existing event listeners first
         const newForm = form.cloneNode(true);
         form.parentNode.replaceChild(newForm, form);
@@ -73,8 +77,25 @@ const {
           e.stopPropagation();
           e.stopImmediatePropagation();
           
+          // Rate limiting check
+          const now = Date.now();
+          if (now - lastSubmitTime < SUBMIT_COOLDOWN) {
+            console.log('⏱️ Rate limited - please wait before submitting again');
+            alert('Please wait a moment before submitting again.');
+            return false;
+          }
+          lastSubmitTime = now;
+          
           console.log('📋 Gathering form data');
           const formData = new FormData(cleanForm);
+          
+          // Disable submit button during submission
+          const submitButton = cleanForm.querySelector('button[type="submit"]');
+          const originalButtonText = submitButton ? submitButton.textContent : '';
+          if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+          }
           
           // Show all form data
           console.log('📊 Form data entries:');
@@ -101,11 +122,21 @@ const {
             } else {
               console.error('❌ Server error:', result.error);
               alert('Error sending message: ' + (result.error || 'Unknown error'));
+              // Re-enable submit button on error
+              if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = originalButtonText;
+              }
             }
           })
           .catch(error => {
             console.error('💥 Network error:', error);
             alert('Network error. Please try again.');
+            // Re-enable submit button on network error
+            if (submitButton) {
+              submitButton.disabled = false;
+              submitButton.textContent = originalButtonText;
+            }
           });
           
           return false;
@@ -130,6 +161,16 @@ const {
           cleanForm.reset();
           successMessage.classList.add('hidden');
           formContainer.classList.remove('hidden');
+          
+          // Reset the form initialization flag so it can be reinitialized if needed
+          console.log('🔄 Resetting form initialization state');
+          window.contactFormInitialized = false;
+          
+          // Reinitialize the form after a short delay
+          setTimeout(() => {
+            console.log('🔄 Reinitializing contact form');
+            initializeContactForm();
+          }, 100);
         });
         
       } else {
@@ -296,6 +337,7 @@ const {
                       id="additionalConsent"
                       name="additionalConsent"
                       type="checkbox"
+                      checked
                       required={additionalConsent.required}
                       class="cursor-pointer mt-1 py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
                     />

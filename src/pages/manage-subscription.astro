@@ -1,0 +1,276 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Manage Email Subscription',
+  description: 'Tailor which emails you get and get closer to inbox zero!'
+};
+---
+
+<Layout metadata={metadata}>
+  <div class="px-4 py-16 mx-auto max-w-4xl">
+    <!-- Header -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter mb-4 font-heading text-heading">
+        Are we taking over your inbox?
+      </h1>
+      <p class="text-xl text-muted mb-8">
+        Tailor which emails you get and get closer to inbox zero!
+      </p>
+    </div>
+
+    <!-- Subscription Form -->
+    <div class="max-w-2xl mx-auto">
+      <form id="subscriptionForm" class="space-y-6">
+        <!-- Email Address (for identification) -->
+        <div class="bg-white dark:bg-slate-900 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+          <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Your Email Address
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Enter your email address"
+            class="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 bg-white dark:bg-slate-800 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-transparent"
+          />
+          <p class="text-sm text-muted mt-2">
+            We'll use this to identify your subscription preferences
+          </p>
+        </div>
+
+        <!-- Subscription Categories -->
+        <div class="space-y-4">
+          <!-- Welcome emails -->
+          <div class="bg-white dark:bg-slate-900 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+            <div class="flex items-start space-x-3">
+              <input
+                type="checkbox"
+                id="welcome"
+                name="welcome"
+                value="true"
+                checked
+                class="mt-1 h-5 w-5 text-primary focus:ring-primary border-gray-300 rounded"
+              />
+              <div class="flex-1">
+                <label for="welcome" class="text-lg font-semibold text-gray-900 dark:text-white">
+                  Welcome emails
+                </label>
+                <p class="text-sm text-muted mt-1">
+                  Weekly. Invites and tips for your first five weeks.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Changelog updates -->
+          <div class="bg-white dark:bg-slate-900 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+            <div class="flex items-start space-x-3">
+              <input
+                type="checkbox"
+                id="changelog"
+                name="changelog"
+                value="true"
+                checked
+                class="mt-1 h-5 w-5 text-primary focus:ring-primary border-gray-300 rounded"
+              />
+              <div class="flex-1">
+                <label for="changelog" class="text-lg font-semibold text-gray-900 dark:text-white">
+                  Changelog updates
+                </label>
+                <p class="text-sm text-muted mt-1">
+                  Monthly. Beta invites and new features.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product notifications -->
+          <div class="bg-white dark:bg-slate-900 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+            <div class="flex items-start space-x-3">
+              <input
+                type="checkbox"
+                id="product"
+                name="product"
+                value="true"
+                checked
+                class="mt-1 h-5 w-5 text-primary focus:ring-primary border-gray-300 rounded"
+              />
+              <div class="flex-1">
+                <label for="product" class="text-lg font-semibold text-gray-900 dark:text-white">
+                  Product notifications
+                </label>
+                <p class="text-sm text-muted mt-1">
+                  Irregular. Alerts about cool replays and users.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Marketing emails -->
+          <div class="bg-white dark:bg-slate-900 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+            <div class="flex items-start space-x-3">
+              <input
+                type="checkbox"
+                id="marketing"
+                name="marketing"
+                value="true"
+                checked
+                class="mt-1 h-5 w-5 text-primary focus:ring-primary border-gray-300 rounded"
+              />
+              <div class="flex-1">
+                <label for="marketing" class="text-lg font-semibold text-gray-900 dark:text-white">
+                  Actually useful marketing emails
+                </label>
+                <p class="text-sm text-muted mt-1">
+                  Very rare. We try not to make these awful.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service updates -->
+          <div class="bg-white dark:bg-slate-900 rounded-lg border border-gray-200 dark:border-gray-700 p-6">
+            <div class="flex items-start space-x-3">
+              <input
+                type="checkbox"
+                id="service"
+                name="service"
+                value="true"
+                checked
+                class="mt-1 h-5 w-5 text-primary focus:ring-primary border-gray-300 rounded"
+              />
+              <div class="flex-1">
+                <label for="service" class="text-lg font-semibold text-gray-900 dark:text-white">
+                  Service updates
+                </label>
+                <p class="text-sm text-muted mt-1">
+                  Very rare. Maintenance updates and more.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 pt-6">
+          <button
+            type="submit"
+            class="flex-1 bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-6 rounded-lg transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2"
+          >
+            Save preferences
+          </button>
+          <button
+            type="button"
+            id="unsubscribeAll"
+            class="flex-1 bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+          >
+            Unsubscribe from all
+          </button>
+        </div>
+
+        <!-- Success/Error Messages -->
+        <div id="message" class="hidden mt-4 p-4 rounded-lg"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Form Handling Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('subscriptionForm') as HTMLFormElement;
+      const messageDiv = document.getElementById('message') as HTMLDivElement;
+      const unsubscribeAllBtn = document.getElementById('unsubscribeAll') as HTMLButtonElement;
+
+      // Handle form submission
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const preferences = {
+          email: formData.get('email'),
+          welcome: formData.get('welcome') === 'true',
+          changelog: formData.get('changelog') === 'true',
+          product: formData.get('product') === 'true',
+          marketing: formData.get('marketing') === 'true',
+          service: formData.get('service') === 'true',
+        };
+
+        try {
+          const response = await fetch('/api/manage-subscription', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(preferences),
+          });
+
+          const result = await response.json();
+
+          if (result.success) {
+            showMessage('✅ Your preferences have been saved successfully!', 'success');
+          } else {
+            showMessage('❌ Error saving preferences: ' + (result.error || 'Unknown error'), 'error');
+          }
+        } catch (error) {
+          showMessage('❌ Network error. Please try again.', 'error');
+        }
+      });
+
+      // Handle unsubscribe all button
+      unsubscribeAllBtn.addEventListener('click', async () => {
+        const email = (document.getElementById('email') as HTMLInputElement).value;
+        
+        if (!email) {
+          showMessage('❌ Please enter your email address first.', 'error');
+          return;
+        }
+
+        if (confirm('Are you sure you want to unsubscribe from all emails?')) {
+          try {
+            const response = await fetch('/api/unsubscribe-all', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ email }),
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+              showMessage('✅ You have been unsubscribed from all emails.', 'success');
+              // Uncheck all checkboxes
+              const checkboxes = form.querySelectorAll('input[type="checkbox"]:not(#email)');
+              checkboxes.forEach((checkbox: HTMLInputElement) => {
+                checkbox.checked = false;
+              });
+            } else {
+              showMessage('❌ Error unsubscribing: ' + (result.error || 'Unknown error'), 'error');
+            }
+          } catch (error) {
+            showMessage('❌ Network error. Please try again.', 'error');
+          }
+        }
+      });
+
+      function showMessage(text: string, type: 'success' | 'error') {
+        messageDiv.textContent = text;
+        messageDiv.className = `mt-4 p-4 rounded-lg ${
+          type === 'success' 
+            ? 'bg-green-50 dark:bg-green-900/20 text-green-800 dark:text-green-200 border border-green-200 dark:border-green-800'
+            : 'bg-red-50 dark:bg-red-900/20 text-red-800 dark:text-red-200 border border-red-200 dark:border-red-800'
+        }`;
+        messageDiv.classList.remove('hidden');
+        
+        // Auto-hide success messages after 5 seconds
+        if (type === 'success') {
+          setTimeout(() => {
+            messageDiv.classList.add('hidden');
+          }, 5000);
+        }
+      }
+    });
+  </script>
+</Layout>

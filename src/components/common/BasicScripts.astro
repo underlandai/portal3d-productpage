@@ -9,6 +9,8 @@ import { UI } from 'astrowind:config';
 
   window.basic_script = true;
 
+  // Dark theme functionality commented out
+  /*
   function applyTheme(theme) {
     if (theme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -30,6 +32,7 @@ import { UI } from 'astrowind:config';
     }
   };
   initTheme();
+  */
 
   function attachEvent(selector, event, fn) {
     const matches = typeof selector === 'string' ? document.querySelectorAll(selector) : selector;
@@ -64,6 +67,8 @@ import { UI } from 'astrowind:config';
       document.querySelector('#header > div > div:last-child')?.classList.toggle('hidden');
     });
 
+    // Theme toggle functionality commented out
+    /*
     attachEvent('[data-aw-toggle-color-scheme]', 'click', function () {
       if (defaultTheme.endsWith(':only')) {
         return;
@@ -76,6 +81,7 @@ import { UI } from 'astrowind:config';
         detail: { theme: document.documentElement.classList.contains('dark') ? 'dark' : 'light' } 
       }));
     });
+    */
 
     attachEvent('[data-aw-social-share]', 'click', function (_, elem) {
       const network = elem.getAttribute('data-aw-social-share');
@@ -160,7 +166,7 @@ import { UI } from 'astrowind:config';
   window.onpageshow = onPageShow;
 
   document.addEventListener('astro:after-swap', () => {
-    initTheme();
+    // initTheme(); // Commented out - dark theme disabled
     onLoad();
     onPageShow();
   });

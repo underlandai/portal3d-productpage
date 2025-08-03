@@ -2,7 +2,7 @@ export const prerender = false;
 
 // src/pages/api/subscribe.ts
 import type { APIRoute } from 'astro';
-import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -17,87 +17,37 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    // Use MailHog for local development, Gmail for production
-    const isDevelopment = !process.env.GMAIL_ADDRESS || !process.env.GMAIL_APP_PASSWORD;
-    
     console.log('Newsletter subscription received:', { email });
-    
-    console.log('Email configuration:', {
-      isDevelopment,
-      host: isDevelopment ? 'mailhog' : 'smtp.gmail.com',
-      port: isDevelopment ? 1025 : 465
-    });
 
-    // Configure Nodemailer transport
-    const transporter = nodemailer.createTransport(
-      isDevelopment
-        ? ({
-            host: 'mailhog',
-            port: 1025,
-            ignoreTLS: true,
-            secure: false,
-            auth: false,
-          } as any)
-        : {
-            host: 'smtp.gmail.com',
-            port: 465,
-            secure: true,
-            auth: {
-              user: process.env.GMAIL_ADDRESS,
-              pass: process.env.GMAIL_APP_PASSWORD,
-            },
-          }
-    );
+    // Initialize Resend
+    const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-    // Send notification email to your team
-    console.log('Attempting to send newsletter notification email...');
+    // Send notification email to subscribers team (no customer email for newsletter signup)
+    console.log('Sending newsletter subscription notification to subscribers team...');
     try {
-      const result = await transporter.sendMail({
-        from: isDevelopment 
-          ? '"Newsletter" <test@localhost>' 
-          : `"Newsletter" <${process.env.GMAIL_ADDRESS}>`,
-        to: 'oliver.mowbray@underland.cloud',
-        subject: 'New Newsletter Subscription',
-        text: `A new user has subscribed to the newsletter:\n\nEmail: ${email}\n\nSubscribed via: Underland Cloud Blog`,
+      const notificationResult = await resend.emails.send({
+        from: import.meta.env.WEBSITE_EMAIL || 'website@underland.cloud',
+        to: import.meta.env.SUBSCRIBERS_EMAIL || 'subscribers@underland.cloud',
+        subject: 'New Newsletter Subscription - Underland Cloud',
         html: `
           <h2>New Newsletter Subscription</h2>
           <p>A new user has subscribed to the newsletter:</p>
           <ul>
             <li><strong>Email:</strong> ${email}</li>
-            <li><strong>Source:</strong> Underland Cloud Blog</li>
+            <li><strong>Source:</strong> Underland Cloud Newsletter Form</li>
             <li><strong>Date:</strong> ${new Date().toLocaleString()}</li>
           </ul>
+          <p><em>Note: No welcome email was sent to the subscriber for newsletter signups. Welcome emails are only sent for contact form marketing consent.</em></p>
         `,
       });
       
-      console.log('Newsletter notification email sent successfully!', result);
+      console.log('Newsletter subscription notification sent successfully!', notificationResult);
     } catch (emailError) {
-      console.error('Failed to send newsletter email:', emailError);
-      throw emailError; // Re-throw to be caught by outer try-catch
+      console.error('Failed to send newsletter subscription notification:', emailError);
+      throw emailError;
     }
 
-    // Optional: Send welcome email to subscriber
-    if (!isDevelopment) {
-      await transporter.sendMail({
-        from: `"Underland Cloud" <${process.env.GMAIL_ADDRESS}>`,
-        to: email,
-        subject: 'Welcome to Underland Cloud Updates!',
-        html: `
-          <h2>Welcome to Underland Cloud!</h2>
-          <p>Thank you for subscribing to our newsletter. You'll now receive updates about:</p>
-          <ul>
-            <li>New blog posts and insights</li>
-            <li>Product updates and features</li>
-            <li>Resource industry innovations</li>
-            <li>3D visualisation developments</li>
-          </ul>
-          <p>We're excited to keep you in the loop!</p>
-          <p>Best regards,<br>The Underland Cloud Team</p>
-          <hr>
-          <p><small>If you didn't subscribe to this newsletter, you can safely ignore this email.</small></p>
-        `,
-      });
-    }
+    console.log('Newsletter subscription processed - no customer email sent (by design)');
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,

@@ -296,4 +296,9 @@ export interface Contact extends Omit<Headline, 'classes'>, Form, Widget {
   introText?: string;
   companySizeOptions?: string[];
   productOptions?: string[];
+  consentText?: string;
+  additionalConsent?: {
+    label?: string;
+    required?: boolean;
+  };
 }
