@@ -71,6 +71,14 @@ const {
         form.parentNode.replaceChild(newForm, form);
         const cleanForm = document.getElementById('contactForm');
         
+        // Reset submit button state on initialization
+        const submitButton = cleanForm.querySelector('button[type="submit"]');
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = submitButton.textContent.replace('Sending...', 'CONTACT ME');
+          console.log('🔄 Reset submit button state on initialization');
+        }
+        
         function handleSubmit(e) {
           console.log('🎯 Contact form submit triggered!');
           e.preventDefault();
@@ -161,6 +169,14 @@ const {
           cleanForm.reset();
           successMessage.classList.add('hidden');
           formContainer.classList.remove('hidden');
+          
+          // Reset submit button state immediately
+          const submitButton = cleanForm.querySelector('button[type="submit"]');
+          if (submitButton) {
+            submitButton.disabled = false;
+            submitButton.textContent = 'CONTACT ME';
+            console.log('🔄 Reset submit button on submit again');
+          }
           
           // Reset the form initialization flag so it can be reinitialized if needed
           console.log('🔄 Resetting form initialization state');

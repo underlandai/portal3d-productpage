@@ -33,7 +33,7 @@ export const POST: APIRoute = async ({ request }) => {
     try {
       const result = await resend.emails.send({
         from: import.meta.env.WEBSITE_EMAIL || 'website@underland.cloud',
-        to: 'oli@underland.cloud',
+        to: 'subscribers@underland.cloud',
         subject: 'New Contact Form Submission - Underland Cloud',
         html: `
           <h2>New Contact Form Submission</h2>

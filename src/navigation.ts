@@ -28,7 +28,7 @@ export const headerData = {
       target: '_blank',
     },
   ],
-  actions: [{ text: 'Upload', href: 'https://coresync.dev', icon: 'tabler:upload' }],
+  actions: [{ text: 'Portal', href: 'https://coresync.dev'}],
 };
 
 export const footerData = {
