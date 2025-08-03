@@ -54,7 +54,7 @@ export const footerData = {
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
   socialLinks: [
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/subsurfo/' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/company/underland/' },
   ],
   footNote: `
     © ${new Date().getFullYear()} Underland Pty Ltd. All rights reserved. A <a href="https://lichen.com.au" target="_blank" rel="noopener noreferrer" class="hover:underline">Lichen Commodities</a> company.
