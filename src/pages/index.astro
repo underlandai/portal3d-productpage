@@ -9,6 +9,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import modelDemoImage from '~/assets/images/model-demo.png';
+import modelDemo3Image from '~/assets/images/model-demo-3.avif';
 import geoModelImage from '~/assets/images/rendered_geo_model_crop.tiff';
 
 const metadata = {
@@ -43,11 +44,35 @@ const metadata = {
             id="coresync-logo"
             src="~/assets/images/coresync-circlev1-transparent.svg" 
             alt="underland.cloud Logo" 
-            class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mb-2 sm:mb-4 cursor-pointer" 
+            class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mb-2 sm:mb-4 cursor-pointer ios-svg-fix" 
             width={192}
             height={192}
           />
         </a>
+
+        <!-- iOS Safari SVG Fix -->
+        <style>
+          /* Ensure SVG animations work on iOS Safari */
+          #coresync-logo {
+            will-change: transform;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+          }
+          
+          /* iOS Safari specific SVG container fix - only on mobile */
+          @media (max-width: 767px) {
+            .ios-svg-fix {
+              -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+              -webkit-backface-visibility: hidden;
+              backface-visibility: hidden;
+              width: 130px !important;
+              height: 130px !important;
+              max-width: 100%;
+              max-height: 100%;
+            }
+          }
+        </style>
 
         <script>
           // (Your existing script remains unchanged)
@@ -86,7 +111,7 @@ const metadata = {
   <Features
     id="features"
     tagline="Key Capabilities"
-    title="3D Mining Data? View and Share Faster"
+    title="3D Mining Models? View and Share Faster"
     subtitle="Underland Cloud provides a secure, web-based platform for viewing and sharing 3D resource project data."
     items={[
       {
@@ -96,7 +121,7 @@ const metadata = {
       },
       {
         title: 'Instant Collaboration',
-        description: 'Securely share your 3D model and mining data with stakeholders instantly via a unique link.',
+        description: 'Securely share your 3D model and mining data with stakeholders instantly via a unique URL link.',
         icon: 'tabler:share',
       },
       {
@@ -134,19 +159,19 @@ const metadata = {
       {
         title: 'Step 1: <span class="font-medium">Export & Upload</span>',
         description:
-          "Export your Open Mining Format (OMF) or GeoH5 (partially supported) file from your existing mining software and upload the 3D subsurface model through our secure web interface.",
+          "Export your Open Mining Format (OMF) or GeoH5 (partially supported) from your existing mining software and upload the 3D subsurface model through our secure web interface.",
         icon: 'tabler:upload',
       },
       {
-        title: 'Step 2: <span class="font-medium">Verify Ownership</span>',
+        title: 'Step 2: <span class="font-medium">Configure Layers</span>',
         description:
-          "Create a complimentary account to verify ownership of the model and configure access controls.",
+          "Toggle which layers are visible to focus your narrative in settings.",
         icon: 'tabler:user-check',
       },
       {
         title: 'Step 3: <span class="font-medium">Visualise & Share</span>',
         description:
-          "Visualise your interactive 3D model and distribute it to stakeholders using a unique, secure URL.",
+          "Launch visualisation, then copy the unique URL and send it to your stakeholders.",
         icon: 'tabler:world-share',
       },
       {
@@ -155,7 +180,7 @@ const metadata = {
       },
     ]}
     image={{
-      src: modelDemoImage,
+      src: modelDemo3Image,
       alt: 'underland.cloud Model Visualisation'
     }}
   />

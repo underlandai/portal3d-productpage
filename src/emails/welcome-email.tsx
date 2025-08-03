@@ -35,8 +35,8 @@ export const WelcomeEmail = ({
           elegant interface that just works.
         </Text>
         <Text style={text}>
-          Ready to see it in action? Just grab an OMF file from your modeling
-          software, and you're moments away:
+          Ready to see it in action? Just grab an OMF file from your 3D mining 
+          software and you're moments away:
         </Text>
         <Section style={list}>
           <Text style={listItem}>
@@ -58,7 +58,7 @@ export const WelcomeEmail = ({
         </Section>
         <Text style={text}>
           <strong>P.S.:</strong> Why did you sign up? What brought you here? Hit
-          "Reply" and let me know. I read and reply to every email.
+          "Reply" and let me know.
         </Text>
         <Text style={signature}>
           Best,

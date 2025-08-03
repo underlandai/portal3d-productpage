@@ -1,6 +1,7 @@
 export const prerender = false;
 
 import type { APIRoute } from 'astro';
+import { Resend } from 'resend';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -16,20 +17,34 @@ export const POST: APIRoute = async ({ request }) => {
 
     console.log('Unsubscribe all request received for:', email);
 
-    // TODO: In a real implementation, you would:
-    // 1. Validate the email exists in your database
-    // 2. Remove user from all email lists/audiences
-    // 3. Update user preferences to all false
-    // 4. Add to global unsubscribe list
-    // 5. Sync with Resend to remove from all audiences
-    
-    // For now, we'll simulate a successful unsubscribe
-    console.log(`Unsubscribed ${email} from all email communications`);
+    // Initialize Resend
+    const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-    // TODO: Integrate with Resend API to:
-    // - Remove user from all audience lists
-    // - Add to global suppression list if available
-    // - Update user record in database
+    // Send notification to administrators about unsubscribe request
+    try {
+      const result = await resend.emails.send({
+        from: import.meta.env.WEBSITE_EMAIL || 'website@underland.cloud',
+        to: 'subscribers@underland.cloud',
+        subject: 'Complete Unsubscribe Request - Underland Cloud',
+        html: `
+          <h2>Complete Unsubscribe Request</h2>
+          <p>A user has requested to unsubscribe from all email communications:</p>
+          <ul>
+            <li><strong>Email:</strong> ${email}</li>
+            <li><strong>Action:</strong> Unsubscribe from all email types</li>
+            <li><strong>Date:</strong> ${new Date().toLocaleString()}</li>
+          </ul>
+          <p><strong>Note:</strong> Please manually remove this email from all Resend audiences and add to suppression list if available.</p>
+          <hr>
+          <p><small>Requested via Underland Cloud subscription management on ${new Date().toLocaleString()}</small></p>
+        `,
+      });
+      
+      console.log('Unsubscribe notification sent via Resend!', result);
+    } catch (emailError) {
+      console.error('Failed to send unsubscribe notification via Resend:', emailError);
+      // Don't fail the entire request if email notification fails
+    }
 
     return new Response(JSON.stringify({ 
       success: true, 
