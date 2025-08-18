@@ -32,7 +32,21 @@ export default defineConfig({
     tailwind({
       applyBaseStyles: false,
     }),
-    sitemap(),
+    sitemap({
+      filter: (page) => {
+        // Only include specific pages in sitemap
+        const allowedPages = [
+          'https://underland.cloud/', // Home page with features
+          'https://underland.cloud/pricing',
+          'https://underland.cloud/api',
+          'https://underland.cloud/blog',
+          'https://underland.cloud/contact',
+          'https://underland.cloud/terms',
+          'https://underland.cloud/privacy'
+        ];
+        return allowedPages.includes(page);
+      }
+    }),
     mdx(),
     icon({
       include: {

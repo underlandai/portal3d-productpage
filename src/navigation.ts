@@ -46,6 +46,7 @@ export const footerData = {
       links: [
         { text: 'Blog', href: getBlogPermalink() },
         { text: 'Contact', href: getPermalink('/contact') },
+        { text: 'Careers', href: 'https://lichen.com.au' },
       ],
     },
   ],
