@@ -36,30 +36,7 @@ export const POST: APIRoute = async ({ request }) => {
       // Don't throw here - we still want to send the notification email
     }
 
-    // Send notification email to subscribers team
-    console.log('Sending newsletter subscription notification to subscribers team...');
-    try {
-      const notificationResult = await resend.emails.send({
-        from: import.meta.env.WEBSITE_EMAIL || 'website@underland.cloud',
-        to: import.meta.env.SUBSCRIBERS_EMAIL || 'subscribers@underland.cloud',
-        subject: 'New Newsletter Subscription - Underland Cloud',
-        html: `
-          <h2>New Newsletter Subscription</h2>
-          <p>A new user has subscribed to the newsletter:</p>
-          <ul>
-            <li><strong>Email:</strong> ${email}</li>
-            <li><strong>Source:</strong> Underland Cloud Newsletter Form</li>
-            <li><strong>Date:</strong> ${new Date().toLocaleString()}</li>
-          </ul>
-          <p><em>Note: Contact has been created in Resend audience for future email campaigns.</em></p>
-        `,
-      });
-      
-      console.log('Newsletter subscription notification sent successfully!', notificationResult);
-    } catch (emailError) {
-      console.error('Failed to send newsletter subscription notification:', emailError);
-      throw emailError;
-    }
+    // No need to send notification email - Slack webhook handles notifications via contact.created event
 
     console.log('Newsletter subscription processed - contact created in Resend audience');
 

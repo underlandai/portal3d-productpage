@@ -28,50 +28,9 @@ export const POST: APIRoute = async ({ request }) => {
     // Initialize Resend
     const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-    // Send email using Resend
-    console.log('Attempting to send email via Resend...');
-    try {
-      const result = await resend.emails.send({
-        from: import.meta.env.WEBSITE_EMAIL || 'website@underland.cloud',
-        to: 'subscribers@underland.cloud',
-        subject: 'New Contact Form Submission - Underland Cloud',
-        html: `
-          <h2>New Contact Form Submission</h2>
-          <p>A new contact form submission has been received:</p>
-          <ul>
-            <li><strong>First Name:</strong> ${firstName}</li>
-            <li><strong>Last Name:</strong> ${lastName}</li>
-            <li><strong>Email:</strong> ${email}</li>
-            <li><strong>Phone Number:</strong> ${phoneNumber}</li>
-            <li><strong>Company Name:</strong> ${companyName}</li>
-            <li><strong>Company Size:</strong> ${companySize}</li>
-            <li><strong>Company Product:</strong> ${companyProduct}</li>
-            <li><strong>Additional Communications Consent:</strong> ${additionalConsent}</li>
-          </ul>
-          <h3>Message:</h3>
-          <p>${message}</p>
-          <hr>
-          <p><small>Submitted via Underland Cloud contact form on ${new Date().toLocaleString()}</small></p>
-        `,
-      });
-      
-      console.log('Email sent successfully via Resend!', result);
-    } catch (emailError) {
-      console.error('Failed to send email via Resend:', emailError);
-      
-      // Log detailed error information
-      if (emailError && typeof emailError === 'object') {
-        console.error('Error details:', {
-          message: emailError.message,
-          status: emailError.status,
-          statusText: emailError.statusText,
-          name: emailError.name,
-          cause: emailError.cause
-        });
-      }
-      
-      throw emailError;
-    }
+    // No need to send notification email - Slack webhook handles notifications
+    // Contact form submissions will trigger contact.created webhook if user consents to marketing
+    console.log('Contact form processed - notifications handled via Slack webhook');
 
     // Create contact and send welcome email if user consented to marketing communications
     if (additionalConsent === 'Yes' && email) {
