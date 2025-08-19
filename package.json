@@ -41,6 +41,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "resend": "^4.7.0",
+    "svix": "^1.73.0",
     "unpic": "^3.22.0"
   },
   "devDependencies": {
