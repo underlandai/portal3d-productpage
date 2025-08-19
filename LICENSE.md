@@ -1,21 +1,11 @@
-MIT License
+Copyright (c) [2025] [Lichen Commodities Pty Ltd]. All Rights Reserved.
 
-Copyright (c) 2023 onWidget
+This software and associated documentation files (the "Software") are the proprietary property of [Company Name].
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+You may not, without the express prior written permission of [Company Name]:
+- Copy, modify, or distribute the Software.
+- Use the Software for any commercial purpose, or for any public display (commercial or non-commercial).
+- Attempt to decompile or reverse engineer any software contained in this repository.
+- Remove any copyright or other proprietary notations from the materials.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+All rights not expressly granted are reserved.
