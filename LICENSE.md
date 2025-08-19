@@ -1,8 +1,8 @@
 Copyright (c) [2025] [Lichen Commodities Pty Ltd]. All Rights Reserved.
 
-This software and associated documentation files (the "Software") are the proprietary property of [Company Name].
+This software and associated documentation files (the "Software") are the proprietary property of [Lichen Commodities Pty Ltd].
 
-You may not, without the express prior written permission of [Company Name]:
+You may not, without the express prior written permission of [Lichen Commodities Pty Ltd]:
 - Copy, modify, or distribute the Software.
 - Use the Software for any commercial purpose, or for any public display (commercial or non-commercial).
 - Attempt to decompile or reverse engineer any software contained in this repository.
