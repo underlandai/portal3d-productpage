@@ -22,7 +22,21 @@ export const POST: APIRoute = async ({ request }) => {
     // Initialize Resend
     const resend = new Resend(import.meta.env.RESEND_API_KEY);
 
-    // Send notification email to subscribers team (no customer email for newsletter signup)
+    // Create contact in Resend (this will trigger contact.created webhook)
+    console.log('Creating contact in Resend...');
+    try {
+      const contactResult = await resend.contacts.create({
+        email: email,
+        audienceId: import.meta.env.RESEND_AUDIENCE_ID, // You'll need to get this from Resend dashboard
+      });
+      
+      console.log('Contact created successfully!', contactResult);
+    } catch (contactError) {
+      console.error('Failed to create contact (non-critical):', contactError);
+      // Don't throw here - we still want to send the notification email
+    }
+
+    // Send notification email to subscribers team
     console.log('Sending newsletter subscription notification to subscribers team...');
     try {
       const notificationResult = await resend.emails.send({
@@ -37,7 +51,7 @@ export const POST: APIRoute = async ({ request }) => {
             <li><strong>Source:</strong> Underland Cloud Newsletter Form</li>
             <li><strong>Date:</strong> ${new Date().toLocaleString()}</li>
           </ul>
-          <p><em>Note: No welcome email was sent to the subscriber for newsletter signups. Welcome emails are only sent for contact form marketing consent.</em></p>
+          <p><em>Note: Contact has been created in Resend audience for future email campaigns.</em></p>
         `,
       });
       
@@ -47,7 +61,7 @@ export const POST: APIRoute = async ({ request }) => {
       throw emailError;
     }
 
-    console.log('Newsletter subscription processed - no customer email sent (by design)');
+    console.log('Newsletter subscription processed - contact created in Resend audience');
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,

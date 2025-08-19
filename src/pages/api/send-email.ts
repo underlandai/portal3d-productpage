@@ -73,9 +73,26 @@ export const POST: APIRoute = async ({ request }) => {
       throw emailError;
     }
 
-    // Send welcome email if user consented to marketing communications
+    // Create contact and send welcome email if user consented to marketing communications
     if (additionalConsent === 'Yes' && email) {
-      console.log('User consented to marketing - sending welcome email to:', email);
+      console.log('User consented to marketing - creating contact and sending welcome email to:', email);
+      
+      // Create contact in Resend (this will trigger contact.created webhook)
+      try {
+        const contactResult = await resend.contacts.create({
+          email: email,
+          firstName: firstName || undefined,
+          lastName: lastName || undefined,
+          audienceId: import.meta.env.RESEND_AUDIENCE_ID,
+        });
+        
+        console.log('Contact created successfully!', contactResult);
+      } catch (contactError) {
+        console.error('Failed to create contact (non-critical):', contactError);
+        // Don't throw here - we still want to send the welcome email
+      }
+      
+      // Send welcome email
       try {
         const welcomeEmailHtml = await render(WelcomeEmail({ userFirstName: firstName }));
         
