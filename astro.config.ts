@@ -33,10 +33,34 @@ export default defineConfig({
       applyBaseStyles: false,
     }),
     sitemap({
+      serialize(item) {
+        // Add proper metadata for each page
+        if (item.url === 'https://underland.cloud/') {
+          item.priority = 1.0;
+          item.changefreq = 'daily';
+        } else if (item.url.includes('/blog/') || item.url === 'https://underland.cloud/blog') {
+          item.priority = 0.8;
+          item.changefreq = 'weekly';
+        } else if (item.url === 'https://underland.cloud/pricing' || item.url === 'https://underland.cloud/api') {
+          item.priority = 0.9;
+          item.changefreq = 'weekly';
+        } else if (item.url === 'https://underland.cloud/contact') {
+          item.priority = 0.7;
+          item.changefreq = 'monthly';
+        } else {
+          item.priority = 0.6;
+          item.changefreq = 'monthly';
+        }
+        
+        // Add lastmod for all pages
+        item.lastmod = new Date();
+        
+        return item;
+      },
       filter: (page) => {
-        // Only include specific pages in sitemap
+        // Include key pages and blog posts
         const allowedPages = [
-          'https://underland.cloud/', // Home page with features
+          'https://underland.cloud/', // Home page
           'https://underland.cloud/pricing',
           'https://underland.cloud/api',
           'https://underland.cloud/blog',
@@ -44,7 +68,12 @@ export default defineConfig({
           'https://underland.cloud/terms',
           'https://underland.cloud/privacy'
         ];
-        return allowedPages.includes(page);
+        
+        // Also include all blog posts - simplified logic
+        const isBlogPost = page.includes('/blog/') && !page.endsWith('/blog');
+        
+        const shouldInclude = allowedPages.includes(page) || isBlogPost;
+        return shouldInclude;
       }
     }),
     mdx(),
