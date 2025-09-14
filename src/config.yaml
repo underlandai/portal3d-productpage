@@ -18,7 +18,7 @@ metadata:
   openGraph:
     site_name: Underland View
     images:
-      - url: '~/assets/images/underland-thumbnail.png'
+      - url: '~/assets/images/underlandview-thumbnail.png'
         width: 1200
         height: 628
     type: website
