@@ -124,7 +124,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Send notification to Slack
     const slackPayload = {
-      text: `${emoji} Underland Cloud ${type.split('.')[0].charAt(0).toUpperCase() + type.split('.')[0].slice(1)} Update`,
+      text: `${emoji} Underland View ${type.split('.')[0].charAt(0).toUpperCase() + type.split('.')[0].slice(1)} Update`,
       blocks: [
         {
           type: 'section',

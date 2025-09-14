@@ -26,9 +26,9 @@ export const POST: APIRoute = async ({ request }) => {
     // Send notification to administrators about preference changes
     try {
       const result = await resend.emails.send({
-        from: import.meta.env.WEBSITE_EMAIL || 'website@underland.cloud',
-        to: 'subscribers@underland.cloud',
-        subject: 'Subscription Preferences Updated - Underland Cloud',
+        from: import.meta.env.WEBSITE_EMAIL || 'website@underlandportal.com',
+        to: 'subscribers@underlandportal.com',
+        subject: 'Subscription Preferences Updated - Underland View',
         html: `
           <h2>Subscription Preferences Updated</h2>
           <p>A user has updated their subscription preferences:</p>
@@ -41,7 +41,7 @@ export const POST: APIRoute = async ({ request }) => {
             <li><strong>Service updates:</strong> ${service ? 'Yes' : 'No'}</li>
           </ul>
           <hr>
-          <p><small>Updated via Underland Cloud subscription management on ${new Date().toLocaleString()}</small></p>
+          <p><small>Updated via Underland View subscription management on ${new Date().toLocaleString()}</small></p>
         `,
       });
       

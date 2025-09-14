@@ -29,9 +29,9 @@ export const POST: APIRoute = async ({ request }) => {
     console.log('Sending welcome email via Resend...');
     try {
       const result = await resend.emails.send({
-        from: import.meta.env.FROM_EMAIL || 'oliver.mowbray@underland.cloud',
+        from: import.meta.env.FROM_EMAIL || 'oliver.mowbray@underlandportal.com',
         to: email,
-        subject: 'Welcome to Underland Cloud!',
+        subject: 'Welcome to Underland View!',
         html: emailHtml,
       });
 

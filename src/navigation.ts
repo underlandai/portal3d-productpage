@@ -34,7 +34,7 @@ export const headerData = {
 export const footerData = {
   links: [
     {
-      title: 'Underland Cloud',
+      title: 'Underland View',
       links: [
         { text: 'Features', href: getPermalink('/#features') },
         { text: 'Pricing', href: getPermalink('/pricing') },

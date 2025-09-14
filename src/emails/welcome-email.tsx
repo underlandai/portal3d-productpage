@@ -21,12 +21,12 @@ export const WelcomeEmail = ({
 }: WelcomeEmailProps) => (
   <Html>
     <Head />
-    <Preview>Your first steps with Underland Cloud</Preview>
+    <Preview>Your first steps with Underland View</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={greeting}>Hey {userFirstName},</Heading>
         <Text style={text}>
-          I'm Oliver, a founder of Underland Cloud and mining tech enthusiast.
+          I'm Oliver, a founder of Underland View and mining tech enthusiast.
           Thank you for signing up.
         </Text>
         <Text style={text}>
@@ -42,8 +42,8 @@ export const WelcomeEmail = ({
           <Text style={listItem}>
             <strong style={strong}>1. Upload Your Model:</strong> Drag and drop your OMF file
             at{' '}
-            <Link href="https://view.underland.cloud" style={link}>
-              view.underland.cloud
+            <Link href="https://view.underlandportal.com" style={link}>
+              view.underlandportal.com
             </Link>
             .
           </Text>
@@ -76,7 +76,7 @@ export const WelcomeEmail = ({
           </Link>{' '}
           and I read all replies.
           <br />
-          <Link href="https://underland.cloud/manage-subscription" style={link}>
+          <Link href="https://underlandportal.com/manage-subscription" style={link}>
             1-click unsubscribe
           </Link>
         </Text>

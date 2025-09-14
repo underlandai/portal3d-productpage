@@ -19,12 +19,12 @@ export const NewsletterConfirmation = ({
 }: NewsletterConfirmationProps) => (
   <Html>
     <Head />
-    <Preview>Welcome to Underland Cloud - 3D Mining Data Visualization</Preview>
+    <Preview>Welcome to Underland View - 3D Mining Data Visualization</Preview>
     <Body style={main}>
       <Container style={container}>
         <Text style={greeting}>Hey,</Text>
         <Text style={text}>
-          My name is Oliver — I'm the founder and Managing Director of Underland Cloud.
+          My name is Oliver — I'm the founder and Managing Director of Underland Portal.
         </Text>
         <Text style={text}>
           We started Underland because we wanted a better format for communicating subsurface models value of the land beneath our feet.
@@ -36,7 +36,7 @@ export const NewsletterConfirmation = ({
           <strong>Here are 3 tips to get started:</strong>
         </Text>
         <Section style={list}>
-          <Text style={listItem}>1. Upload your OMF file at <a href="https://view.underland.cloud" style={link}>view.underland.cloud</a></Text>
+          <Text style={listItem}>1. Upload your OMF file at <a href="https://view.underlandportal.com" style={link}>view.underlandportal.com</a></Text>
           <Text style={listItem}>2. View your model and configure visible layers</Text>
           <Text style={listItem}>3. Copy your URL in the address bar and share it with your stakeholders</Text>
         </Section>
@@ -51,7 +51,7 @@ export const NewsletterConfirmation = ({
         <Hr style={hr} />
         <Text style={footer}>
           Yes, this is automated but <a href="https://www.linkedin.com/in/oliver-mowbray/" style={link}>I'm a real person</a> and I read all replies<br />
-          <a href="https://underland.cloud/manage-subscription" style={link}>1-click unsubscribe</a>
+          <a href="https://underlandportal.com/manage-subscription" style={link}>1-click unsubscribe</a>
         </Text>
       </Container>
     </Body>

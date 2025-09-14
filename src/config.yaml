@@ -1,6 +1,6 @@
 site:
-  name: Underland Cloud
-  site: 'https://underland.cloud'
+  name: Underland Portal
+  site: 'https://underlandportal.com'
   base: '/'
   trailingSlash: false
 
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Underland Cloud
-    template: '%s — Underland Cloud'
-  description: "Underland Cloud is a web-based 3D visualisation platform for resource projects."
+    default: Underland View
+    template: '%s — Underland View'
+  description: "Underland View is a web-based 3D visualisation platform for resource projects."
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Underland Cloud
+    site_name: Underland View
     images:
       - url: '~/assets/images/underland-thumbnail.png'
         width: 1200

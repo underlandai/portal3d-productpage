@@ -35,16 +35,16 @@ export default defineConfig({
     sitemap({
       serialize(item) {
         // Add proper metadata for each page
-        if (item.url === 'https://underland.cloud/') {
+        if (item.url === 'https://underlandportal.com/') {
           item.priority = 1.0;
           item.changefreq = 'daily';
-        } else if (item.url.includes('/blog/') || item.url === 'https://underland.cloud/blog') {
+        } else if (item.url.includes('/blog/') || item.url === 'https://underlandportal.com/blog') {
           item.priority = 0.8;
           item.changefreq = 'weekly';
-        } else if (item.url === 'https://underland.cloud/pricing' || item.url === 'https://underland.cloud/api') {
+        } else if (item.url === 'https://underlandportal.com/pricing' || item.url === 'https://underlandportal.com/api') {
           item.priority = 0.9;
           item.changefreq = 'weekly';
-        } else if (item.url === 'https://underland.cloud/contact') {
+        } else if (item.url === 'https://underlandportal.com/contact') {
           item.priority = 0.7;
           item.changefreq = 'monthly';
         } else {
@@ -60,13 +60,13 @@ export default defineConfig({
       filter: (page) => {
         // Include key pages and blog posts
         const allowedPages = [
-          'https://underland.cloud/', // Home page
-          'https://underland.cloud/pricing',
-          'https://underland.cloud/api',
-          'https://underland.cloud/blog',
-          'https://underland.cloud/contact',
-          'https://underland.cloud/terms',
-          'https://underland.cloud/privacy'
+          'https://underlandportal.com/', // Home page
+          'https://underlandportal.com/pricing',
+          'https://underlandportal.com/api',
+          'https://underlandportal.com/blog',
+          'https://underlandportal.com/contact',
+          'https://underlandportal.com/terms',
+          'https://underlandportal.com/privacy'
         ];
         
         // Also include all blog posts - simplified logic

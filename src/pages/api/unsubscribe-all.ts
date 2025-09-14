@@ -23,9 +23,9 @@ export const POST: APIRoute = async ({ request }) => {
     // Send notification to administrators about unsubscribe request
     try {
       const result = await resend.emails.send({
-        from: import.meta.env.WEBSITE_EMAIL || 'website@underland.cloud',
-        to: 'subscribers@underland.cloud',
-        subject: 'Complete Unsubscribe Request - Underland Cloud',
+        from: import.meta.env.WEBSITE_EMAIL || 'website@underlandportal.com',
+        to: 'subscribers@underlandportal.com',
+        subject: 'Complete Unsubscribe Request - Underland View',
         html: `
           <h2>Complete Unsubscribe Request</h2>
           <p>A user has requested to unsubscribe from all email communications:</p>
@@ -36,7 +36,7 @@ export const POST: APIRoute = async ({ request }) => {
           </ul>
           <p><strong>Note:</strong> Please manually remove this email from all Resend audiences and add to suppression list if available.</p>
           <hr>
-          <p><small>Requested via Underland Cloud subscription management on ${new Date().toLocaleString()}</small></p>
+          <p><small>Requested via Underland View subscription management on ${new Date().toLocaleString()}</small></p>
         `,
       });
       
