@@ -1,8 +1,14 @@
 # Underland Homepage Project Guide
 
+## Naming Conventions
+- **Product Name**: Underland View (the software/service)
+- **Business Name**: Underland Portal (the company)
+- **Landing Page**: underlandportal.com (marketing website)
+- **App URL**: app.underland.cloud (the actual application)
+
 ## Git Preferences
 - **Commit Messages**: Use concise, descriptive commit messages without Claude attribution
-- **Commit Format**: 
+- **Commit Format**:
   - Start with a clear summary line
   - Add bullet points for details using hyphens
   - No Claude attribution or co-authoring
