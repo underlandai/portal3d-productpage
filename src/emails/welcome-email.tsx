@@ -42,8 +42,8 @@ export const WelcomeEmail = ({
           <Text style={listItem}>
             <strong style={strong}>1. Upload Your Model:</strong> Drag and drop your OMF file
             at{' '}
-            <Link href="https://view.underlandportal.com" style={link}>
-              view.underlandportal.com
+            <Link href="https://app.underland.cloud" style={link}>
+              Underland View
             </Link>
             .
           </Text>

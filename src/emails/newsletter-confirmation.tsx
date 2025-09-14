@@ -36,7 +36,7 @@ export const NewsletterConfirmation = ({
           <strong>Here are 3 tips to get started:</strong>
         </Text>
         <Section style={list}>
-          <Text style={listItem}>1. Upload your OMF file at <a href="https://view.underlandportal.com" style={link}>view.underlandportal.com</a></Text>
+          <Text style={listItem}>1. Upload your OMF file at <a href="https://app.underland.cloud" style={link}>Underland View</a></Text>
           <Text style={listItem}>2. View your model and configure visible layers</Text>
           <Text style={listItem}>3. Copy your URL in the address bar and share it with your stakeholders</Text>
         </Section>
