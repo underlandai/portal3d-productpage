@@ -26,12 +26,12 @@ export const WelcomeEmail = ({
       <Container style={container}>
         <Heading style={greeting}>Hey {userFirstName},</Heading>
         <Text style={text}>
-          I'm Oliver, a founder of Underland View and mining tech enthusiast.
+          I'm Oliver, a founder of Underland Portal and mining tech enthusiast.
           Thank you for signing up.
         </Text>
         <Text style={text}>
-          We started Underland to fix a common frustration: viewing and sharing
-          subsurface models should be simple. Our goal was to create a fast and
+          We built Underland View to fix a common frustration: viewing and sharing
+          subsurface models should be simple. Our goal for this tool was to create a fast and
           elegant interface that just works.
         </Text>
         <Text style={text}>

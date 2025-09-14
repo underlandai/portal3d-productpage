@@ -27,7 +27,7 @@ export const NewsletterConfirmation = ({
           My name is Oliver — I'm the founder and Managing Director of Underland Portal.
         </Text>
         <Text style={text}>
-          We started Underland because we wanted a better format for communicating subsurface models value of the land beneath our feet.
+          We started Underland because we wanted a better format for communicating the value of subsurface data.
         </Text>
         <Text style={text}>
           A simple, fast, and elegant interface that just works.
