@@ -9,9 +9,9 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Underland View
-    template: '%s — Underland View'
-  description: "Underland View is a web-based 3D visualisation platform for resource projects."
+    default: Underland Portal
+    template: '%s — Underland Portal'
+  description: "3D mining intelligence for commercial, technical and financial engagement."
   robots:
     index: true
     follow: true
