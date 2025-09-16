@@ -37,23 +37,23 @@ export default defineConfig({
         // Add proper metadata for each page
         if (item.url === 'https://underlandportal.com/') {
           item.priority = 1.0;
-          item.changefreq = 'daily';
+          item.changefreq = 'daily' as const;
         } else if (item.url.includes('/blog/') || item.url === 'https://underlandportal.com/blog') {
           item.priority = 0.8;
-          item.changefreq = 'weekly';
+          item.changefreq = 'weekly' as const;
         } else if (item.url === 'https://underlandportal.com/pricing' || item.url === 'https://underlandportal.com/api') {
           item.priority = 0.9;
-          item.changefreq = 'weekly';
+          item.changefreq = 'weekly' as const;
         } else if (item.url === 'https://underlandportal.com/contact') {
           item.priority = 0.7;
-          item.changefreq = 'monthly';
+          item.changefreq = 'monthly' as const;
         } else {
           item.priority = 0.6;
-          item.changefreq = 'monthly';
+          item.changefreq = 'monthly' as const;
         }
-        
+
         // Add lastmod for all pages
-        item.lastmod = new Date();
+        item.lastmod = new Date().toISOString();
         
         return item;
       },
