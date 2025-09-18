@@ -48,12 +48,12 @@ export const WelcomeEmail = ({
             .
           </Text>
           <Text style={listItem}>
-            <strong style={strong}>2. Configure Layers:</strong> Toggle which layers are
-            visible to focus your narrative.
+            <strong style={strong}>2. Configure Layers and Launch:</strong> In settings, toggle which layers are
+            visible to focus your narrative, then click launch!
           </Text>
           <Text style={listItem}>
-            <strong style={strong}>3. Share Instantly:</strong> Copy the unique URL and send it
-            to your stakeholders.
+            <strong style={strong}>3. Share Instantly:</strong> Copy the unique URL in the viewer and send it
+            to your stakeholders. Visualisation is live 24/7 on a paid account.
           </Text>
         </Section>
         <Text style={text}>
