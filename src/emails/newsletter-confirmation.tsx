@@ -19,7 +19,7 @@ export const NewsletterConfirmation = ({
 }: NewsletterConfirmationProps) => (
   <Html>
     <Head />
-    <Preview>Welcome to Underland View - 3D Mining Data Visualization</Preview>
+    <Preview>Welcome to Underland Portal3D - 3D Mining Data Visualisation</Preview>
     <Body style={main}>
       <Container style={container}>
         <Text style={greeting}>Hey,</Text>
@@ -36,7 +36,7 @@ export const NewsletterConfirmation = ({
           <strong>Here are 3 tips to get started:</strong>
         </Text>
         <Section style={list}>
-          <Text style={listItem}>1. Upload your OMF file at <a href="https://app.underland.cloud" style={link}>Underland View</a></Text>
+          <Text style={listItem}>1. Upload your OMF file at <a href="https://app.underland.cloud" style={link}>Underland Portal3D</a></Text>
           <Text style={listItem}>2. View your model and configure visible layers</Text>
           <Text style={listItem}>3. Copy your URL in the address bar and share it with your stakeholders</Text>
         </Section>

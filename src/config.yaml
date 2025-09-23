@@ -16,7 +16,7 @@ metadata:
     index: true
     follow: true
   openGraph:
-    site_name: Underland View
+    site_name: Underland Portal3D
     images:
       - url: '~/assets/images/underlandview-thumbnail.png'
         width: 1200

@@ -1,7 +1,7 @@
 # Underland Homepage Project Guide
 
 ## Naming Conventions
-- **Product Name**: Underland View (the software/service)
+- **Product Name**: Underland Portal3D (the software/service)
 - **Business Name**: Underland Portal (the company)
 - **Landing Page**: underlandportal.com (marketing website)
 - **App URL**: app.underland.cloud (the actual application)

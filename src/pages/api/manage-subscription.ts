@@ -28,7 +28,7 @@ export const POST: APIRoute = async ({ request }) => {
       const result = await resend.emails.send({
         from: import.meta.env.WEBSITE_EMAIL || 'website@underlandportal.com',
         to: 'subscribers@underlandportal.com',
-        subject: 'Subscription Preferences Updated - Underland View',
+        subject: 'Subscription Preferences Updated - Underland Portal3D',
         html: `
           <h2>Subscription Preferences Updated</h2>
           <p>A user has updated their subscription preferences:</p>
@@ -41,7 +41,7 @@ export const POST: APIRoute = async ({ request }) => {
             <li><strong>Service updates:</strong> ${service ? 'Yes' : 'No'}</li>
           </ul>
           <hr>
-          <p><small>Updated via Underland View subscription management on ${new Date().toLocaleString()}</small></p>
+          <p><small>Updated via Underland Portal3D subscription management on ${new Date().toLocaleString()}</small></p>
         `,
       });
       

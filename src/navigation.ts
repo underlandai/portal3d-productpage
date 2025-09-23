@@ -24,13 +24,13 @@ export const headerData = {
       href: getPermalink('/contact'),
     },
   ],
-  actions: [{ text: 'Launch Portal3D', href: 'https://app.portal3d.com'}],
+  actions: [{ text: 'Launch Underland Portal3D', href: 'https://app.underland.cloud'}],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Portal3D',
+      title: 'Underland Portal3D',
       links: [
         { text: 'Features', href: getPermalink('/#features') },
         { text: 'Pricing', href: getPermalink('/pricing') },
@@ -42,6 +42,7 @@ export const footerData = {
       links: [
         { text: 'Blog', href: getBlogPermalink() },
         { text: 'Contact', href: getPermalink('/contact') },
+        { text: 'UnderlandEx (Main Site)', href: 'https://underlandex.com' },
         { text: 'Careers', href: 'https://lichen.com.au' },
       ],
     },

@@ -21,7 +21,7 @@ export const WelcomeEmail = ({
 }: WelcomeEmailProps) => (
   <Html>
     <Head />
-    <Preview>Your first steps with Underland View</Preview>
+    <Preview>Your first steps with Underland Portal3D</Preview>
     <Body style={main}>
       <Container style={container}>
         <Heading style={greeting}>Hey {userFirstName},</Heading>
@@ -30,7 +30,7 @@ export const WelcomeEmail = ({
           Thank you for signing up.
         </Text>
         <Text style={text}>
-          We built Underland View to fix a common frustration: viewing and sharing
+          We built Underland Portal3D to fix a common frustration: viewing and sharing
           subsurface models should be simple. Our goal for this tool was to create a fast and
           elegant interface that just works.
         </Text>
@@ -43,7 +43,7 @@ export const WelcomeEmail = ({
             <strong style={strong}>1. Upload Your Model:</strong> Drag and drop your OMF file
             at{' '}
             <Link href="https://app.underland.cloud" style={link}>
-              Underland View
+              Underland Portal3D
             </Link>
             .
           </Text>
