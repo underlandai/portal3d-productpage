@@ -3,6 +3,11 @@ import { getPermalink, getBlogPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     {
+      text: 'UnderlandEx',
+      href: 'https://underlandex.com',
+      target: '_blank',
+    },
+    {
       text: 'Features',
       href: getPermalink('/#features'),
     },
@@ -15,26 +20,17 @@ export const headerData = {
       href: getPermalink('/api'),
     },
     {
-      text: 'Blog',
-      href: getBlogPermalink(),
-    },
-    {
       text: 'Contact',
       href: getPermalink('/contact'),
     },
-    {
-      text: 'Careers',
-      href: 'https://lichen.com.au',
-      target: '_blank',
-    },
   ],
-  actions: [{ text: 'Portal', href: 'https://app.underland.cloud'}],
+  actions: [{ text: 'Launch Portal3D', href: 'https://app.portal3d.com'}],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Underland View',
+      title: 'Portal3D',
       links: [
         { text: 'Features', href: getPermalink('/#features') },
         { text: 'Pricing', href: getPermalink('/pricing') },
