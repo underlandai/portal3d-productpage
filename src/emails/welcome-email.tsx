@@ -42,7 +42,7 @@ export const WelcomeEmail = ({
           <Text style={listItem}>
             <strong style={strong}>1. Upload Your Model:</strong> Drag and drop your OMF file
             at{' '}
-            <Link href="https://app.underland.cloud" style={link}>
+            <Link href="https://app.underlandex.com" style={link}>
               Underland Portal3D
             </Link>
             .

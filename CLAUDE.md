@@ -4,7 +4,7 @@
 - **Product Name**: Underland Portal3D (the software/service)
 - **Business Name**: Underland Portal (the company)
 - **Landing Page**: portal3d.underlandex.com (marketing website)
-- **App URL**: app.underland.cloud (the actual application)
+- **App URL**: app.underlandex.com (the actual application)
 
 ## Git Preferences
 - **Commit Messages**: Use concise, descriptive commit messages without Claude attribution
