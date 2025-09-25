@@ -3,7 +3,7 @@
 ## Naming Conventions
 - **Product Name**: Underland Portal3D (the software/service)
 - **Business Name**: Underland Portal (the company)
-- **Landing Page**: underlandportal.com (marketing website)
+- **Landing Page**: portal3d.underlandex.com (marketing website)
 - **App URL**: app.underland.cloud (the actual application)
 
 ## Git Preferences

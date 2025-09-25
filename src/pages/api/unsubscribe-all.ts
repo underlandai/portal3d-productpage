@@ -23,8 +23,8 @@ export const POST: APIRoute = async ({ request }) => {
     // Send notification to administrators about unsubscribe request
     try {
       const result = await resend.emails.send({
-        from: import.meta.env.WEBSITE_EMAIL || 'website@underlandportal.com',
-        to: 'subscribers@underlandportal.com',
+        from: import.meta.env.WEBSITE_EMAIL || 'website@underlandex.com',
+        to: import.meta.env.SUBSCRIBERS_EMAIL || 'subscribers@underlandex.com',
         subject: 'Complete Unsubscribe Request - Underland Portal3D',
         html: `
           <h2>Complete Unsubscribe Request</h2>

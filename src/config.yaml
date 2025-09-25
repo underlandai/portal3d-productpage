@@ -1,6 +1,6 @@
 site:
   name: Underland Portal
-  site: 'https://underlandportal.com'
+  site: 'https://portal3d.underlandex.com'
   base: '/'
   trailingSlash: false
 

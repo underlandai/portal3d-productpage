@@ -76,7 +76,7 @@ export const WelcomeEmail = ({
           </Link>{' '}
           and I read all replies.
           <br />
-          <Link href="https://underlandportal.com/manage-subscription" style={link}>
+          <Link href="https://portal3d.underlandex.com/manage-subscription" style={link}>
             1-click unsubscribe
           </Link>
         </Text>

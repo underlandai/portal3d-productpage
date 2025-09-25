@@ -29,7 +29,7 @@ export const POST: APIRoute = async ({ request }) => {
     console.log('Sending welcome email via Resend...');
     try {
       const result = await resend.emails.send({
-        from: import.meta.env.FROM_EMAIL || 'oliver.mowbray@underlandportal.com',
+        from: import.meta.env.FROM_EMAIL || 'oliver@underlandex.com',
         to: email,
         subject: 'Welcome to Underland Portal3D!',
         html: emailHtml,

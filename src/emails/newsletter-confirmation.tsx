@@ -51,7 +51,7 @@ export const NewsletterConfirmation = ({
         <Hr style={hr} />
         <Text style={footer}>
           Yes, this is automated but <a href="https://www.linkedin.com/in/oliver-mowbray/" style={link}>I'm a real person</a> and I read all replies<br />
-          <a href="https://underlandportal.com/manage-subscription" style={link}>1-click unsubscribe</a>
+          <a href="https://portal3d.underlandex.com/manage-subscription" style={link}>1-click unsubscribe</a>
         </Text>
       </Container>
     </Body>

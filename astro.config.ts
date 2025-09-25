@@ -35,16 +35,16 @@ export default defineConfig({
     sitemap({
       serialize(item) {
         // Add proper metadata for each page
-        if (item.url === 'https://underlandportal.com/') {
+        if (item.url === 'https://portal3d.underlandex.com/') {
           item.priority = 1.0;
           item.changefreq = 'daily' as const;
-        } else if (item.url.includes('/blog/') || item.url === 'https://underlandportal.com/blog') {
+        } else if (item.url.includes('/blog/') || item.url === 'https://portal3d.underlandex.com/blog') {
           item.priority = 0.8;
           item.changefreq = 'weekly' as const;
-        } else if (item.url === 'https://underlandportal.com/pricing' || item.url === 'https://underlandportal.com/api') {
+        } else if (item.url === 'https://portal3d.underlandex.com/pricing' || item.url === 'https://portal3d.underlandex.com/api') {
           item.priority = 0.9;
           item.changefreq = 'weekly' as const;
-        } else if (item.url === 'https://underlandportal.com/contact') {
+        } else if (item.url === 'https://portal3d.underlandex.com/contact') {
           item.priority = 0.7;
           item.changefreq = 'monthly' as const;
         } else {
@@ -60,13 +60,13 @@ export default defineConfig({
       filter: (page) => {
         // Include key pages and blog posts
         const allowedPages = [
-          'https://underlandportal.com/', // Home page
-          'https://underlandportal.com/pricing',
-          'https://underlandportal.com/api',
-          'https://underlandportal.com/blog',
-          'https://underlandportal.com/contact',
-          'https://underlandportal.com/terms',
-          'https://underlandportal.com/privacy'
+          'https://portal3d.underlandex.com/', // Home page
+          'https://portal3d.underlandex.com/pricing',
+          'https://portal3d.underlandex.com/api',
+          'https://portal3d.underlandex.com/blog',
+          'https://portal3d.underlandex.com/contact',
+          'https://portal3d.underlandex.com/terms',
+          'https://portal3d.underlandex.com/privacy'
         ];
         
         // Also include all blog posts - simplified logic
