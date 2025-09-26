@@ -26,7 +26,7 @@ export const WelcomeEmail = ({
       <Container style={container}>
         <Heading style={greeting}>Hey {userFirstName},</Heading>
         <Text style={text}>
-          I'm Oliver, a founder of Underland Portal and mining tech enthusiast.
+          I'm Oliver, a founder of Underland and mining tech enthusiast.
           Thank you for signing up.
         </Text>
         <Text style={text}>

@@ -1,5 +1,5 @@
 site:
-  name: Underland Portal
+  name: Underland Portal3D
   site: 'https://portal3d.underlandex.com'
   base: '/'
   trailingSlash: false
@@ -9,9 +9,9 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Underland Portal
-    template: '%s — Underland Portal'
-  description: "3D mining intelligence for commercial, technical and financial engagement."
+    default: Underland Portal3D - 3D Mining Visualisation Platform
+    template: '%s — Underland Portal3D'
+  description: "Underland Portal3D - Web-based 3D mining visualisation platform. Upload OMF files, share models instantly, and collaborate on resource projects without specialized software."
   robots:
     index: true
     follow: true

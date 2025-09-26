@@ -24,7 +24,7 @@ export const NewsletterConfirmation = ({
       <Container style={container}>
         <Text style={greeting}>Hey,</Text>
         <Text style={text}>
-          My name is Oliver — I'm the founder and Managing Director of Underland Portal.
+          My name is Oliver — I'm the founder and Managing Director of Underland.
         </Text>
         <Text style={text}>
           We started Underland because we wanted a better format for communicating the value of subsurface data.

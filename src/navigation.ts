@@ -3,7 +3,7 @@ import { getPermalink, getBlogPermalink } from './utils/permalinks';
 export const headerData = {
   links: [
     {
-      text: 'UnderlandEx',
+      text: 'UnderlandEX',
       href: 'https://underlandex.com',
       target: '_blank',
     },
@@ -42,7 +42,7 @@ export const footerData = {
       links: [
         { text: 'Blog', href: getBlogPermalink() },
         { text: 'Contact', href: getPermalink('/contact') },
-        { text: 'UnderlandEx (Main Site)', href: 'https://underlandex.com' },
+        { text: 'UnderlandEX (Main Site)', href: 'https://underlandex.com' },
         { text: 'Careers', href: 'https://lichen.com.au' },
       ],
     },

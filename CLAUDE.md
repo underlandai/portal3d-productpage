@@ -2,7 +2,7 @@
 
 ## Naming Conventions
 - **Product Name**: Underland Portal3D (the software/service)
-- **Business Name**: Underland Portal (the company)
+- **Business Name**: Underland (the company)
 - **Landing Page**: portal3d.underlandex.com (marketing website)
 - **App URL**: app.underlandex.com (the actual application)
 
