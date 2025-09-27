@@ -8,7 +8,7 @@ import Steps from '~/components/widgets/Steps.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
-import modelDemo3Image from '~/assets/images/Cloud-Model-Screenshot-2025-09-10-rev.3.avif';
+import modelDemo3Image from '~/assets/images/Cloud-Model-Screenshot-2025-09-10-rev.3.png';
 import geoModelImage from '~/assets/images/rendered_geo_model_crop.tiff';
 
 const metadata = {
@@ -190,11 +190,18 @@ const metadata = {
         icon: 'tabler:check',
       },
     ]}
-    image={{
-      src: modelDemo3Image,
-      alt: 'Underland Portal3D Model Visualisation'
-    }}
-  />
+  >
+    <Fragment slot="image">
+      <img
+        src={modelDemo3Image.src || modelDemo3Image}
+        alt="Underland Portal3D Model Visualisation"
+        class="inset-0 object-cover w-full rounded-md shadow-lg md:absolute md:h-full"
+        loading="lazy"
+        decoding="async"
+        style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+      />
+    </Fragment>
+  </Steps>
 
 
   <FAQs
