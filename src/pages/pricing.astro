@@ -3,19 +3,20 @@ import Layout from '~/layouts/PageLayout.astro';
 import Prices from '~/components/widgets/Pricing.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Steps from '~/components/widgets/Steps.astro';
+import Features from '~/components/widgets/Features.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 const metadata = {
-  title: 'Pricing - Underland Portal3D Plans',
-  description: 'Flexible pricing plans for 3D mining data web visualisation. Free plan available, with Premium and Enterprise options for advanced features.',
+  title: 'Underland Portal3D 3D Visualisation Pricing',
+  description: 'Showcase subsurface mining data in stunning 3D, directly in any web browser. Tailored solutions for the mining and exploration industry.',
   canonical: 'https://portal3d.underlandex.com/pricing',
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: 'Pricing - Underland Portal3D Plans',
-    description: 'Flexible pricing plans for 3D mining data web visualisation. From free to enterprise solutions.',
+    title: 'Underland Portal3D 3D Visualisation Pricing',
+    description: 'Showcase subsurface mining data in stunning 3D, directly in any web browser. Tailored solutions for the mining and exploration industry.',
     type: 'website',
     url: 'https://portal3d.underlandex.com/pricing',
   }
@@ -24,12 +25,12 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <Prices
-    title="Underland Portal3D Plans"
-    subtitle="Flexible plans for 3D mining data web visualisation."
-    hasMonthlyYearlyToggle={true}
+    title="3D Visualisation Pricing"
+    subtitle="Showcase subsurface mining data in stunning 3D, directly in any web browser. Tailored solutions for the mining and exploration industry."
+    hasMonthlyYearlyToggle={false}
     prices={[
       {
-        title: 'Casual',
+        title: 'Demo',
         price: 'Free',
         period: 'Limited but useable',
         items: [
@@ -37,72 +38,202 @@ const metadata = {
           { description: '500 MB file storage limit' },
           { description: 'On-demand server (slower loading)' },
           { description: 'Shareable project URL (30 minute expiry)' },
-          { description: 'Server-side GPU rendering', icon: 'tabler:x' },
+          { description: 'Basic 3D visualization' },
         ],
         callToAction: {
-          text: 'Start now',
+          text: 'Start Free',
           href: 'https://www.app.underlandex.com',
         },
       },
       {
-        title: 'Premium',
-        price: 500,
-        period: 'USD/user/month',
-        billingPeriod: 'monthly',
+        title: 'Standard',
+        price: '$5k',
+        period: '/ project / year',
         items: [
-          { description: 'Up to 500 MB file sizes' },
-          { description: '5 GB file storage limit' },
-          { description: 'Always-on dedicated server (fast loading)' },
-          { description: 'Shareable project URL (no expiry)' },
-          { description: 'Server-side GPU rendering', icon: 'tabler:x' },
+          { description: 'OMF & GeoH5 File Compatibility' },
+          { description: 'High-Performance AWS Rendering' },
+          { description: 'Secure URL Sharing' },
+          { description: 'Embed on your website (iframe)' },
+          { description: '5 GB Project Limit' },
+          { description: '2-Week Implementation' },
         ],
         callToAction: {
-          text: 'Start now',
-          href: 'https://www.app.underlandex.com'
+          text: 'Choose Standard',
+          href: 'mailto:sales@underlandex.com',
         },
-        hasRibbon: false,
-        ribbonTitle: 'Best Value',
       },
       {
         title: 'Premium',
-        price: 5000,
-        period: 'USD/user/year',
-        billingPeriod: 'annual',
+        price: '$10k',
+        period: '/ project / year',
         items: [
-          { description: 'Up to 500 MB file sizes' },
-          { description: '5 GB file storage limit' },
-          { description: 'Always-on dedicated server (fast loading)' },
-          { description: 'Shareable project URL (no expiry)' },
-          { description: 'Server-side GPU rendering', icon: 'tabler:x' },
+          { description: 'All Standard Features, plus:' },
+          { description: 'Photorealistic Rock Textures' },
+          { description: 'Annotations & 4K Support' },
+          { description: '20 GB Project Limit' },
+          { description: 'Priority Support & Branding' },
         ],
         callToAction: {
-          text: 'Start now',
-          href: 'https://www.app.underlandex.com'
+          text: 'Choose Premium',
+          href: 'mailto:sales@underlandex.com'
         },
-        hasRibbon: false,
-        ribbonTitle: 'Best Value',
+        hasRibbon: true,
+        ribbonTitle: 'Popular',
       },
       {
-        title: 'Enterprise',
+        title: 'White-Label Enterprise',
         price: 'Custom',
         period: 'Contact for pricing',
         items: [
-          { description: 'Up to 10 TB file size limit' },
-          { description: 'Unlimited storage per user' },
-          { description: 'Always-on dedicated server (fast loading)' },
-          { description: 'Shareable project URL (no expiry)' },
-          { description: 'Server-side GPU rendering' },
-          { description: 'API-access' },
-          { description: 'Self-hosted data option' },
-          { description: 'Whitelabel option' },
-          { description: 'Custom onboarding' },
-          { description: 'Textured rock layers' },
+          { description: 'All Premium Features, plus:' },
+          { description: 'Full White-Labeling & Custom Domain' },
+          { description: 'RESTful API & SSO Integration' },
+          { description: 'Self-Hosting & Cloud Agnostic' },
+          { description: 'Dedicated Technical Team & 24/7 Support' },
         ],
         callToAction: {
-          target: '_blank',
-          text: 'Contact Us',
-          href: '/contact',
+          text: 'Contact Sales',
+          href: 'mailto:enterprise@underlandex.com',
         },
+      },
+    ]}
+  />
+
+  <!-- Comparison Table -->
+  <div id="compare" class="mt-24 sm:mt-32">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight">Compare All Features</h2>
+      <p class="mt-4 text-lg text-muted">Find the perfect plan for your project requirements.</p>
+    </div>
+    <div class="overflow-x-auto rounded-lg border border-gray-200">
+      <table class="min-w-full divide-y divide-gray-200">
+        <thead class="bg-gray-50">
+          <tr>
+            <th scope="col" class="py-3.5 px-4 text-left text-sm font-semibold text-gray-900 sm:px-6">Feature</th>
+            <th scope="col" class="py-3.5 px-4 text-center text-sm font-semibold text-gray-900 sm:px-6">Demo</th>
+            <th scope="col" class="py-3.5 px-4 text-center text-sm font-semibold text-gray-900 sm:px-6">Standard</th>
+            <th scope="col" class="py-3.5 px-4 text-center text-sm font-semibold text-gray-900 sm:px-6">Premium</th>
+            <th scope="col" class="py-3.5 px-4 text-center text-sm font-semibold text-gray-900 sm:px-6">White-Label</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200 bg-white">
+          <tr>
+            <td class="whitespace-nowrap py-4 px-4 text-sm font-medium text-gray-900 sm:px-6">3D Web Visualisation</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+          </tr>
+          <tr>
+            <td class="whitespace-nowrap py-4 px-4 text-sm font-medium text-gray-900 sm:px-6">OMF/GeoH5 Support</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+          </tr>
+          <tr>
+            <td class="whitespace-nowrap py-4 px-4 text-sm font-medium text-gray-900 sm:px-6">Project Size Limit</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">50 MB</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">5 GB</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">20 GB</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">Unlimited</td>
+          </tr>
+          <tr>
+            <td class="whitespace-nowrap py-4 px-4 text-sm font-medium text-gray-900 sm:px-6">Storage Limit</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">500 MB</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">5 GB</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">20 GB</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">Unlimited</td>
+          </tr>
+          <tr>
+            <td class="whitespace-nowrap py-4 px-4 text-sm font-medium text-gray-900 sm:px-6">Rock Textures</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-400 text-center sm:px-6">-</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-400 text-center sm:px-6">-</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+          </tr>
+          <tr>
+            <td class="whitespace-nowrap py-4 px-4 text-sm font-medium text-gray-900 sm:px-6">Embed on Website (iframe)</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-400 text-center sm:px-6">-</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+          </tr>
+          <tr>
+            <td class="whitespace-nowrap py-4 px-4 text-sm font-medium text-gray-900 sm:px-6">URL Expiry</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">30 minutes</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">No expiry</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">No expiry</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">No expiry</td>
+          </tr>
+          <tr>
+            <td class="whitespace-nowrap py-4 px-4 text-sm font-medium text-gray-900 sm:px-6">Custom Branding</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-400 text-center sm:px-6">-</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-400 text-center sm:px-6">-</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">Logo/Watermark</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">Full White-Label</td>
+          </tr>
+          <tr>
+            <td class="whitespace-nowrap py-4 px-4 text-sm font-medium text-gray-900 sm:px-6">API Access</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-400 text-center sm:px-6">-</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-400 text-center sm:px-6">-</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-400 text-center sm:px-6">-</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+          </tr>
+          <tr>
+            <td class="whitespace-nowrap py-4 px-4 text-sm font-medium text-gray-900 sm:px-6">Self-Hosting</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-400 text-center sm:px-6">-</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-400 text-center sm:px-6">-</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-400 text-center sm:px-6">-</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6"><span class="text-green-600 font-bold text-xl">✓</span></td>
+          </tr>
+          <tr>
+            <td class="whitespace-nowrap py-4 px-4 text-sm font-medium text-gray-900 sm:px-6">Support</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">Community</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">Email</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">Priority</td>
+            <td class="whitespace-nowrap py-4 px-4 text-sm text-gray-700 text-center sm:px-6">Dedicated Team</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <Features
+    id="advantages"
+    title="Why Choose Underland Portal3D?"
+    subtitle="Our competitive advantages make us the industry leader."
+    columns={3}
+    items={[
+      {
+        title: 'No Software Installation',
+        description: '100% web-based, works instantly on any device, anywhere.',
+        icon: 'tabler:browser',
+      },
+      {
+        title: 'Instant Sharing',
+        description: 'Share complex 3D models with a simple URL, not massive files.',
+        icon: 'tabler:share',
+      },
+      {
+        title: 'Cost-Effective',
+        description: 'Eliminate the need for expensive hardware or software licenses.',
+        icon: 'tabler:currency-dollar',
+      },
+      {
+        title: 'Enterprise-Grade Security',
+        description: 'Built on secure AWS infrastructure to protect your valuable data.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: 'HPC-Powered Performance',
+        description: 'Our backend ensures smooth rendering and interaction, even with large models.',
+        icon: 'tabler:rocket',
+      },
+      {
+        title: 'Infinitely Scalable',
+        description: 'From single projects to global enterprise deployments, we grow with you.',
+        icon: 'tabler:trending-up',
       },
     ]}
   />
@@ -117,11 +248,11 @@ const metadata = {
         icon: 'tabler:number-1',
       },
       {
-        title: 'Create your account',
+        title: 'Contact our sales team',
         icon: 'tabler:number-2',
       },
       {
-        title: 'Upload your OMF file',
+        title: 'Upload your OMF/GeoH5 file',
         icon: 'tabler:number-3',
       },
       {
@@ -129,7 +260,7 @@ const metadata = {
         icon: 'tabler:number-4',
       },
       {
-        title: 'Share',
+        title: 'Share with stakeholders',
         icon: 'tabler:number-5',
       },
     ]}
@@ -140,46 +271,53 @@ const metadata = {
   />
 
   <FAQs
-    title="Pricing FAQs"
+    title="Frequently Asked Questions"
     subtitle="Find answers to common questions about our pricing plans and features"
     columns={1}
     items={[
       {
-        title: 'Is there a free trial?',
+        title: 'Can we try before buying?',
         description:
-          'We offer a Free plan that allows you to experience Underland Portal3D functionality before committing to a paid plan.',
+          'Yes, we offer a free demo with sample data and can arrange a proof-of-concept with your actual project data to ensure our solution meets your needs.',
       },
       {
-        title: 'How does the Enterprise plan pricing work?',
+        title: 'What happens to our data?',
         description:
-          'Enterprise pricing is tailored to your organization\'s specific needs, based on factors like storage, number of users, and required features. Please <a href="/contact" class="text-primary hover:underline">contact</a> our team for a custom quote.',
+          'Your data remains your property. Standard/Premium products use secure AWS hosting. White-label customers can self-host for complete data control.',
+      },
+      {
+        title: 'How long does implementation take?',
+        description:
+          'Standard/Premium products take a maximum of 2 weeks from data receipt. White-label implementations take a maximum of 3 weeks from requirements finalization, though this can vary based on integration complexity.',
+      },
+      {
+        title: 'What about data security?',
+        description:
+          'We use enterprise-grade AWS security, including encryption at rest and in transit, role-based access control, and SOC 2 compliance to ensure your data is always protected.',
       },
       {
         title: 'Are there any discounts for academic or non-profit organizations?',
         description:
-          'Yes, we offer special pricing for educational institutions, research organizations, and non-profits. Please <a href="/contact" class="text-primary hover:underline">contact</a> our team with details about your organization to discuss eligible discounts.',
-      },
-      {
-        title: 'Do you offer any volume discounts?',
-        description:
-          'Yes, organizations that need licenses for multiple users may qualify for volume discounts. These are evaluated on a case-by-case basis. <a href="/contact" class="text-primary hover:underline">Contact</a> our team to discuss your specific requirements.',
-      },
-      {
-        title: 'Can I upgrade or downgrade my plan?',
-        description:
-          'Yes, you can upgrade or downgrade your plan at any time to better suit your needs. Changes take effect at the start of your next billing cycle.',
+          'Yes, we offer special pricing for educational institutions, research organizations, and non-profits. Please <a href="mailto:sales@underlandex.com" class="text-primary hover:underline">contact our sales team</a> with details about your organization to discuss eligible discounts.',
       },
     ]}
   />
 
   <CallToAction
-    title="Ready to share your resource models?"
+    title="Ready to showcase your mining data in 3D?"
+    subtitle="Transform your subsurface data into stunning web-based visualisations"
     actions={[
       {
         variant: 'primary',
-        text: 'Upload',
-        href: 'https://www.app.underlandex.com',
-        icon: 'tabler:upload',
+        text: 'Contact Sales',
+        href: 'mailto:sales@underlandex.com',
+        icon: 'tabler:mail',
+      },
+      {
+        variant: 'secondary',
+        text: 'Schedule Demo',
+        href: '/contact',
+        icon: 'tabler:calendar',
       },
     ]}
   />
