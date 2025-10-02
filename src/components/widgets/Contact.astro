@@ -11,6 +11,7 @@ const {
   introText,
   companySizeOptions,
   productOptions,
+  selectedProduct,
   inputs,
   textarea,
   consentText,
@@ -305,10 +306,10 @@ const {
                   class="py-3 px-4 block w-full text-md rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-slate-900"
                 >
                   {productOptions.map((option, index) => (
-                    <option 
-                      value={index === 0 ? '' : option} 
+                    <option
+                      value={index === 0 ? '' : option}
                       disabled={index === 0}
-                      selected={index === 0}
+                      selected={selectedProduct ? option === selectedProduct : index === 0}
                       class={index === 0 ? 'text-gray-400' : ''}
                     >
                       {option}

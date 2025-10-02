@@ -2,6 +2,10 @@
 import Layout from '~/layouts/PageLayout.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
 
+// Get the product from URL parameter
+const url = new URL(Astro.request.url);
+const productParam = url.searchParams.get('product');
+
 const metadata = {
   title: 'Contact - Underland Portal3D',
   description: 'Contact Underland about Portal3D - our web-based 3D mining visualisation platform. Get support, request a demo, or discuss enterprise solutions.',
@@ -92,11 +96,12 @@ const metadata = {
     ]}
     productOptions={[
       'Select a plan',
-      'Casual (Free)',
+      'Demo',
+      'Standard',
       'Premium',
-      'Enterprise',
-      'API Access',
+      'White-Label Enterprise',
     ]}
+    selectedProduct={productParam}
     inputs={[
       {
         type: 'text',
