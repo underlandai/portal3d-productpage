@@ -49,13 +49,13 @@ const metadata = {
     }}
   >
     <Fragment slot="title">
-      <div class="flex flex-col items-center mb-4 group">
-        <a href="https://app.underlandex.com" rel="noopener" target="_blank">
-          <Image 
+      <div class="flex flex-col items-center mb-4 group" style="overflow: visible;">
+        <a href="https://app.underlandex.com" rel="noopener" target="_blank" style="overflow: visible; display: block;">
+          <Image
             id="coresync-logo"
-            src="~/assets/images/coresync-circlev1-transparent.svg" 
-            alt="portal3d.underlandex.com Logo" 
-            class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mb-2 sm:mb-4 cursor-pointer ios-svg-fix" 
+            src="~/assets/images/coresync-circlev1-transparent.svg"
+            alt="portal3d.underlandex.com Logo"
+            class="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 mb-2 sm:mb-4 cursor-pointer ios-svg-fix"
             width={192}
             height={192}
           />
@@ -68,8 +68,23 @@ const metadata = {
             will-change: transform;
             -webkit-transform-style: preserve-3d;
             transform-style: preserve-3d;
+            overflow: visible !important;
           }
-          
+
+          /* Fix Safari horizontal crop during rotation */
+          #coresync-logo img,
+          #coresync-logo svg {
+            overflow: visible !important;
+            -webkit-transform-origin: center center;
+            transform-origin: center center;
+          }
+
+          /* Ensure parent link doesn't clip */
+          #coresync-logo {
+            display: block;
+            overflow: visible !important;
+          }
+
           /* iOS Safari specific SVG container fix - only on mobile */
           @media (max-width: 767px) {
             .ios-svg-fix {
@@ -81,6 +96,7 @@ const metadata = {
               height: 130px !important;
               max-width: 100%;
               max-height: 100%;
+              overflow: visible !important;
             }
           }
         </style>
