@@ -9,7 +9,6 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import modelDemo3Image from '~/assets/images/Cloud-Model-Screenshot-2025-09-10-rev.3.png';
-import geoModelImage from '~/assets/images/rendered_geo_model_crop.tiff';
 
 const metadata = {
   title: 'Underland Portal3D - Reality-driven 3D for Mining Data',
@@ -42,11 +41,6 @@ const metadata = {
       },
       { text: 'Learn More', href: '#features' },
     ]}
-    image={{
-      src: geoModelImage,
-      alt: 'Geological model visualisation',
-      height: 700
-    }}
   >
     <Fragment slot="title">
       <div class="flex flex-col items-center mb-4 group" style="overflow: visible;">
@@ -131,6 +125,22 @@ const metadata = {
     
     <Fragment slot="subtitle">
       Reality-driven 3D for Mining Data
+    </Fragment>
+
+    <Fragment slot="image">
+      <div class="relative w-full" style="aspect-ratio: 16/9; max-height: 700px;">
+        <iframe
+          src="https://32823e2565ee16c6371f.view.underlandex.com/index.html"
+          class="w-full h-full rounded-md"
+          style="border: none; min-height: 500px;"
+          title="Underland Portal3D 3D Model Viewer - Interactive Demo"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          loading="eager">
+        </iframe>
+        <div class="text-center mt-2 text-xs text-muted">
+          Interactive 3D model viewer. Try rotating, zooming, and exploring the model.
+        </div>
+      </div>
     </Fragment>
   </Hero>
 
