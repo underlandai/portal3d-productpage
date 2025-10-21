@@ -9,6 +9,7 @@ import FAQs from '~/components/widgets/FAQs.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import modelDemo3Image from '~/assets/images/Cloud-Model-Screenshot-2025-09-10-rev.3.png';
+import drillHolesImage from '~/assets/images/underland drill holes image-Photoroom.png';
 
 const metadata = {
   title: 'Underland Portal3D - Reality-driven 3D for Mining Data',
@@ -128,18 +129,16 @@ const metadata = {
     </Fragment>
 
     <Fragment slot="image">
-      <div class="relative w-full" style="aspect-ratio: 16/9; max-height: 700px;">
-        <iframe
-          src="https://32823e2565ee16c6371f.view.underlandex.com/index.html"
-          class="w-full h-full rounded-md"
-          style="border: none; min-height: 500px;"
-          title="Underland Portal3D 3D Model Viewer - Interactive Demo"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          loading="eager">
-        </iframe>
-        <div class="text-center mt-2 text-xs text-muted">
-          Interactive 3D model viewer. Try rotating, zooming, and exploring the model.
-        </div>
+      <div class="relative w-full" style="max-height: 85vh;">
+        <Image
+          src={drillHolesImage}
+          alt="Underland Portal3D - 3D Drill Holes Visualization"
+          class="w-full h-full object-contain rounded-md"
+          style="max-height: 85vh;"
+          loading="eager"
+          widths={[400, 768, 1024, 1536, 2048]}
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 100vw"
+        />
       </div>
     </Fragment>
   </Hero>
@@ -218,13 +217,13 @@ const metadata = {
     ]}
   >
     <Fragment slot="image">
-      <img
-        src={modelDemo3Image.src || modelDemo3Image}
+      <Image
+        src={modelDemo3Image}
         alt="Underland Portal3D Model Visualisation"
         class="inset-0 object-cover w-full rounded-md shadow-lg md:absolute md:h-full"
         loading="lazy"
-        decoding="async"
-        style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;"
+        widths={[400, 768, 1024, 1536]}
+        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 100vw, 50vw"
       />
     </Fragment>
   </Steps>
